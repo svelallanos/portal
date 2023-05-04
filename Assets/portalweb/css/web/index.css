@@ -2,168 +2,181 @@
 /* diseño de los enlaces */
 
 main section.container-section .enlaces {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center;
-    flex-wrap: wrap;
-    padding: 20px 0;
-    padding-bottom: 0;
-  }
-  
-  main section.container-section .enlaces .item-enlace {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 125px;
-  }
-  
-  main section.container-section .enlaces .box-icon {
-    border: 3px solid var(--color-verde-1);
-    border-radius: 30%;
-    color: var(--color-verde-1);
-    transition: 0.4s;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  main section.container-section .enlaces .item-enlace .box-icon:hover {
-    background-color: var(--color-verde-1);
-    color: white;
-    border-radius: 50%;
-  }
-  
-  main section.container-section .enlaces .box-icon i {
-    font-size: 35px;
-    transition: transform 0.4s ease;
-  }
-  
-  main section.container-section .enlaces .item-enlace .box-icon:hover i {
-    transform: scale(1.2);
-  }
-  
-  main section.container-section .enlaces .item-enlace h4 {
-    padding: 10px;
-    margin: 0;
-    line-height: 1em;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--color-azul-muni);
-  }
-  
-  /* fin del diseño de los enlaces */
-  
-  main section.container-section h2 {
-    color: var(--color-azul-muni);
-    font-family: "Nunito", sans-serif;
-    font-weight: 800;
-    font-size: 1.5rem;
-    line-height: 1.2em;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 0;
-    text-transform: uppercase;
-    margin: 0;
-  }
-  
-  main section.container-section h2 i {
-    padding: 0 20px;
-  }
-  
-  main section.container-section .box-noticias {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 50px;
-  }
-  
-  main section.container-section .box-noticias .box-item {
-    width: 425px;
-    box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-  }
-  
-  main section.container-section .box-noticias .box-item .box-images {
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  main section.container-section .box-noticias .box-item .box-images img {
-    width: 100%;
-    transition: transform 0.5s ease;
-  }
-  
-  main section.container-section .box-noticias .box-item .box-images:hover img {
-    transform: scale(1.2);
-  }
-  
-  main section.container-section .box-noticias .box-item .box-publicacion {
-    font-family: "Nunito", sans-serif;
-    font-weight: 400;
-    display: flex;
-    border-bottom: 1px solid var(--color-gris-1);
-  }
-  
-  main section.container-section .box-noticias .box-item .box-publicacion p {
-    margin: 0;
-    padding: 10px;
-    color: var(--color-gris-3);
-    text-align: center;
-    font-size: 12px;
-  }
-  
-  main section.container-section .box-noticias .box-item .box-publicacion p:nth-child(1) {
-    border-right: 1px solid var(--color-gris-1);
-  }
-  
-  main section.container-section .box-noticias .box-item .box-publicacion p i {
-    color: #97c237;
-    margin-right: 10px;
-  }
-  
-  main section.container-section .box-noticias .box-item .box-contenido {
-    display: flex;
-    flex-direction: column;
-    padding: 0 10px 10px 10px;
-  }
-  
-  main section.container-section .box-noticias .box-item .box-contenido h3 {
-    font-family: "Nunito", sans-serif;
-    margin: 0;
-    padding: 10px 0;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 14px;
-    text-align: center;
-    color: var(--color-azul-muni);
-  }
-  
-  main section.container-section .box-noticias .box-item .box-contenido p {
-    margin: 0;
-    padding-top: 0;
-    text-align: justify;
-    font-family: "Nunito", sans-serif;
-    font-size: 13px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-  }
-  
-  main section.container-section .box-noticias .box-item .box-contenido a {
-    text-align: end;
-    font-family: "Nunito", sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--color-verde-3);
-  }
-  
-  /* fin del main */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  padding-bottom: 0;
+}
+
+main section.container-section .enlaces .item-enlace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 125px;
+}
+
+main section.container-section .enlaces .box-icon {
+  border: 3px solid var(--color-verde-1);
+  border-radius: 30%;
+  color: var(--color-verde-1);
+  transition: 0.4s;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main section.container-section .enlaces .item-enlace .box-icon:hover {
+  background-color: var(--color-verde-1);
+  color: white;
+  border-radius: 50%;
+}
+
+main section.container-section .enlaces .box-icon i {
+  font-size: 35px;
+  transition: transform 0.4s ease;
+}
+
+main section.container-section .enlaces .item-enlace .box-icon:hover i {
+  transform: scale(1.2);
+}
+
+main section.container-section .enlaces .item-enlace h4 {
+  padding: 10px;
+  margin: 0;
+  line-height: 1em;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-azul-muni);
+}
+
+/* fin del diseño de los enlaces */
+
+main section.container-section h2 {
+  color: var(--color-azul-muni);
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.2em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+main section.container-section h2 i {
+  padding: 0 20px;
+}
+
+main section.container-section .box-noticias {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+main section.container-section .box-noticias .box-item {
+  width: 425px;
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+}
+
+main section.container-section .box-noticias .box-item .box-images {
+  width: 100%;
+  overflow: hidden;
+}
+
+main section.container-section .box-noticias .box-item .box-images img {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+main section.container-section .box-noticias .box-item .box-images:hover img {
+  transform: scale(1.2);
+}
+
+main section.container-section .box-noticias .box-item .box-publicacion {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  display: flex;
+  border-bottom: 1px solid var(--color-gris-1);
+}
+
+main section.container-section .box-noticias .box-item .box-publicacion p {
+  margin: 0;
+  padding: 10px;
+  color: var(--color-gris-3);
+  text-align: center;
+  font-size: 12px;
+}
+
+main section.container-section .box-noticias .box-item .box-publicacion p:nth-child(1) {
+  border-right: 1px solid var(--color-gris-1);
+}
+
+main section.container-section .box-noticias .box-item .box-publicacion p i {
+  color: #97c237;
+  margin-right: 10px;
+}
+
+main section.container-section .box-noticias .box-item .box-contenido {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px 10px 10px;
+}
+
+main section.container-section .box-noticias .box-item .box-contenido h3 {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 14px;
+  text-align: center;
+  color: var(--color-azul-muni);
+}
+
+main section.container-section .box-noticias .box-item .box-contenido p {
+  margin: 0;
+  padding-top: 0;
+  text-align: justify;
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+main section.container-section .box-noticias .box-item .box-contenido a {
+  text-align: end;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-verde-3);
+}
+
+/* fin del main */
+
+/* diseño de slider historia */
+section.container-section .swiffy-cultura .slider-container li .card {
+  border: none;
+}
+
+section.container-section .swiffy-cultura .slider-container li .card .card-body p.lead {
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-azul-muni);
+  font-size: 22px;
+}
+/* fin diseño de slider historia */

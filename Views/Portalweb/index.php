@@ -1,5 +1,4 @@
 <?php headerPortal($data); ?>
-<main class="container-principal container-fluid content">
   <section class="container-section max-width">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -57,8 +56,7 @@
   </section>
   <section class="container-section">
     <div class="d-flex flex-column">
-      <h2>NUEVO</h2>
-      <div class="swiffy-slider slider-nav-round slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+      <div class="swiffy-slider swiffy-cultura  slider-nav-round slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
         <ul class="slider-container">
           <li class="">
             <div class="card rounded-0 h-100">
@@ -67,9 +65,8 @@
                   <div class="card-body p-1 p-md-3 p-xl-5">
                     <p class="lead">Why use this slider</p>
                     <h2 class="card-title" style="color:#DF1E1E;">Swiffy Slider Benefits</h2>
-                    <p class="card-text mt-3">Super fast lightweight slider and carousel with amazing touch support and user experience.</p>
-                    <p>Super simple setup using just markup and few powerful configuration options</p>
-                    <p class="card-text"><small class="text-muted">Remember to check out on mobile</small></p>
+                    <p class="card-text mt-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis cumque distinctio quasi ratione quisquam aperiam reiciendis, illo explicabo dolore libero, accusantium dolorum iste pariatur ex dolorem excepturi voluptas, error obcaecati.
+                    Soluta quo sequi esse, doloribus perspiciatis perferendis aperiam quisquam eius earum eligendi at voluptatibus commodi rerum quaerat consequuntur, expedita nostrum iste adipisci! Vitae dignissimos, hic eius distinctio tenetur nam ducimus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eaque sapiente sed reiciendis cumque, fuga saepe ea ducimus earum soluta amet pariatur iusto illo repudiandae repellendus vero repellat a doloribus? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi alias aut atque eaque enim. Architecto inventore doloribus omnis earum eligendi eos? Nisi inventore nostrum quasi voluptates natus quae, obcaecati ullam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolores alias veniam optio, vitae eius dolore vero dignissimos ad quibusdam ratione fugiat quia tempore est tempora doloremque, adipisci inventore. Excepturi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quibusdam odit esse, assumenda non id ad quisquam aut optio delectus iste obcaecati vero accusamus provident et eius temporibus suscipit beatae?.</p>
                   </div>
                 </div>
                 <div class="col-md-6 col-xl-7">
@@ -83,8 +80,8 @@
             <div class="card rounded-0 h-100">
               <div class="row g-0 h-100">
                 <div class="col-md-6 col-xl-7">
-                  <img src="../assets/img/photos/img2.webp" class="card-img d-none d-md-block" loading="lazy" style="height: 100%; object-fit: cover" alt="...">
-                  <img src="../assets/img/photos/img2.webp" class="card-img d-block d-md-none" loading="lazy" style="width: 100%; object-fit: cover" alt="...">
+                  <img src="https://source.unsplash.com/49b9l_29ceA/1600x900" class="card-img d-none d-md-block" loading="lazy" style="height: 100%; object-fit: cover" alt="...">
+                  <img src="https://source.unsplash.com/49b9l_29ceA/1600x900" class="card-img d-block d-md-none" loading="lazy" style="width: 100%; object-fit: cover" alt="...">
                 </div>
                 <div class="col-md-6 col-xl-5 d-flex align-items-center p-2 p-md-3 p-xl-5">
                   <div class="card-body p-1 p-md-3 p-xl-5">
@@ -100,7 +97,7 @@
           </li>
           <li class="slide-visible">
             <div class="card rounded-0 h-100 text-white">
-              <img src="../assets/img/photos/img3.webp" class="card-img h-100" style="max-height: 100%; max-width: 100%; object-fit: cover" alt="...">
+              <img src="https://source.unsplash.com/49b9l_29ceA/1600x900" class="card-img h-100" style="max-height: 100%; max-width: 100%; object-fit: cover" alt="...">
               <div class="card-img-overlay d-flex align-items-start align-items-md-center justify-content-center flex-column">
                 <h2 class="card-title h1 d-block d-md-inline-block">The Aston Martin DB5</h2>
                 <p class="card-text lead col-md-8 col-lg-6">The Aston Martin DB5 is a British luxury grand tourer (GT) that was made by Aston Martin and designed by the Italian coachbuilder Carrozzeria Touring Superleggera. </p>
