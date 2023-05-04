@@ -1,3 +1,4 @@
+</main>
 <footer class="container-fluid">
     <div class="footer-content">
         <div class="item">
