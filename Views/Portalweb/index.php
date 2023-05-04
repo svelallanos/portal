@@ -1,17 +1,16 @@
 <?php headerPortal($data); ?>
-<main class="container-fluid content">
-  <section class="container-fluid">
+<main class="container-principal container-fluid content">
+  <section class="container-section max-width">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="2000">
-          <img src="<?= media() ?>/portalweb/images/portal_principal.jpg" class="d-block w-100" alt="..." />
+        <div class="carousel-item active" data-bs-interval="4000">
+          <img src="<?= media() ?>/portalweb/images/portal_principal.jpg" class="d-block w-100" alt="...">
         </div>
-        <div class="carousel-item" data-bs-interval="2000">
-          <img src="<?= media() ?>/portalweb/images/portal_principal.jpg" class="d-block w-100" alt="..." />
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="<?= media() ?>/portalweb/images/portal_principal.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
@@ -20,10 +19,8 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
-
   </section>
-  <section class="container-fluid">
+  <section class="container-section">
     <div class="enlaces">
       <div class="item-enlace tributo-municipal">
         <div class="box-icon">
@@ -58,7 +55,7 @@
       </div>
     </div>
   </section>
-  <section class="container-fluid">
+  <section class="container-section">
     <div class="d-flex flex-column">
       <h2>NUEVO</h2>
       <div class="swiffy-slider slider-nav-round slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
@@ -123,7 +120,7 @@
       </div>
     </div>
   </section>
-  <section class="container-fluid">
+  <section class="container-section">
     <h2 class="text-center">
       <i class="fa-solid fa-grip-vertical fa-fade"></i>ÚLTIMAS NOTICIAS<i class="fa-solid fa-grip-vertical fa-fade"></i>
     </h2>
@@ -208,5 +205,4 @@
       </div>
     </div>
   </section>
-</main>
 <?php footerPortal(); ?>

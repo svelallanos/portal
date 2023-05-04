@@ -17,3 +17,4 @@
 
 <body>
     <?php require_once('./Views/Template/nav_portal.php'); ?>
+    </main>
