@@ -10,11 +10,6 @@ function media()
   return BASE_URL . "Assets";
 }
 
-function getVersion()
-{
-  return VERSION;
-}
-
 function getPathFotoPerfil()
 {
   return PATH_FOTOPERFIL;
@@ -36,6 +31,7 @@ function headerPortal($data = "")
   $view_header = "Views/Template/header_portal.php";
   require_once($view_header);
 }
+
 function footerPortal($data = "")
 {
   $view_footer = "Views/Template/footer_portal.php";
@@ -100,7 +96,7 @@ function getExtFotos()
   return $ext_type;
 }
 
-function getVerion()
+function getVersion()
 {
   return VER_MEDIA;
 }

@@ -51,10 +51,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
 <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-<script src="<?= media() ?>/js/general/jquery-3.6.0.min.js?version="<?= getVerion() ?>></script>
-<script src="<?= media() ?>/js/general/all.js?version="<?= getVerion()?>></script>
+<script src="<?= media() ?>/js/general/jquery-3.6.0.min.js?version=<?= getVersion()?>"></script>
+<script src="<?= media() ?>/js/general/all.js?version=<?= getVersion()?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="<?= media() ?>/portalweb/js/main.js?version="<?= getVerion()?>></script>
-</body>
+<script src="<?= media() ?>/portalweb/js/main.js?version=<?= getVersion()?>"></script>
 
+<?php if (isset($data['page_function_js']) && !empty($data['page_function_js'])) { ?>
+  <script src="<?= media() ?>/portalweb/js/<?= $data['page_function_js'] ?>.js?version=<?= getVersion() ?>"></script>
+<?php } ?>
+</body>
 </html>
