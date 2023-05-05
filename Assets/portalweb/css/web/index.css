@@ -1,59 +1,98 @@
 /* diseño del main */
 /* diseño de los enlaces */
 
-main section.container-section .enlaces {
+section.container-section .card__father__enlace {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  padding: 20px 0;
-  padding-bottom: 0;
+  padding: 20px;
+  width: 100%;
+  max-width: 1320px;
+  background-color: white;
+  transform: translateY(-20px);
+  border-radius: 20px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  perspective: 1000px;
+
 }
 
-main section.container-section .enlaces .item-enlace {
+section.container-section .card__father__enlace .card__enlace {
+  width: 200px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 360ms;
+}
+
+section.container-section .card__father__enlace .card__enlace :is(.card__front, .card__back) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  background-size: cover;
+}
+
+section.container-section .card__father__enlace .card__enlace:hover {
+  transform: rotateY(180deg)
+}
+
+section.container-section .card__father__enlace .card__enlace .card__front {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0.8;
+}
+
+section.container-section .card__father__enlace .card__enlace .card__back {
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.container-section .card__father__enlace .card__enlace .card__back .card__back__body {
+  background-color: #ffffff05;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 5px 15px;
+  border-radius: 7px;
+}
+
+section.container-section .card__father__enlace :is(.card__front .card__front__body, .card__back .card__back__body) {
+  display: flex;
+  justify-content: center;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  cursor: pointer;
-  width: 125px;
+  text-align: center;
+  overflow: hidden;
 }
 
-main section.container-section .enlaces .box-icon {
-  border: 3px solid var(--color-verde-1);
-  border-radius: 30%;
-  color: var(--color-verde-1);
-  transition: 0.4s;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+section.container-section .card__father__enlace :is(.card__front .card__front__body, .card__back .card__back__body) h4{
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 22px;
+  max-width: 100%;
 }
 
-main section.container-section .enlaces .item-enlace .box-icon:hover {
-  background-color: var(--color-verde-1);
+section.container-section .card__father__enlace .card__back .card__back__body a {
+  padding: 4px 8px;
+  background-color: var(--color-azul-muni);
   color: white;
-  border-radius: 50%;
+  border-radius: 10px;
+  transition-property: color transform;
+  transition-duration: 0.5s;
 }
 
-main section.container-section .enlaces .box-icon i {
-  font-size: 35px;
-  transition: transform 0.4s ease;
+section.container-section .card__father__enlace .card__back .card__back__body a:hover {
+  color: var(--color-azul2-muni);
+  transform: scaleX(1.2);
 }
-
-main section.container-section .enlaces .item-enlace .box-icon:hover i {
-  transform: scale(1.2);
-}
-
-main section.container-section .enlaces .item-enlace h4 {
-  padding: 10px;
-  margin: 0;
-  line-height: 1em;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-azul-muni);
+section.container-section .card__father__enlace .card__back .card__back__body a i {
+  margin-left: 5px;
 }
 
 /* fin del diseño de los enlaces */
