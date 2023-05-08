@@ -24,19 +24,84 @@
     <div class="card__enlace">
       <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
         <div class="card__front__body">
+          <i class="fa-solid fa-users"></i>
           <h4>Enlaces Directos</h4>
         </div>
       </div>
       <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
-        <div class="card__back__body">
+        <a href="" class="card__back__body">
           <h4>Enlaces Directos</h4>
-          <a href="">Ir <i class="fa-solid fa-arrow-right"></i></a>
+        </a>
+      </div>
+    </div>
+    <div class="card__enlace">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <div class="card__front__body">
+          <i class="fa-solid fa-users"></i>
+          <h4>Enlaces Directos</h4>
         </div>
+      </div>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <a href="" class="card__back__body">
+          <h4>Enlaces Directos</h4>
+        </a>
+      </div>
+    </div>
+    <div class="card__enlace">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <div class="card__front__body">
+          <i class="fa-solid fa-users"></i>
+          <h4>Enlaces Directos</h4>
+        </div>
+      </div>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <a href="" class="card__back__body">
+          <h4>Enlaces Directos</h4>
+        </a>
+      </div>
+    </div>
+    <div class="card__enlace">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <div class="card__front__body">
+          <i class="fa-solid fa-users"></i>
+          <h4>Enlaces Directos</h4>
+        </div>
+      </div>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <a href="" class="card__back__body">
+          <h4>Enlaces Directos</h4>
+        </a>
+      </div>
+    </div>
+    <div class="card__enlace">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <div class="card__front__body">
+          <i class="fa-solid fa-users"></i>
+          <h4>Enlaces Directos</h4>
+        </div>
+      </div>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <a href="" class="card__back__body">
+          <h4>Enlaces Directos</h4>
+        </a>
+      </div>
+    </div>
+    <div class="card__enlace">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <div class="card__front__body">
+          <i class="fa-solid fa-users"></i>
+          <h4>Enlaces Directos</h4>
+        </div>
+      </div>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+        <a href="" class="card__back__body">
+          <h4>Enlaces Directos</h4>
+        </a>
       </div>
     </div>
   </div>
 </section>
-<section class="container-section">
+<!-- <section class="container-section">
   <div class="d-flex flex-column">
     <div class="swiffy-slider swiffy-cultura  slider-nav-round slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
       <ul class="slider-container">
@@ -98,7 +163,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <section class="container-section">
   <h2 class="text-center">
     <i class="fa-solid fa-grip-vertical fa-fade"></i>ÚLTIMAS NOTICIAS<i class="fa-solid fa-grip-vertical fa-fade"></i>
