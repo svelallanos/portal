@@ -609,6 +609,7 @@ main section.container-section:not(.max-width) {
   display: flex;
   flex-direction: column;
   padding: 0 !important;
+  font-size: 1.4rem;
 }
 
 main section.container-section:is(.max-width) {
@@ -617,4 +618,5 @@ main section.container-section:is(.max-width) {
   display: flex;
   flex-direction: column;
   padding: 0 !important;
+  font-size: 1.4rem;
 }
