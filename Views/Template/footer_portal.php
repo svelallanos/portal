@@ -46,7 +46,7 @@
 </footer>
 <footer class="container-copy">
     <div class="footer-copyrigth">
-        © Copyright 2023 by Municipalidad Distrital De Elías Soplín Vargas
+        © Copyright 2023 - Municipalidad Distrital De Elías Soplín Vargas - Todos los derechos reservados
     </div>
 </footer>
 
