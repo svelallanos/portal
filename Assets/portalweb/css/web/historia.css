@@ -1,0 +1,264 @@
+section .__card__header__historia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+section .__card__header__historia .__card__historia__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 12rem;
+  background-size: cover;
+  border-radius: 1.2rem;
+}
+
+section
+  .__card__header__historia
+  .__card__historia__title
+  .__card__historia__title__body {
+  width: 100%;
+  height: 100%;
+  background-color: #6bc5d13b;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section
+  .__card__header__historia
+  .__card__historia__title
+  .__card__historia__title__body
+  h3 {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  animation-name: __text_historia_title;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  margin: 0;
+}
+
+@keyframes __text_historia_title {
+  75% {
+    transform: translateY(5px);
+  }
+}
+
+section .__card__body__historia {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 4rem 0;
+}
+
+section .__card__body__historia .__card__historia__informacion {
+  flex: 9 420px;
+  padding-right: 1rem;
+}
+
+section .__card__body__historia .__card__historia__informacion .__card__texto {
+  box-shadow: inset 0px 10px 15px -9px rgba(0,0,0,0.1),inset -6px -17px 33px -25px rgba(0,0,0,0.1);
+  padding: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  .__card__texto
+  h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--color-azul3-muni);
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  .__card__texto
+  p {
+  text-align: justify;
+  font-size: 1.4rem;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  :is(.__card__mision, .__card__vision) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 3rem 0;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  :is(
+    .__card__mision .__card__mision_header,
+    .__card__vision .__card__vision_header
+  ) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  :is(
+    .__card__mision .__card__mision_header .__card__mision__title,
+    .__card__vision .__card__vision_header .__card__vision__title
+  ) {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  background-size: cover;
+  border-radius: 0.7rem;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  :is(
+    .__card__mision
+      .__card__mision_header
+      .__card__mision__title
+      .__card__title__img,
+    .__card__mision
+      .__card__mision_header
+      .__card__mision__title
+      .__card__title__img
+  ) {
+  width: 100%;
+  height: 100%;
+  background-color: #cfd16b3b;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  :is(
+    .__card__mision
+      .__card__mision_header
+      .__card__mision__title
+      .__card__title__img,
+    .__card__vision
+      .__card__vision_header
+      .__card__vision__title
+      .__card__title__img
+  )
+  h2 {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  :is(
+    .__card__mision .__card__mision_header .__card__mision__body,
+    .__card__vision .__card__vision_header .__card__vision__body
+  ) {
+  padding: 3rem;
+  text-align: justify;
+  box-shadow: inset 0px 10px 15px -9px rgba(0,0,0,0.1),inset -6px -17px 33px -25px rgba(0,0,0,0.1);
+  border-radius: 1rem;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  :is(
+    .__card__mision .__card__mision_header .__card__mision__body p,
+    .__card__vision .__card__vision_header .__card__vision__body p
+  ) {
+  font-size: 1.4rem;
+}
+
+section .__card__body__historia .__card__historia__carrusel {
+  flex: 3 300px;
+  padding-left: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__carrusel
+  .__card__slider__historia {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__carrusel
+  .__card__slider__historia
+  .__card__img__slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__carrusel
+  .__card__slider__historia
+  .__card__img__slider:nth-last-child(1) {
+  margin: 0;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__carrusel
+  .__card__slider__historia
+  .__card__img__slider
+  img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  transition: transform 400ms;
+  border-radius: 1rem;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__carrusel
+  .__card__slider__historia
+  .__card__img__slider:hover
+  img {
+  transform: scale(1.2);
+}
