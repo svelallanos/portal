@@ -51,7 +51,7 @@
         </div>
         <div class="navb-items">
             <div class="item active">
-                <a href="#">Inicio</a>
+                <a href="<?= base_url() ?>">Inicio</a>
             </div>
             <div class="item">
                 <a href="#">Nosotros</a>
@@ -59,13 +59,13 @@
             <div class="item dropdown-center">
                 <a href="#" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Mi Municipalidad</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="<?= base_url() ?>portalweb/historia">Historia</a></li>
-                    <li><a class="dropdown-item" href="#">Action two</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url() ?>Portalweb/historia">Historia</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url() ?>Portalweb/funcionarios">Funcionarios</a></li>
                     <li><a class="dropdown-item" href="#">Action three</a></li>
                 </ul>
             </div>
             <div class="item">
-                <a href="#">Normatividad</a>
+                <a href="<?= base_url() ?>Portalweb/normatividad">Normatividad</a>
             </div>
             <div class="item">
                 <a href="#">Servicio</a>
