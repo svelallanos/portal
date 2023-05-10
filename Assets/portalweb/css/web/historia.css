@@ -65,13 +65,57 @@ section .__card__body__historia .__card__historia__informacion {
 }
 
 section .__card__body__historia .__card__historia__informacion .__card__texto {
-  box-shadow: inset 0px 10px 15px -9px rgba(0,0,0,0.1),inset -6px -17px 33px -25px rgba(0,0,0,0.1);
   padding: 3rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #f2f8f9;
+  overflow: hidden;
+  z-index: 0;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  .__card__texto
+  .__go__corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem 1rem 1.4rem 1.4rem;
+  background-color: #00838d;
+  color: white;
+  border-radius: 0 0.5rem 0 2.4rem;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  .__card__texto::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  background: #00838d;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 3rem;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  .__card__texto:hover::before {
+  transform: scale(60);
 }
 
 section
@@ -89,10 +133,26 @@ section
 section
   .__card__body__historia
   .__card__historia__informacion
+  .__card__texto:hover
+  h2 {
+  color: var(--color-amarillo2-muni);
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
   .__card__texto
   p {
   text-align: justify;
   font-size: 1.4rem;
+}
+
+section
+  .__card__body__historia
+  .__card__historia__informacion
+  .__card__texto:hover
+  p {
+    color: white;
 }
 
 section
@@ -189,7 +249,8 @@ section
   ) {
   padding: 3rem;
   text-align: justify;
-  box-shadow: inset 0px 10px 15px -9px rgba(0,0,0,0.1),inset -6px -17px 33px -25px rgba(0,0,0,0.1);
+  box-shadow: inset 8px 8px 8px #cbced1,
+              inset -8px -8px 8px #ffffff;
   border-radius: 1rem;
 }
 
