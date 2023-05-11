@@ -23,8 +23,8 @@ section .__card__normatividad .__card__slider img {
 section .__card__normatividad .__card__title {
   margin: 2rem 0;
   width: 100%;
-  height: 15rem;
-  padding: 3rem 4rem;
+  height: 12rem;
+  padding: 2rem 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,8 +36,7 @@ section .__card__normatividad .__card__title {
 section .__card__normatividad .__card__title .__contenido__title {
   border-radius: 1.5rem;
   background: #f2f2f3;
-  box-shadow: -5px -5px 8px #ffffff7a, 
-              5px 5px 8px #a9a9aa7a;
+  box-shadow: -5px -5px 8px #ffffff7a, 5px 5px 8px #a9a9aa7a;
   width: 100%;
   height: 100%;
   display: flex;
@@ -55,7 +54,7 @@ section .__card__normatividad .__card__title .__contenido__title h3 {
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 4rem;
+  font-size: 3rem;
   text-transform: uppercase;
   font-weight: 900;
   font-family: "Nunito", sans-serif;
@@ -64,16 +63,134 @@ section .__card__normatividad .__card__title .__contenido__title h3 {
 
 /* diseño del filtro de normas */
 section .__card__normatividad .__card__grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 section .__card__normatividad .__card__grid .__card__informacion {
-    flex: 9 420px;
+  flex: 9 420px;
+  padding-right: 3rem;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro {
+  display: flex;
+  flex-wrap: wrap;
+  border: 0.1rem solid var(--color-gris2-muni);
+  border-bottom: 0.2rem solid var(--color-azul2-muni);
+  padding: 3rem;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__select {
+  flex: 2 160px;
+  padding: 0 0.5rem;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__select
+  select {
+  padding: 1rem 2rem;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f3;
+  border-radius: 1.2rem;
+  border: none;
+  box-shadow: -5px -5px 8px #ffffff7a, 5px 5px 8px #a9a9aa7a;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__select
+  select
+  option {
+    padding: 0;
+    margin: 0;
+    background-color: red;
+  }
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__filtrador {
+  flex: 8 200px;
+  padding: 0 0.5rem;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__filtrador
+  input {
+  padding: 1rem 2rem;
+  width: 100%;
+  height: 100%;
+  background: #f2f2f3;
+  border-radius: 1.2rem;
+  border: none;
+  box-shadow: inset 5px 5px 10px #a9a9aa77, inset -5px -5px 10px #ffffff7e;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__buscar {
+  flex: 2 80px;
+  padding: 0 0.5rem;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__buscar
+  button {
+  padding: 1rem 2rem;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-azul-muni);
+  /* color: var(--color-azul2-muni); */
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 1.2rem;
+  border: none;
+  transition: all 0.5s;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__buscar
+  button:hover {
+  color: var(--color-azul2-muni);
 }
 
 section .__card__normatividad .__card__grid .__card__enlaces {
-    flex: 3 300px;
+  flex: 3 300px;
 }
 /* fin del diseño de los filtros de las normas */

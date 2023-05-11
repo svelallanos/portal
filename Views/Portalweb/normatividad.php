@@ -6,13 +6,27 @@
         </div>
         <div class="__card__title">
             <div class="__contenido__title">
-                <h3>Normas Municipales</h3>
+                <h3>Resolución de alcaldía</h3>
             </div>
         </div>
-        <div class="__card__grid bg-primary">
-            <div class="__card__informacion bg-warning">
+        <div class="__card__grid">
+            <div class="__card__informacion">
                 <div class="__card__filtro">
-                    <h3>filtro</h3>
+                    <div class="__card__select">
+                        <select class="">
+                            <option selected>Seleccione ...</option>
+                            <option value="1">Fecha</option>
+                            <option value="2">Títuto</option>
+                            <option value="3">Descripcion</option>
+                        </select>
+
+                    </div>
+                    <div class="__card__filtrador">
+                        <input type="text" name="text" class="input" placeholder="Type here...">
+                    </div>
+                    <div class="__card__buscar">
+                        <button class="">Buscar</button>
+                    </div>
                 </div>
                 <div class="__card__table">
                     <table>
