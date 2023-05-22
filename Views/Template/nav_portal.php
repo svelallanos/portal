@@ -61,6 +61,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?= base_url() ?>Portalweb/historia">Historia</a></li>
                     <li><a class="dropdown-item" href="<?= base_url() ?>Portalweb/funcionarios">Funcionarios</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url() ?>Portalweb/alcalde">Alcalde</a></li>
                     <li><a class="dropdown-item" href="#">Action three</a></li>
                 </ul>
             </div>

@@ -1,0 +1,4 @@
+section .container__alcalde {
+    display: flex;
+    flex-direction: column;
+}
