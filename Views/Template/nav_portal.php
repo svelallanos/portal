@@ -1,16 +1,16 @@
 <header class="cabecera-contactos">
     <div class="container-content">
         <div class="item-contactos">
-            <div class="telefono">
-                <a href="tel:+51999999999">
-                    <i class="fa-solid fa-phone fa-shake"></i>
-                    999 999 999
-                </a>
-            </div>
             <div class="email">
                 <a href="mailto:mesadepartes@munieliassoplinvargas.gob.pe">
-                    <i class="fa-solid fa-envelope fa-beat"></i>
-                    mesadepartes@munieliassoplinvargas.gob.pe
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>mesadepartes@munieliassoplinvargas.gob.pe</span>
+                </a>
+            </div>
+            <div class="telefono">
+                <a href="tel:+51999999999">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+51 999 999 999</span>
                 </a>
             </div>
         </div>
@@ -23,22 +23,17 @@
             </div>
             <div class="facebook">
                 <a href="">
-                    <i class="fa-brands fa-facebook-f fa-beat-fade"></i>
+                    <i class="fa-brands fa-facebook-f"></i>
                 </a>
             </div>
             <div class="instagram">
                 <a href="">
-                    <i class="fa-brands fa-instagram fa-beat-fade"></i>
+                    <i class="fa-brands fa-instagram"></i>
                 </a>
             </div>
             <div class="youtube">
                 <a href="">
-                    <i class="fa-brands fa-youtube fa-beat-fade"></i>
-                </a>
-            </div>
-            <div class="login">
-                <a target="_blank" href="<?= base_url() ?>login">
-                    <i class="fa-solid fa-right-to-bracket fa-beat"></i>
+                    <i class="fa-brands fa-youtube"></i>
                 </a>
             </div>
         </div>
@@ -46,6 +41,37 @@
 </header>
 <header class="cabecera-navb">
     <div class="container-navb">
+        <div class="navb-logo">
+            <img src="<?= media() ?>/portalweb/images/logo.webp" alt="">
+            <span>MDESV</span>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Paginas</a>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Servicios</a>
+                            <ul>
+                                <li><a href="#">Maquinarias</a></li>
+                                <li><a href="#">Internet</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="navb-icons">
+            <div class="item-icon">1</div>
+            <div class="item-icon">2</div>
+            <div class="item-icon">3</div>
+            <div class="item-icon">4</div>
+        </div>
+    </div>
+
+
+    <!-- <div class="container-navb">
         <div class="navb-logo">
             <img src="<?= media() ?>/portalweb/images/logo_mdesv.png" alt="">
         </div>
@@ -83,7 +109,6 @@
             <div class="item toggle-mobile d-none">
                 <a class="open-toggle" type="button"><i class="fa-solid fa-bars"></i></a>
             </div>
-            <!-- Modal toggle mobile -->
             <div class="modal fade" id="toggleMobile" tabindex="-1" aria-labelledby="toggleMobileLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -139,7 +164,6 @@
                     </div>
                 </div>
             </div>
-            <!-- fin de codigo -->
         </div>
-    </div>
+    </div>-->
 </header>

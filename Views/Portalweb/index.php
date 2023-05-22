@@ -1,5 +1,5 @@
 <?php headerPortal($data); ?>
-<section class="container-section max-width">
+<!-- <section class="container-section max-width">
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="4000">
@@ -100,7 +100,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- <section class="container-section">
   <div class="d-flex flex-column">
     <div class="swiffy-slider swiffy-cultura  slider-nav-round slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
@@ -164,7 +164,7 @@
     </div>
   </div>
 </section> -->
-<section class="container-section">
+<!-- <section class="container-section">
   <h2 class="text-center">
     <i class="fa-solid fa-grip-vertical fa-fade"></i>ÚLTIMAS NOTICIAS<i class="fa-solid fa-grip-vertical fa-fade"></i>
   </h2>
@@ -248,5 +248,5 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <?php footerPortal($data); ?>
