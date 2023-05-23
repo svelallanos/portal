@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 
 :root {
   --color-gris-1: #dcdcdc;
@@ -33,10 +33,11 @@
   --gris-6: #c9c9c9;
   --gris-7: #dbdada;
   --gris-8: #ebebeb;
-  --gris-9: #ffffff;
-  --blanco: #f5f5f5;
+  --gris-9: #faf7f7;
+  --blanco: #ffffff;
   --azul-1: #00273c;
-  --azul-2: #00b4fe;
+  --azul-5: #186adc;
+  --azul-7: #00b4fe;
 }
 
 html {
@@ -45,7 +46,7 @@ html {
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   overflow-x: hidden;
   display: flex;
   justify-content: center;
@@ -103,25 +104,29 @@ header .container-content .item-redessociales {
 }
 
 header .container-content .item-contactos div:nth-child(1) {
-  padding-right: 1rem;
   margin-right: 2rem;
 }
 
-header .container-content .item-contactos div:nth-child(n) a span{
+header .container-content .item-contactos div:nth-child(n) a {
+  display: flex;
+  align-items: center;
+}
+
+header .container-content .item-contactos div:nth-child(n) a span {
   color: var(--blanco);
   opacity: 0.8;
   transition-property: opacity;
   transition-duration: 250ms;
 }
 
-header .container-content .item-contactos div:nth-child(n) a:hover span{
+header .container-content .item-contactos div:nth-child(n) a:hover span {
   opacity: 1;
 }
 
 header .container-content .item-contactos div:nth-child(n) a i {
-  margin-right: 1rem;
+  margin-right: 0.6rem;
   color: white;
-} 
+}
 
 header .container-content .item-redessociales div:nth-child(n) a {
   color: white;
@@ -135,10 +140,9 @@ header .container-content .item-redessociales div:nth-child(n) a:hover {
 }
 
 header .container-content .item-redessociales div:nth-child(1) a {
-  color: var(--azul-2);
+  color: var(--azul-7);
   font-weight: 600;
   border-right: 1px solid var(--gris-1);
-
 }
 
 header .container-content .item-redessociales div:nth-child(1) a:hover {
@@ -154,7 +158,7 @@ header.cabecera-navb {
   justify-content: center;
   padding: 1.4rem 0;
   background-color: var(--blanco);
-  border-bottom: 1px solid var(--color-gris-1);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 /* @media (max-width: 1150px) {
@@ -169,7 +173,9 @@ header.cabecera-navb .container-navb {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem 0;
+  padding: 0;
+  position: relative;
+  text-transform: capitalize;
   /* position: fixed;
   top: 100px; */
   /* z-index: 9999; */
@@ -196,19 +202,99 @@ header.cabecera-navb .container-navb {
 } */
 
 /* fin del header scrooll */
-
 header .container-navb .navb-logo img {
   width: 5rem;
   height: 5rem;
-  margin-right: 1rem;
 }
 
-header.cabecera-navb .navb-items {
+/* header.cabecera-navb .navbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+} */
+
+header.cabecera-navb .navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+header.cabecera-navb .navbar ul li {
+  position: relative;
+  float: left;
+}
+
+header.cabecera-navb .navbar ul li a {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  display: block;
+  margin-left: 2rem;
+}
+
+header.cabecera-navb .navbar ul li a:is(.active) {
+  color: var(--azul-5);
+}
+
+header.cabecera-navb .navbar ul li a i {
+  font-size: 1.2rem;
+  margin-left: 0.8rem;
+}
+
+header.cabecera-navb .navbar ul li a:hover i.__drop {
+  transform: rotateX(180deg);
+}
+
+header.cabecera-navb .navbar ul li ul {
+  position: absolute;
+  left: 0;
+  width: 20rem;
+  background-color: var(--blanco);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  display: none;
+}
+
+header.cabecera-navb .navbar ul li ul li {
+  width: 100%;
+  border-top: 0.1rem solid var(--gris-8);
+}
+
+header.cabecera-navb .navbar ul li ul li ul {
+  left: 20rem;
+  top: 0;
+}
+
+header.cabecera-navb .navbar ul li:focus-within > ul,
+header.cabecera-navb .navbar ul li:hover > ul {
+  display: initial;
+}
+
+header.cabecera-navb .navb-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header.cabecera-navb .navb-icons .item-icon {
+  margin-left: 1.5rem;
+}
+
+header.cabecera-navb .navb-icons .item-icon:hover {
+  cursor: pointer;
+  color: var(--azul-5);
+}
+
+header.cabecera-navb .navb-icons .item-icon i {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+header.cabecera-navb .navb-icons .item-icon img {
+  width: 4rem;
+  height: 4rem;
+}
+
+
+
 
 /* modal toggle */
 header.cabecera-navb .navb-items .modal-dialog {

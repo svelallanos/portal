@@ -3,13 +3,13 @@
         <div class="item-contactos">
             <div class="email">
                 <a href="mailto:mesadepartes@munieliassoplinvargas.gob.pe">
-                    <i class="fa-solid fa-envelope"></i>
+                    <i class="feather-mail"></i>
                     <span>mesadepartes@munieliassoplinvargas.gob.pe</span>
                 </a>
             </div>
             <div class="telefono">
                 <a href="tel:+51999999999">
-                    <i class="fa-solid fa-phone"></i>
+                    <i class="feather-phone"></i>
                     <span>+51 999 999 999</span>
                 </a>
             </div>
@@ -43,16 +43,15 @@
     <div class="container-navb">
         <div class="navb-logo">
             <img src="<?= media() ?>/portalweb/images/logo.webp" alt="">
-            <span>MDESV</span>
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="#">Inicio</a></li>
+                <li><a class="active" href="#">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Paginas</a>
+                <li><a href="#">Paginas <i class="fa-solid fa-angle-up __drop"></i></a>
                     <ul>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Servicios</a>
+                        <li><a href="#">Servicios <i class="fa-solid fa-angle-up __drop"></i></a>
                             <ul>
                                 <li><a href="#">Maquinarias</a></li>
                                 <li><a href="#">Internet</a></li>
@@ -60,14 +59,16 @@
                         </li>
                     </ul>
                 </li>
+                <li><a href="#">Ubicación</a></li>
+                <li><a href="#">Motores</a></li>
             </ul>
+
+            <div class="navb-icons">
+                <div class="item-icon"><i class="feather-search"></i></div>
+                <div class="item-icon"><i class="feather-log-in"></i></div>
+                <div class="item-icon"><img src="<?= media() ?>/portalweb/images/transparencia_icon.png" alt=""></div>
+            </div>
         </nav>
-        <div class="navb-icons">
-            <div class="item-icon">1</div>
-            <div class="item-icon">2</div>
-            <div class="item-icon">3</div>
-            <div class="item-icon">4</div>
-        </div>
     </div>
 
 
