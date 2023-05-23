@@ -271,7 +271,7 @@ header.cabecera-navb .navbar ul li:hover > ul {
 header.cabecera-navb .navb-icons {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;d
 }
 
 header.cabecera-navb .navb-icons .item-icon {
