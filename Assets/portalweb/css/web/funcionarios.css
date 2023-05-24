@@ -3,171 +3,65 @@ section .__container__funcionarios {
   flex-direction: column;
 }
 
+section .__container__funcionarios .__card__title {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section .__container__funcionarios .__card__title .__item__description {
+  flex: 4 80px;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 12rem 8rem;
+}
+
+section .__container__funcionarios .__card__title .__item__description h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.01rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--azul-5);
+}
+
+section .__container__funcionarios .__card__title .__item__description p {
+  text-align: justify;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+
+
+
+
+section .__container__funcionarios .__card__title .__item__img {
+  flex: 8 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 section .__container__funcionarios .__card__funcionarios {
   display: flex;
   flex-wrap: wrap;
   margin: 4rem 0;
   justify-content: space-between;
-}
-
-@media (max-width: 1260px) {
-  section .__container__funcionarios .__card__funcionarios {
-    /* justify-content: space-around; */
-    margin-bottom: 2rem;
-  }
-}
-
-section .__container__funcionarios .__card__funcionarios .__card {
-  max-width: 21rem;
-  width: 100%;
-  height: 28rem;
-}
-
-@media (max-width: 1260px) {
-  section .__container__funcionarios .__card__funcionarios .__card{
-    margin-bottom: 2rem;
-  }
-}
-
-section .__container__funcionarios .__card__funcionarios .__card .__card__user {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  background-color: #f5f5f5;
-  color: #252525;
-  border-radius: 4px;
-  overflow: hidden;
-  line-height: 150%;
-  box-shadow: 0px 10px 20px rgba(80, 80, 80, 0.2);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-section
-  .__container__funcionarios
-  .__card__funcionarios
-  .__card
-  .__card__user
-  .__card__img {
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  transition: transform 0.3s ease-in-out;
-  z-index: 2;
-}
-
-section
-  .__container__funcionarios
-  .__card__funcionarios
-  .__card
-  .__card__user
-  .__social__media {
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  padding: 0 1rem;
-  transform: translateY(-6em);
-  z-index: 3;
-}
-
-section
-  .__container__funcionarios
-  .__card__funcionarios
-  .__card
-  .__card__user
-  .__social__media
-  li {
-  height: 5rem;
-  width: 5rem;
-  background: #f5f5f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.3s ease-in;
-}
-
-section
-  .__container__funcionarios
-  .__card__funcionarios
-  .__card
-  .__card__user
-  .__social__media
-  li
-  i {
-  font-size: 2rem;
-}
-
-section
-  .__container__funcionarios
-  .__card__funcionarios
-  .__card
-  .__card__user
-  .__card__info {
-  position: absolute;
-  bottom: 1rem;
-  width: 100%;
-  text-align: center;
-  padding: 0 1rem;
-}
-
-section
-  .__container__funcionarios
-  .__card__funcionarios
-  .__card
-  .__card__user
-  .__card__info
-  .__card__title {
-    height: 2.1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-section
-  .__container__funcionarios
-  .__card__funcionarios
-  .__card
-  .__card__user
-  .__card__info
-  .__card__subtitle {
-  letter-spacing: 0.1rem;
-  font-size: 1.4rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-/* Hovers */
-.__card__user:hover {
-  box-shadow: 0px 15px 30px rgba(80, 80, 80, 0.3);
-}
-
-.__card__user:hover .__card__img {
-  transform: translateY(-8.5rem);
-  filter: blur(0.1rem);
-}
-
-.__card__user:hover .__social__media li {
-  transform: translateY(-5%);
-  opacity: 1 !important;
-}
-
-.__card__user:hover .__social__media li:nth-child(1) {
-  transition-delay: 0s;
-}
-
-.__card__user:hover .__social__media li:nth-child(2) {
-  transition-delay: 0.1s;
-}
-
-.__card__user:hover .__social__media li:nth-child(3) {
-  transition-delay: 0.2s;
 }

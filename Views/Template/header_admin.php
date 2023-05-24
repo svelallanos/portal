@@ -29,10 +29,10 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= media() ?>/css/general/style_admin.css" rel="stylesheet">
-  <link href="<?= media() ?>/css/general/style_customized.css?version=<?= getVerion() ?>" rel="stylesheet" />
+  <link href="<?= media() ?>/css/general/style_customized.css?version=<?= getVersion() ?>" rel="stylesheet" />
 
   <?php if (isset($data['page_css']) && !empty($data['page_css'])) { ?>
-    <link href="<?= media() ?>/css/<?= $data['page_css'] ?>.css?version=<?= getVerion() ?>" rel="stylesheet" />
+    <link href="<?= media() ?>/css/<?= $data['page_css'] ?>.css?version=<?= getVersion() ?>" rel="stylesheet" />
   <?php } ?>
 
 </head>

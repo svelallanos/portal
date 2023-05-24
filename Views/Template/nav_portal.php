@@ -48,15 +48,20 @@
             <ul>
                 <li><a class="active" href="#">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Paginas <i class="fa-solid fa-angle-up __drop"></i></a>
+                <li>
+                    <a href="#">Municipalidad <i class="fa-solid fa-angle-up __drop"></i></a>
                     <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Servicios <i class="fa-solid fa-angle-up __drop"></i></a>
+                        <li><a href="#">Alcalde</a></li>
+                        <li><a href="#">Regidores</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/funcionarios">Funcionarios</a></li>
+                        <li><a href="#">Comisiones</a></li>
+                        <li><a href="#">Organigrama</a></li>
+                        <!-- <li><a href="#">Servicios <i class="fa-solid fa-angle-up __drop"></i></a>
                             <ul>
                                 <li><a href="#">Maquinarias</a></li>
                                 <li><a href="#">Internet</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 <li><a href="#">Ubicación</a></li>
@@ -65,106 +70,9 @@
 
             <div class="navb-icons">
                 <div class="item-icon"><i class="feather-search"></i></div>
-                <div class="item-icon"><i class="feather-log-in"></i></div>
+                <div class="item-icon"><a href="<?= base_url() ?>login"><i class="feather-log-in"></i></a></div>
                 <div class="item-icon"><img src="<?= media() ?>/portalweb/images/transparencia_icon.png" alt=""></div>
             </div>
         </nav>
     </div>
-
-
-    <!-- <div class="container-navb">
-        <div class="navb-logo">
-            <img src="<?= media() ?>/portalweb/images/logo_mdesv.png" alt="">
-        </div>
-        <div class="navb-items">
-            <div class="item active">
-                <a href="<?= base_url() ?>">Inicio</a>
-            </div>
-            <div class="item">
-                <a href="#">Nosotros</a>
-            </div>
-            <div class="item dropdown-center">
-                <a href="#" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Mi Municipalidad</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="<?= base_url() ?>Portalweb/historia">Historia</a></li>
-                    <li><a class="dropdown-item" href="<?= base_url() ?>Portalweb/funcionarios">Funcionarios</a></li>
-                    <li><a class="dropdown-item" href="<?= base_url() ?>Portalweb/alcalde">Alcalde</a></li>
-                    <li><a class="dropdown-item" href="#">Action three</a></li>
-                </ul>
-            </div>
-            <div class="item">
-                <a href="<?= base_url() ?>Portalweb/normatividad">Normatividad</a>
-            </div>
-            <div class="item">
-                <a href="#">Servicio</a>
-            </div>
-            <div class="item">
-                <a href="#">Contacto</a>
-            </div>
-            <div class="item portal-transparencia-icon d-none">
-                <a title="Portal de transparencia" target="_blank" href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=10358&id_tema=5&ver=#.ZErsfnZBzIU"><img src="<?= media() ?>/portalweb/images/transparencia_icon.png" alt=""></a>
-            </div>
-            <div class="item portal-transparencia">
-                <a target="_blank" href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=10358&id_tema=5&ver=#.ZErsfnZBzIU"><img src="<?= media() ?>/portalweb/images/transparencia.png" alt=""></a>
-            </div>
-            <div class="item toggle-mobile d-none">
-                <a class="open-toggle" type="button"><i class="fa-solid fa-bars"></i></a>
-            </div>
-            <div class="modal fade" id="toggleMobile" tabindex="-1" aria-labelledby="toggleMobileLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <img src="<?= media() ?>/portalweb/images/logo_mdesv.png" alt="">
-                            <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-line link-toggle">
-                                <a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
-                            </div>
-                            <div class="modal-line link-toggle">
-                                <a href="#"><i class="fa-regular fa-building"></i> Nosotros</a>
-                            </div>
-                            <div class="modal-line link-toggle">
-                                <a href="#"><i class="fa-solid fa-building-columns"></i> Mi Municipalidad</a>
-                            </div>
-                            <div class="modal-line link-toggle">
-                                <a href="#"><i class="fa-solid fa-file-invoice"></i> Normatividad</a>
-                            </div>
-                            <div class="modal-line link-toggle">
-                                <a href="#"><i class="fa-solid fa-sitemap"></i> Servicios</a>
-                            </div>
-                            <div class="modal-line link-toggle">
-                                <a href="#"><i class="fa-solid fa-address-card"></i> Contacto</a>
-                            </div>
-                            <div class="text-center toggle-portal-icon link-toggle">
-                                <a target="_blank" href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=10358&id_tema=5&ver=#.ZErsfnZBzIU"><img src="<?= media() ?>/portalweb/images/transparencia.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="modal-footer d-none">
-                            <div class="facebook">
-                                <a href="">
-                                    <i class="fa-brands fa-facebook-f fa-beat-fade"></i>
-                                </a>
-                            </div>
-                            <div class="instagram">
-                                <a href="">
-                                    <i class="fa-brands fa-instagram fa-beat-fade"></i>
-                                </a>
-                            </div>
-                            <div class="youtube">
-                                <a href="">
-                                    <i class="fa-brands fa-youtube fa-beat-fade"></i>
-                                </a>
-                            </div>
-                            <div class="login">
-                                <a target="_blank" href="<?= base_url() ?>login">
-                                    <i class="fa-solid fa-right-to-bracket fa-beat"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
 </header>
