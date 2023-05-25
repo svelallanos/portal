@@ -40,10 +40,15 @@
   --azul-7: #00b4fe;
 
   --bg-btn-primary: #008cff;
+  --bg-btn-danger: #ff0000;
   --bg-btn-primary-hover: #017ce1;
   --bg-btn-primary-soft: #00b3ff13;
   --bg-btn-primary-soft-hover: #006eff30;
   --bg-btn-primary-soft-border: #008cff4b;
+
+
+
+  --bg-light: #f8f9fa;
 }
 
 /* Estilos personalizados */
@@ -56,15 +61,32 @@
   padding: 1rem 2rem;
   border-radius: 1.8rem;
   font-size: 1.5rem;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  border: none;
+}
+
+.btn-bg-danger {
+  text-decoration: none;
+  background-color: var(--bg-btn-danger);
+  color: var(--blanco);
+  padding: 1rem 2rem;
+  border-radius: 1.8rem;
+  font-size: 1.5rem;
   transition-property: background-color;
   transition-duration: 250ms;
+  border: none;
 }
 
 .btn-bg-primary:hover {
-  background-color: var(--bg-btn-primary-hover);
   color: white;
+  opacity: 0.9;
 }
 
+.btn-bg-danger:hover {
+  color: white;
+  opacity: 0.8;
+}
 
 .btn-bg-primary-soft {
   text-decoration: none;
@@ -504,6 +526,8 @@ main section.container-section:not(.max-width) {
   max-width: 1440px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0 !important;
   font-size: 1.4rem;
 }
@@ -515,4 +539,6 @@ main section.container-section:is(.max-width) {
   flex-direction: column;
   padding: 0 !important;
   font-size: 1.4rem;
+  justify-content: center;
+  align-items: center;
 }

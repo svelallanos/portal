@@ -1,6 +1,7 @@
 section .__container__funcionarios {
   display: flex;
   flex-direction: column;
+  max-width: 1440px;
 }
 
 section .__container__funcionarios .__card__title {
@@ -9,7 +10,7 @@ section .__container__funcionarios .__card__title {
 }
 
 section .__container__funcionarios .__card__title .__item__description {
-  flex: 4 80px;
+  flex: 5 80px;
   display: flex;
   flex-flow: column wrap;
   padding: 12rem 8rem;
@@ -31,37 +32,218 @@ section .__container__funcionarios .__card__title .__item__description p {
   font-size: 1.4rem;
 }
 
-
-
-
-
-section .__container__funcionarios .__card__title .__item__img {
-  flex: 8 80px;
+section
+  .__container__funcionarios
+  .__card__title
+  .__item__description
+  .__view__detalle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
+section
+  .__container__funcionarios
+  .__card__title
+  .__item__description
+  .__view__detalle
+  a:nth-child(2) {
+  background-color: var(--bg-light);
+  border-radius: 50%;
+  padding: 1.5rem;
+  margin-left: 1rem;
+  box-shadow: 0px -7px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in;
+}
 
+section
+  .__container__funcionarios
+  .__card__title
+  .__item__description
+  .__view__detalle
+  a
+  i {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: var(--azul-5);
+}
 
+section
+  .__container__funcionarios
+  .__card__title
+  .__item__description
+  .__view__detalle
+  a:hover {
+  background-color: var(--azul-5);
+}
 
+section
+  .__container__funcionarios
+  .__card__title
+  .__item__description
+  .__view__detalle
+  a:hover
+  i {
+  color: var(--blanco);
+}
 
+section .__container__funcionarios .__card__title .__item__img {
+  flex: 7 80px;
+}
 
+section .__container__funcionarios .__card__title .__item__img .__content__img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+section
+  .__container__funcionarios
+  .__card__title
+  .__item__img
+  .__content__img
+  img {
+  width: 100%;
+  max-width: 600px;
+  background-size: cover;
+  border-radius: 5rem;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 
 section .__container__funcionarios .__card__funcionarios {
   display: flex;
   flex-wrap: wrap;
   margin: 4rem 0;
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__filtro {
+  display: flex;
+  width: 100%;
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__filtro
+  .__input__search {
+  flex: 11 220px;
+  padding-left: 15rem;
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__filtro
+  .__input__search
+  input {
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+  font-size: 1.5rem;
+  color: var(--gris-1);
+  border-radius: 2rem;
+  border: 1px solid var(--gris-5);
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__filtro
+  .__input__search
+  input:focus-visible {
+  outline: none;
+  border: 1px solid var(--azul-5);
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__filtro
+  .__button__search {
+  flex: 1 200px;
+  padding: 0 1.5rem;
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__filtro
+  .__button__search
+  button {
+  padding: 1rem 3rem;
+  display: flex;
+  align-items: center;
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__filtro
+  .__button__search
+  button
+  i {
+  margin-right: 1rem;
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__contenido {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user {
+  flex: 0 1 23%;
+  border: 1px solid var(--gris-6);
+  border-radius: 1rem;
+  transition-property: box-shadow, border;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in;
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user:hover {
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  border: 1px solid var(--gris-9);
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__background__img {
+  width: 100%;
+  height: 320px;
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__background__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem 1rem 0 0;
+  object-fit: cover;
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__descripcion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__descripcion h1 {
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 2.3rem;
+  letter-spacing: -0.05rem;
+}
+
+section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__descripcion span {
+  text-transform: capitalize;
 }
