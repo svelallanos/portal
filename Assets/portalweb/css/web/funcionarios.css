@@ -4,19 +4,84 @@ section .__container__funcionarios {
   max-width: 1440px;
 }
 
-section .__container__funcionarios .__card__title {
+section .__container__funcionarios .__card__introduccion {
   display: flex;
   flex-wrap: wrap;
+  transition: padding 250ms;
 }
 
-section .__container__funcionarios .__card__title .__item__description {
+@media (max-width: 1200px) {
+  section .__container__funcionarios .__card__introduccion {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 845px) {
+  section .__container__funcionarios .__card__introduccion {
+    flex-direction: column;
+  }
+}
+
+section .__container__funcionarios .__card__introduccion .__item__description {
   flex: 5 80px;
   display: flex;
   flex-flow: column wrap;
   padding: 12rem 8rem;
+  transition: padding 250ms;
 }
 
-section .__container__funcionarios .__card__title .__item__description h1 {
+@media (max-width: 1440px) {
+  section
+    .__container__funcionarios
+    .__card__introduccion
+    .__item__description {
+    padding: 8rem 4rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  section
+    .__container__funcionarios
+    .__card__introduccion
+    .__item__description {
+    padding: 4rem 0;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 845px) {
+  section
+    .__container__funcionarios
+    .__card__introduccion
+    .__item__description {
+    padding: 3rem 7rem;
+  }
+}
+
+@media (max-width: 650px) {
+  section
+    .__container__funcionarios
+    .__card__introduccion
+    .__item__description {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 440px) {
+  section
+    .__container__funcionarios
+    .__card__introduccion
+    .__item__description {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+section
+  .__container__funcionarios
+  .__card__introduccion
+  .__item__description
+  h1 {
   font-size: 4rem;
   font-weight: 700;
   text-transform: capitalize;
@@ -26,7 +91,11 @@ section .__container__funcionarios .__card__title .__item__description h1 {
   color: var(--azul-5);
 }
 
-section .__container__funcionarios .__card__title .__item__description p {
+section
+  .__container__funcionarios
+  .__card__introduccion
+  .__item__description
+  p {
   text-align: justify;
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
@@ -34,7 +103,7 @@ section .__container__funcionarios .__card__title .__item__description p {
 
 section
   .__container__funcionarios
-  .__card__title
+  .__card__introduccion
   .__item__description
   .__view__detalle {
   display: flex;
@@ -42,9 +111,19 @@ section
   align-items: center;
 }
 
+@media (max-width: 845px) {
+  section
+    .__container__funcionarios
+    .__card__introduccion
+    .__item__description
+    .__view__detalle {
+    justify-content: center;
+  }
+}
+
 section
   .__container__funcionarios
-  .__card__title
+  .__card__introduccion
   .__item__description
   .__view__detalle
   a:nth-child(2) {
@@ -62,7 +141,7 @@ section
 
 section
   .__container__funcionarios
-  .__card__title
+  .__card__introduccion
   .__item__description
   .__view__detalle
   a
@@ -78,7 +157,7 @@ section
 
 section
   .__container__funcionarios
-  .__card__title
+  .__card__introduccion
   .__item__description
   .__view__detalle
   a:hover {
@@ -87,7 +166,7 @@ section
 
 section
   .__container__funcionarios
-  .__card__title
+  .__card__introduccion
   .__item__description
   .__view__detalle
   a:hover
@@ -95,20 +174,35 @@ section
   color: var(--blanco);
 }
 
-section .__container__funcionarios .__card__title .__item__img {
+section .__container__funcionarios .__card__introduccion .__item__img {
   flex: 7 80px;
-}
-
-section .__container__funcionarios .__card__title .__item__img .__content__img {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 5rem 0;
 }
 
 section
   .__container__funcionarios
-  .__card__title
+  .__card__introduccion
+  .__item__img
+  .__content__img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+  transition: padding 250ms;
+}
+
+@media (max-width: 1200px) {
+  section
+    .__container__funcionarios
+    .__card__introduccion
+    .__item__img
+    .__content__img {
+    padding: 0;
+  }
+}
+
+section
+  .__container__funcionarios
+  .__card__introduccion
   .__item__img
   .__content__img
   img {
@@ -119,16 +213,101 @@ section
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
+section .__container__funcionarios .__card__title {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  transition: padding 250ms;
+}
+
+@media (max-width: 590px) {
+  section .__container__funcionarios .__card__title {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  section .__container__funcionarios .__card__title {
+    padding: 1rem;
+  }
+}
+
+section .__container__funcionarios .__card__title h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.01rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  color: var(--verde-1);
+}
+
+@media (max-width: 470px) {
+  section .__container__funcionarios .__card__title h1 {
+    font-size: 3rem;
+  }
+}
+
+section .__container__funcionarios .__card__title p {
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+@media (max-width: 470px) {
+  section .__container__funcionarios .__card__title p {
+    font-size: 1.4rem;
+  }
+}
+
 section .__container__funcionarios .__card__funcionarios {
   display: flex;
   flex-wrap: wrap;
   margin: 4rem 0;
 }
 
+@media (max-width: 1440px) {
+  section .__container__funcionarios .__card__funcionarios {
+    padding: 0 1rem;
+  }
+}
+
 section .__container__funcionarios .__card__funcionarios .__card__filtro {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 10rem;
 }
+
+@media (max-width: 660px) {
+  section .__container__funcionarios .__card__funcionarios .__card__filtro {
+    padding: 0 5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  section .__container__funcionarios .__card__funcionarios .__card__filtro {
+    padding: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  section .__container__funcionarios .__card__funcionarios .__card__filtro {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* @media (max-width: 800px) {
+  section .__container__funcionarios .__card__funcionarios .__card__filtro {
+    justify-content: center;
+  }
+} */
 
 section
   .__container__funcionarios
@@ -136,7 +315,17 @@ section
   .__card__filtro
   .__input__search {
   flex: 11 220px;
-  padding-left: 15rem;
+}
+
+@media (max-width: 400px) {
+  section
+    .__container__funcionarios
+    .__card__funcionarios
+    .__card__filtro
+    .__input__search {
+    flex: none;
+    width: 100%;
+  }
 }
 
 section
@@ -154,6 +343,17 @@ section
   border: 1px solid var(--gris-5);
 }
 
+@media (max-width: 400px) {
+  section
+    .__container__funcionarios
+    .__card__funcionarios
+    .__card__filtro
+    .__input__search
+    input {
+    padding: 1rem;
+  }
+}
+
 section
   .__container__funcionarios
   .__card__funcionarios
@@ -169,9 +369,15 @@ section
   .__card__funcionarios
   .__card__filtro
   .__button__search {
-  flex: 1 200px;
-  padding: 0 1.5rem;
+  justify-content: center;
+  /* padding: 0 1.5rem; */
 }
+
+/* @media (max-width: 800px) {
+  section .__container__funcionarios .__card__funcionarios .__card__filtro .__button__search {
+    padding: 0;
+  }
+} */
 
 section
   .__container__funcionarios
@@ -201,35 +407,77 @@ section .__container__funcionarios .__card__funcionarios .__card__contenido {
   flex-wrap: wrap;
   width: 100%;
   margin-top: 4rem;
+  gap: 1rem;
 }
 
-section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user {
-  flex: 0 1 23%;
-  border: 1px solid var(--gris-6);
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user {
+  flex: 1 22rem;
+  border: 1px solid transparent;
   border-radius: 1rem;
   transition-property: box-shadow, border;
-  transition-duration: 250ms;
+  transition-duration: 150ms;
   transition-timing-function: ease-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user:hover {
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user:hover {
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--gris-9);
 }
 
-section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__background__img {
-  width: 100%;
-  height: 320px;
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__background__img {
+  width: 22rem;
+  height: 22rem;
 }
 
-section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__background__img img {
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__background__img
+  img {
   width: 100%;
   height: 100%;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 100%;
   object-fit: cover;
+  border: 2px solid var(--gris-7);
+  animation: border 150ms;
 }
 
-section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__descripcion {
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user:hover
+  .__background__img
+  img {
+  border: 2px dashed var(--azul-5);
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__descripcion {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -237,13 +485,107 @@ section .__container__funcionarios .__card__funcionarios .__card__contenido .__c
   padding: 1.5rem 1rem;
 }
 
-section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__descripcion h1 {
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__descripcion
+  h1 {
   font-weight: 600;
   text-transform: capitalize;
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   letter-spacing: -0.05rem;
+  color: var(--azul-5);
 }
 
-section .__container__funcionarios .__card__funcionarios .__card__contenido .__card__user .__descripcion span {
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__descripcion
+  span {
   text-transform: capitalize;
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__social {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__social
+  .__icon {
+  padding: 1.2rem;
+  background-color: white;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+  border-radius: 0.6rem;
+  display: flex;
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__social
+  .__icon
+  i {
+  font-size: 1.7rem;
+  transition: color 150ms ease-in;
+}
+
+section
+  .__container__funcionarios
+  .__card__funcionarios
+  .__card__contenido
+  .__card__user
+  .__social
+  .__icon:hover
+  i {
+  color: var(--verde-4);
+}
+
+/* Video de trabajo en equipo */
+
+section #modal_view_equipo .modal-content .modal-header {
+  background-color: var(--amarillo-4);
+  color: var(--azul-4);
+}
+
+section #modal_view_equipo .modal-content .modal-header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+section #modal_view_equipo .modal-content .modal-header button {
+  padding: 1.2rem;
+  border-radius: 100%;
+  border: 0.1rem solid var(--gris-6);
+  opacity: 1;
+}
+
+section #modal_view_equipo .modal-content .modal-body {
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+section #modal_view_equipo .modal-content .modal-body iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
 }

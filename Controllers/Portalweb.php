@@ -51,44 +51,70 @@ class Portalweb extends Controllers
 
         $data['funcionarios'] = [
             0 => array(
-                'name' => 'Samuel vela llanos',
-                'cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
-                'img' => 'bg-hero',
-                'link_facebook' => 'https://www.facebook.com/',
-                'link_ig' => '',
-                'link_youtube' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'sin_foto.png',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
             ),
             1 => array(
-                'name' => 'Omer fermandez Chilcon',
-                'cargo' => 'Asistente de la Oficina de Informatica y Estadistica',
-                'img' => 'bg-hero',
-                'link_facebook' => 'https://www.facebook.com/',
-                'link_ig' => 'https://www.instagram.com/',
-                'link_youtube' => ''
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'sin_foto.png',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
             ),
             2 => array(
-                'name' => 'Omer fermandez Chilcon',
-                'cargo' => 'Asistente de la Oficina de Informatica y Estadistica',
-                'img' => 'bg-hero',
-                'link_facebook' => 'https://www.facebook.com/',
-                'link_ig' => '',
-                'link_youtube' => ''
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'sin_foto.png',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
             ),
             3 => array(
-                'name' => 'Omer fermandez Chilcon',
-                'cargo' => 'Asistente de la Oficina de Informatica y Estadistica',
-                'img' => 'bg-hero',
-                'link_facebook' => 'https://www.facebook.com/',
-                'link_ig' => '',
-                'link_youtube' => ''
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'funcionarios_7.webp',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
             ),
             4 => array(
-                'name' => 'Omer fermandez Chilcon',
-                'cargo' => 'Asistente de la Oficina de Informatica y Estadistica',
-                'img' => 'bg-hero',
-                'link_facebook' => 'https://www.facebook.com/',
-                'link_ig' => 'https://www.instagram.com/',
-                'link_youtube' => ''
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'sin_foto.png',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
+            ),
+            5 => array(
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'funcionarios_7.webp',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
             )
         ];
         // json($funciarios);
@@ -100,7 +126,8 @@ class Portalweb extends Controllers
         $this->views->getView($this, "funcionarios", $data);
     }
 
-    public function alcalde() {
+    public function alcalde()
+    {
         $data['page_id'] = 51;
         $data['page_tag'] = "MDESV - Sistema Caja";
         $data['page_title'] = ":. Roles - Sistema Caja";
