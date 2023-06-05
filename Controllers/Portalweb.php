@@ -47,4 +47,13 @@ class Portalweb extends Controllers
         $data['page_function_js'] = "web/functions_funcionarios";
         $this->views->getView($this, "funcionarios", $data);
     }
+    public function alcalde() {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/alcalde";
+        $data['page_function_js'] = "web/functions_alcalde";
+        $this->views->getView($this, "alcalde", $data);
+    }
 }
