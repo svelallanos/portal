@@ -136,4 +136,17 @@ class Portalweb extends Controllers
         // $data['page_function_js'] = "web/functions_funcionarios";
         $this->views->getView($this, "alcalde", $data);
     }
+
+    // Normatividad
+
+    public function resoluciones_alcaldia()
+    {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/alcalde";
+        // $data['page_function_js'] = "web/functions_funcionarios";
+        $this->views->getView($this, "resoluciones_alcaldia", $data);
+    }
 }

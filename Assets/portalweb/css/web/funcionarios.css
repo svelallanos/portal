@@ -428,6 +428,16 @@ section
   cursor: pointer;
 }
 
+@media (max-width: 1440px) {
+  section
+    .__container__funcionarios
+    .__card__funcionarios
+    .__card__contenido
+    .__card__user {
+    margin-bottom: 1rem;
+  }
+}
+
 section
   .__container__funcionarios
   .__card__funcionarios
