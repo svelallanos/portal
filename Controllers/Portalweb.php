@@ -145,7 +145,7 @@ class Portalweb extends Controllers
         $data['page_tag'] = "MDESV - Sistema Caja";
         $data['page_title'] = ":. Roles - Sistema Caja";
         $data['page_name'] = "Lista de Roles";
-        $data['page_css'] = "web/alcalde";
+        $data['page_css'] = "web/resoluciones_alcaldia";
         // $data['page_function_js'] = "web/functions_funcionarios";
         $this->views->getView($this, "resoluciones_alcaldia", $data);
     }
