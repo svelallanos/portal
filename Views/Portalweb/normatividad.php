@@ -13,12 +13,20 @@
             <div class="__card__informacion">
                 <div class="__card__filtro">
                     <div class="__card__select">
-                        <select class="">
-                            <option selected>Seleccione ...</option>
-                            <option value="1">Fecha</option>
-                            <option value="2">Títuto</option>
-                            <option value="3">Descripcion</option>
-                        </select>
+                        <div class="__select__btn">
+                            <span class="select_options">Seccione option</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div class="__options">
+                            <li class="__option">
+                            <i class="fa-solid fa-comment"></i>
+                                <span class="__option__text">Título</span>
+                            </li>
+                            <li class="__option">
+                                <i class="fa-solid fa-comments"></i>
+                                <span class="__option__text">Descripción</span>
+                            </li>
+                        </div>
 
                     </div>
                     <div class="__card__filtrador">

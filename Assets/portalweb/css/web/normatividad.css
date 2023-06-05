@@ -93,6 +93,8 @@ section
   .__card__select {
   flex: 2 160px;
   padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 section
@@ -101,15 +103,63 @@ section
   .__card__informacion
   .__card__filtro
   .__card__select
-  select {
+  .__select__btn {
   padding: 1rem 2rem;
   width: 100%;
   height: 100%;
   background-color: #f2f2f3;
+  color: var(--color-gris-muni);
+  font-weight: 400;
   border-radius: 1.2rem;
   border: none;
   box-shadow: -5px -5px 8px #ffffff7a, 5px 5px 8px #a9a9aa7a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__select
+  .__options {
+  max-width: 206.33px;
+  width: 100%;
+  margin-top: 1rem;
+  background-color: #f2f2f3;
+  box-shadow: inset 5px 5px 10px #a9a9aa77, inset -5px -5px 10px #ffffff7e;
+  border-radius: 0.8rem;
+}
+
+section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__select
+  .__options 
+  .__option {
+    display: flex;
+    height: 5rem;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 0.8rem;
+    padding: 0 1.8rem;
+  }
+
+  section
+  .__card__normatividad
+  .__card__grid
+  .__card__informacion
+  .__card__filtro
+  .__card__select
+  .__options
+  .__option:hover {
+    background-color: white;
+  }
 
 section
   .__card__normatividad
@@ -119,10 +169,10 @@ section
   .__card__select
   select
   option {
-    padding: 0;
-    margin: 0;
-    background-color: red;
-  }
+  padding: 0;
+  margin: 0;
+  background-color: red;
+}
 
 section
   .__card__normatividad
