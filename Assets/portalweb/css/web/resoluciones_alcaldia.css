@@ -1,7 +1,3 @@
-section.container-section {
-  /* background-color: var(--amarillo-4); */
-}
-
 section .__container__res__alcaldia {
   display: flex;
   flex-direction: column;
@@ -94,6 +90,15 @@ section
   text-align: center;
   margin-bottom: 1.5rem;
   color: var(--azul-5);
+}
+
+@media screen and (max-width: 1020px) {
+  section
+    .__container__res__alcaldia
+    .__card__introduccion
+    .__item__description {
+    font-size: 3rem;
+  }
 }
 
 section
@@ -198,12 +203,17 @@ section .__container__res__alcaldia .__card__res__alcaldia {
 }
 
 section .__container__res__alcaldia .__card__res__alcaldia .__title {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   padding: 4rem 0;
   font-size: 3.5rem;
   font-weight: bold;
   color: var(--gris-1);
+}
+
+@media screen and (max-width: 1020px) {
+  section .__container__res__alcaldia .__card__res__alcaldia .__title {
+    font-size: 2.5rem;
+  }
 }
 
 section .__container__res__alcaldia .__card__res__alcaldia .__title span {

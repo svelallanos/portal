@@ -7,6 +7,7 @@ $(document).ready(function () {
 
 function cargarTable() {
     dataResAlcaldia = $("#tb_res_alcaldia").DataTable({
+        responsive: true,
         language: languajeDefault
     });
 }

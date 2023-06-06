@@ -24,13 +24,13 @@
             <div class="__title">
                 Resoluciones de Alcaldía&nbsp;<span class="__anio_select">2023</span>
             </div>
-            <table id="tb_res_alcaldia" class="table table-hover table-striped mb-0 bg-white">
+            <table id="tb_res_alcaldia" class="table table-hover table-striped mb-0 bg-white w-100">
                 <thead>
                     <tr>
                         <th class="col-1 text-center">N°</th>
                         <th class="col-2">Documento</th>
                         <th class="col-6">Descripción</th>
-                        <th class="col-2">Fecha</th>
+                        <th class="col-2">Fecha Publicación</th>
                         <th class="col-1">Acciones</th>
                     </tr>
                 </thead>
