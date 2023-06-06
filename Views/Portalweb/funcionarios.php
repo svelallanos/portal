@@ -76,4 +76,4 @@
         </div>
     </div>
 </section>
-<?php footerPortal(); ?>
+<?php footerPortal($data); ?>

@@ -152,9 +152,9 @@ section .__container__res__alcaldia .__card__anios {
 }
 
 @media (max-width: 1440px) {
-    section .__container__res__alcaldia .__card__anios {
-        padding: 0 1rem;
-    }
+  section .__container__res__alcaldia .__card__anios {
+    padding: 0 1rem;
+  }
 }
 
 section .__container__res__alcaldia .__card__anios .__item__anio {
@@ -175,11 +175,35 @@ section .__container__res__alcaldia .__card__anios .__item__anio {
 }
 
 section .__container__res__alcaldia .__card__anios .__item__anio:hover {
-    background-color: var(--amarillo-4);
-    color: black;
+  background-color: var(--amarillo-4);
+  color: black;
 }
 
 section .__container__res__alcaldia .__card__anios :is(.active) {
   background-color: var(--amarillo-4);
   color: black;
+}
+
+section .__container__res__alcaldia .__card__res__alcaldia {
+  display: flex;
+  flex-flow: column wrap;
+  padding-bottom: 4rem;
+}
+
+section .__container__res__alcaldia .__card__res__alcaldia .__title {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--gris-1);
+}
+
+section .__container__res__alcaldia .__card__res__alcaldia .__title span {
+  color: var(--azul-5);
+}
+
+table.tb_style {
+  background-color: var(--blanco);
+  border: none;
 }

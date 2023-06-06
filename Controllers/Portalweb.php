@@ -146,7 +146,7 @@ class Portalweb extends Controllers
         $data['page_title'] = ":. Roles - Sistema Caja";
         $data['page_name'] = "Lista de Roles";
         $data['page_css'] = "web/resoluciones_alcaldia";
-        // $data['page_function_js'] = "web/functions_funcionarios";
+        $data['page_function_js'] = "web/functions_res_alcaldia";
         $this->views->getView($this, "resoluciones_alcaldia", $data);
     }
 }
