@@ -147,6 +147,8 @@ class Portalweb extends Controllers
         $data['page_name'] = "Lista de Roles";
         $data['page_css'] = "web/resoluciones_alcaldia";
         $data['page_function_js'] = "web/functions_res_alcaldia";
+        $data['array_dataTable_css'] = ['jquery.dataTables.min'];
+        $data['array_dataTable_js'] = ['jquery.dataTables.min'];
         $this->views->getView($this, "resoluciones_alcaldia", $data);
     }
 }

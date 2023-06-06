@@ -15,7 +15,7 @@
         </div>
         <div class="__card__anios">
             <?php for ($i = 13; $i > -1; $i--) { ?>
-                <div class="__item__anio <?= ($i === 13) ? "active" : "" ?>">
+                <div data-anio="20<?= $i + 10 ?>" class="__item__anio <?= ($i === 13) ? "active" : "" ?>">
                     <i class="feather-calendar"></i> <span>20<?= $i + 10 ?></span>
                 </div>
             <?php } ?>
@@ -24,21 +24,23 @@
             <div class="__title">
                 Resoluciones de Alcaldía&nbsp;<span class="__anio_select">2023</span>
             </div>
-            <table id="tb_res_alcaldia" class="table tb_style">
+            <table id="tb_res_alcaldia" class="table table-hover table-striped mb-0 bg-white">
                 <thead>
                     <tr>
-                        <th>Column 1</th>
-                        <th>Column 2</th>
+                        <th class="col-1 text-center">N°</th>
+                        <th class="col-2">Documento</th>
+                        <th class="col-6">Descripción</th>
+                        <th class="col-2">Fecha</th>
+                        <th class="col-1">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Row 1 Data 1</td>
-                        <td>Row 1 Data 2</td>
-                    </tr>
-                    <tr>
-                        <td>Row 2 Data 1</td>
-                        <td>Row 2 Data 2</td>
+                        <td class="text-center fw-bold">1</td>
+                        <td>R.A. Nº001-2023-A/MDNC</td>
+                        <td>DESIGNAR al señor HENRY RIVERA VALLES, con DNI N°01004623, en el cargo de GERENTE MUNICIPAL, de la Municipalidad Distrital de Nueva Cajamarca.</td>
+                        <td>06/06/2023 <span class="fw-bold">6:24 PM</span></td>
+                        <td class="text-center"><a target="_blank" href="https://germarmu.files.wordpress.com/2014/09/resumen-cien-ac3b1os-de-soledad-mc3a1rquez.pdf" download style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a></td>
                     </tr>
                 </tbody>
             </table>

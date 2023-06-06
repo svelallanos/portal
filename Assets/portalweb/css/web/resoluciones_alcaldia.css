@@ -190,6 +190,13 @@ section .__container__res__alcaldia .__card__res__alcaldia {
   padding-bottom: 4rem;
 }
 
+@media (max-width: 1440px) {
+  section .__container__res__alcaldia .__card__res__alcaldia {
+    padding: 0 1rem;
+    padding-bottom: 4rem;
+  }
+}
+
 section .__container__res__alcaldia .__card__res__alcaldia .__title {
   display: flex;
   justify-content: center;
@@ -201,9 +208,4 @@ section .__container__res__alcaldia .__card__res__alcaldia .__title {
 
 section .__container__res__alcaldia .__card__res__alcaldia .__title span {
   color: var(--azul-5);
-}
-
-table.tb_style {
-  background-color: var(--blanco);
-  border: none;
 }
