@@ -3,6 +3,27 @@ section .container__alcalde {
   flex-direction: column;
   max-width: 1440px;
   width: 100%;
+  padding: 2rem 0;
+}
+
+@media (max-width: 1440px) {
+  section .container__alcalde {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  section .container__alcalde {
+    padding: 1rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  section .container__alcalde {
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+  }
 }
 
 section .container__alcalde .__card__datos {
@@ -10,14 +31,15 @@ section .container__alcalde .__card__datos {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 1440px) {
-    section .container__alcalde .__card__datos {
-        padding: 2rem;
-    }
-}
+/* @media screen and (max-width: 1440px) {
+  section .container__alcalde .__card__datos {
+    padding: 2rem;
+    margin: 0;
+  }
+} */
 
 section .container__alcalde .__card__datos .__contenido {
   background-color: var(--azul-1);
@@ -31,6 +53,12 @@ section .container__alcalde .__card__datos .__contenido {
   width: 100%;
 }
 
+@media (max-width: 500px) {
+  section .container__alcalde .__card__datos .__contenido {
+    padding: 1rem;
+  }
+}
+
 section .container__alcalde .__card__datos .__contenido .card__img {
   width: 30rem;
   height: 30rem;
@@ -41,7 +69,13 @@ section .container__alcalde .__card__datos .__contenido .card__img {
   cursor: pointer;
   border: 0.4rem dashed var(--azul-7);
   background-color: var(--azul-1);
-  /* box-shadow: 0px 10px 15px -3px rgba(0, 255, 0, 0.1); */
+}
+
+@media (max-width: 500px) {
+  section .container__alcalde .__card__datos .__contenido .card__img {
+    width: 20rem;
+    height: 20rem;
+  }
 }
 
 section .container__alcalde .__card__datos .__contenido .card__img img {
@@ -65,6 +99,17 @@ section .container__alcalde .__card__datos .__contenido .__datos_personales h1 {
   margin-top: 2rem;
   font-size: 3rem;
   font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  section
+    .container__alcalde
+    .__card__datos
+    .__contenido
+    .__datos_personales
+    h1 {
+    font-size: 2.4rem;
+  }
 }
 
 section .container__alcalde .__card__datos .__contenido .__datos_personales h3 {
@@ -107,6 +152,18 @@ section
   transition: opacity 250ms;
 }
 
+@media (max-width: 400px) {
+  section
+    .container__alcalde
+    .__card__datos
+    .__contenido
+    .__datos_personales
+    span
+    a {
+    font-size: 1.4rem;
+  }
+}
+
 section
   .container__alcalde
   .__card__datos
@@ -131,56 +188,108 @@ section
 }
 
 section .container__alcalde .__card__datos .__contenido .__saludo_resumido {
-    width: 50%;
-    color: var(--blanco);
-    padding: 2rem 0;
+  width: 50%;
+  color: var(--blanco);
+  padding: 0;
+  padding-top: 2rem;
+}
+
+@media (max-width: 1020px) {
+  section .container__alcalde .__card__datos .__contenido .__saludo_resumido {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  section .container__alcalde .__card__datos .__contenido .__saludo_resumido {
+    width: 100%;
+  }
 }
 
 section .container__alcalde .__card__datos .__contenido .__saludo_resumido p {
-    text-align: center;
-    margin: 0;
+  text-align: center;
+  margin: 0;
 }
 
 section .container__alcalde .__data__saludo {
-    background-color: var(--blanco);
-    /* flex: 1 45rem; */
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
+  background-color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 400px) {
+  section .container__alcalde .__data__saludo {
+    padding: 1rem;
+  }
+}
+
+section .container__alcalde .__data__saludo .__title {
+  display: flex;
+  flex-direction: column;
+}
+
+section .container__alcalde .__data__saludo .__title .__opciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section .container__alcalde .__data__saludo .__title .__opciones h1 {
+  color: var(--azul-3);
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  font-size: 4rem;
+  font-style: italic;
+  font-family: "Concert One", cursive;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  section .container__alcalde .__data__saludo .__title .__opciones h1 {
+  font-size: 3.2rem;
+  }
+}
+
+section .container__alcalde .__data__saludo .__title .__opciones button {
+  padding: 1rem 2rem;
+  border: none;
+  background-color: red;
+  font-weight: 600;
+  color: var(--blanco);
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  transition: opacity 150ms ease-in;
+}
+
+section .container__alcalde .__data__saludo .__title .__opciones button:hover {
+  opacity: 0.9;
+}
+
+section .container__alcalde .__data__saludo .__title span {
+  font-size: 1.6rem;
+  color: var(--amarillo-6);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  section .container__alcalde .__data__saludo .__title span {
+  font-size: 1.5rem;
+  }
 }
 
 section .container__alcalde .__data__saludo .__saludo {
-    flex: 1 45rem;
-    padding-right: 2rem;
-}
-
-section .container__alcalde .__data__saludo .__saludo h1 {
-    color: var(--azul-3);
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    font-size: 4rem;
-}
-
-section .container__alcalde .__data__saludo .__saludo h1 span {
-    font-size: 1.6rem;
-    color: var(--verde-5);
-    font-weight: 600;
+  display: flex;
+  flex-direction: column;
 }
 
 section .container__alcalde .__data__saludo .__saludo p {
-    text-align: justify;
-    margin: 0;
-    margin-top: 1.5rem;
-}
-
-section .container__alcalde .__data__saludo .__vitae {
-    flex: 1 40rem;
-}
-
-section .container__alcalde .__data__saludo .__vitae iframe{
-    width: 100%;
-    height: 50rem;
+  text-align: justify;
+  margin: 0;
+  margin-top: 1rem;
 }
