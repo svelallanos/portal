@@ -40,6 +40,87 @@ class Portalweb extends Controllers
         $this->views->getView($this, "normatividad", $data);
     }
 
+    public function consejo()
+    {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/consejo";
+        $data['page_function_js'] = "web/functions_consejo";
+
+        $data['funcionarios'] = [
+            0 => array(
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'sin_foto.png',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
+            ),
+            1 => array(
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'sin_foto.png',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
+            ),
+            2 => array(
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'sin_foto.png',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
+            ),
+            3 => array(
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'funcionarios_7.webp',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
+            ),
+            4 => array(
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'sin_foto.png',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
+            ),
+            5 => array(
+                'funcionario_nombres' => 'Samuel',
+                'funcionario_paterno' => 'Vela',
+                'funcionario_materno' => 'Llanos',
+                'funcionario_cargo' => 'Jefe de la Oficina de Informatica y Estadistica',
+                'funcionario_perfil' => 'funcionarios_7.webp',
+                'funcionario_link_facebook' => 'https://www.facebook.com/',
+                'funcionario_link_ig' => '',
+                'funcionario_link_linkedln' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY',
+                'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
+            )
+        ];
+
+        $this->views->getView($this, "consejo", $data);
+    }
+
     public function funcionarios()
     {
         $data['page_id'] = 51;
@@ -117,11 +198,6 @@ class Portalweb extends Controllers
                 'funcionario_link_twitter' => 'https://www.youtube.com/watch?v=PWmJhh_qTSY'
             )
         ];
-        // json($funciarios);
-
-
-
-
 
         $this->views->getView($this, "funcionarios", $data);
     }

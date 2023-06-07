@@ -15,6 +15,8 @@ class Login extends Controllers
       die;
     }
 
+    // json('llego');
+
     $data['page_id'] = 1;
     $data['page_tag'] = "MDESV - Sistema Caja";
     $data['page_title'] = ":. Login - Sistema Caja";
