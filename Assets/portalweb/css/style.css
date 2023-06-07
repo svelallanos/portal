@@ -49,12 +49,13 @@
   --amarillo-6: #d79f00;
   --amarillo-8: #c8be00;
 
-  --verde-1: #069117;
+  --verde-1: #00d118;
   --verde-4: #03c41a;
   --verde-5: #01ac14;
 
   --bg-btn-primary: #008cff;
   --bg-btn-danger: #ff0000;
+  --bg-btn-success: #01ac14;
   --bg-btn-primary-hover: #017ce1;
   --bg-btn-primary-soft: #00b3ff13;
   --bg-btn-primary-soft-hover: #006eff30;
@@ -92,12 +93,29 @@
   border: none;
 }
 
+.btn-bg-success {
+  text-decoration: none;
+  background-color: var(--bg-btn-success);
+  color: var(--blanco);
+  padding: 1rem 2rem;
+  border-radius: 1.8rem;
+  font-size: 1.5rem;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  border: none;
+}
+
 .btn-bg-primary:hover {
   color: white;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .btn-bg-danger:hover {
+  color: white;
+  opacity: 0.8;
+}
+
+.btn-bg-success:hover {
   color: white;
   opacity: 0.8;
 }
