@@ -227,4 +227,81 @@ class Portalweb extends Controllers
         $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
         $this->views->getView($this, "resoluciones_alcaldia", $data);
     }
+
+    public function resoluciones_gerencia()
+    {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/resoluciones_gerencia";
+        $data['page_function_js'] = "web/functions_res_gerencia";
+        $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
+        $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+        $this->views->getView($this, "resoluciones_gerencia", $data);
+    }
+
+    public function resoluciones_consejo()
+    {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/resoluciones_consejo";
+        $data['page_function_js'] = "web/functions_res_consejo";
+        $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
+        $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+        $this->views->getView($this, "resoluciones_consejo", $data);
+    }
+    public function acuerdo_consejo()
+    {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/acuerdo_consejo";
+        $data['page_function_js'] = "web/functions_acuerdo_consejo";
+        $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
+        $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+        $this->views->getView($this, "acuerdo_consejo", $data);
+    }
+  
+    public function ordenanzas_municipales()
+    {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/ordenanzas_municipales";
+        $data['page_function_js'] = "web/functions_ordenanzas_municipales";
+        $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
+        $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+        $this->views->getView($this, "ordenanzas_municipales", $data);
+    }
+
+    public function decreto_alcaldia()
+    {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/decreto_alcaldia";
+        $data['page_function_js'] = "web/functions_decreto_alcaldia";
+        $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
+        $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+        $this->views->getView($this, "decreto_alcaldia", $data);
+    }
+
+    public function convenios()
+    {
+        $data['page_id'] = 51;
+        $data['page_tag'] = "MDESV - Sistema Caja";
+        $data['page_title'] = ":. Roles - Sistema Caja";
+        $data['page_name'] = "Lista de Roles";
+        $data['page_css'] = "web/convenios";
+        $data['page_function_js'] = "web/functions_convenios";
+        $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
+        $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+        $this->views->getView($this, "convenios", $data);
+    }
 }

@@ -1,0 +1,225 @@
+section .__container__decreto__alcaldia {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+}
+
+section .__container__decreto__alcaldia .__card__introduccion {
+  display: flex;
+  flex-wrap: wrap;
+  transition: padding 250ms;
+}
+
+@media (max-width: 1200px) {
+  section .__container__decreto__alcaldia .__card__introduccion {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 845px) {
+  section .__container__decreto__alcaldia .__card__introduccion {
+    flex-direction: column;
+  }
+}
+
+section .__container__decreto__alcaldia .__card__introduccion .__item__description {
+  flex: 6 80px;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 12rem 8rem;
+  transition: padding 250ms;
+  justify-content: center;
+}
+
+@media (max-width: 1440px) {
+  section
+    .__container__decreto__alcaldia
+    .__card__introduccion
+    .__item__description {
+    padding: 8rem 4rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  section
+    .__container__decreto__alcaldia
+    .__card__introduccion
+    .__item__description {
+    padding: 4rem 0;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 845px) {
+  section
+    .__container__decreto__alcaldia
+    .__card__introduccion
+    .__item__description {
+    padding: 3rem 7rem;
+  }
+}
+
+@media (max-width: 650px) {
+  section
+    .__container__decreto__alcaldia
+    .__card__introduccion
+    .__item__description {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 440px) {
+  section
+    .__container__decreto__alcaldia
+    .__card__introduccion
+    .__item__description {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+section
+  .__container__decreto__alcaldia
+  .__card__introduccion
+  .__item__description
+  h1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.01rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--azul-5);
+}
+
+@media screen and (max-width: 1020px) {
+  section
+    .__container__decreto__alcaldia
+    .__card__introduccion
+    .__item__description {
+    font-size: 3rem;
+  }
+}
+
+section
+  .__container__decreto__alcaldia
+  .__card__introduccion
+  .__item__description
+  p {
+  text-align: justify;
+  margin-bottom: 0;
+  font-size: 1.9rem;
+}
+
+section .__container__decreto__alcaldia .__card__introduccion .__item__img {
+  flex: 6 80px;
+}
+
+section
+  .__container__decreto__alcaldia
+  .__card__introduccion
+  .__item__img
+  .__content__img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+  transition: padding 250ms;
+}
+
+@media (max-width: 1200px) {
+  section
+    .__container__decreto__alcaldia
+    .__card__introduccion
+    .__item__img
+    .__content__img {
+    padding: 0;
+  }
+}
+
+section
+  .__container__decreto__alcaldia
+  .__card__introduccion
+  .__item__img
+  .__content__img
+  img {
+  width: 100%;
+  max-width: 600px;
+  background-size: cover;
+  border-radius: 5rem;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+section .__container__decreto__alcaldia .__card__anios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+@media (max-width: 1440px) {
+  section .__container__decreto__alcaldia .__card__anios {
+    padding: 0 1rem;
+  }
+}
+
+section .__container__decreto__alcaldia
+ .__card__anios .__item__anio {
+  flex: 1 140px;
+  font-size: 1.6rem;
+  padding: 1.2rem 3rem;
+  background-color: var(--verde-5);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 1px solid var(--gris-2);
+  transition: all 250ms;
+}
+
+section .__container__decreto__alcaldia 
+.__card__anios .__item__anio:hover {
+  background-color: var(--amarillo-4);
+  color: black;
+}
+
+section .__container__decreto__alcaldia 
+.__card__anios :is(.active) {
+  background-color: var(--amarillo-4);
+  color: black;
+}
+
+section .__container__decreto__alcaldia
+ .__card__decreto__alcaldia {
+  display: flex;
+  flex-flow: column wrap;
+  padding-bottom: 4rem;
+}
+
+@media (max-width: 1440px) {
+  section .__container__decreto__alcaldia .__card__decreto__alcaldia {
+    padding: 0 1rem;
+    padding-bottom: 4rem;
+  }
+}
+
+section .__container__decreto__alcaldia .__card__decreto__alcaldia .__title {
+  text-align: center;
+  padding: 4rem 0;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--gris-1);
+}
+
+@media screen and (max-width: 1020px) {
+  section .__container__decreto__alcaldia .__card__decreto__alcaldia .__title {
+    font-size: 2.5rem;
+  }
+}
+
+section .__container__decreto__alcaldia .__card__decreto__alcaldia .__title span {
+  color: var(--azul-5);
+}
