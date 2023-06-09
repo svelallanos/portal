@@ -209,8 +209,8 @@ class Usuarios extends Controllers
       $auxUsuariosSinBloquear[$key]['usuarios'] = $value['usuarios_nombres'] . ' ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'];
       $auxUsuariosSinBloquear[$key]['fechacreacion'] = '<div class="text-center"><span class="fw-bold">' . $value['usuarios_fechacreacion']->format('h:i A') . '</span> - ' . $value['usuarios_fechacreacion']->format('d/m/Y') . '</div>';
       $auxUsuariosSinBloquear[$key]['roles'] = (isset($auxRolUsuario[$value['usuarios_id']])) ? $auxRolUsuario[$value['usuarios_id']] : "Sin rol asignado.";
-      $auxUsuariosSinBloquear[$key]['estado'] = '<div class="text-center"><span class="badge fw-bold rounded-pill text-success border bg-success-soft">Activo</span></div>';
-      $auxUsuariosSinBloquear[$key]['options'] = '<div class="text-center"><a href="Usuarios/editar?usuarios_id=' . $value['usuarios_id'] . '" class="btn btn-sm border text-body border-black btn-warning btn_editar_usuario" title="Editar usuario"><i class="fa-solid fa-user-pen"></i></a></div>';
+      $auxUsuariosSinBloquear[$key]['estado'] = '<div class="text-center"><span class="badge fw-bold text-success border bg-success-soft">Activo</span></div>';
+      $auxUsuariosSinBloquear[$key]['options'] = '<div class="text-center"><a href="Usuarios/editar?usuarios_id=' . $value['usuarios_id'] . '" class="btn btn-outline-yellow btn-icon btn-sm btn_editar_usuario" title="Editar usuario"><i class="fa-solid fa-user-pen"></i></a></div>';
     }
 
     json($auxUsuariosSinBloquear);
