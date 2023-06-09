@@ -9,9 +9,6 @@ class Inicio extends Controllers
 
   public function inicio()
   {
-    // location("portalweb");
-    // die;
-    // aca ya no ingresa
     parent::verificarLogin(true);
 
     $data['page_id'] = 2;
@@ -19,7 +16,6 @@ class Inicio extends Controllers
     $data['page_title'] = ":. Inicio - Sistema Caja";
     $data['page_name'] = "MDESV Sistema Caja";
     $data['page_css'] = "inicio/inicio";
-
     $this->views->getView($this, "inicio", $data);
   }
 }

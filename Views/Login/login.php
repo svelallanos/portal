@@ -35,28 +35,27 @@
     <div class="authentication-wrapper authentication-basic container-p-y">
       <div class="authentication-inner">
         <!-- Register -->
-        <div class="card">
-          <div class="card-body">
+        <div class="card" style='background-image: url("<?= media() ?>/images/fondos/fondo_login.png");'>
+          <div class="card-body d-flex flex-column">
             <!-- Logo -->
-            <div class="app-brand justify-content-center">
-              <a href="login" class="app-brand-link gap-2">
+            <div class="mb-3 justify-content-center">
+              <a href="<?= base_url() ?>/login" class="gap-2 d-flex flex-column justify-content-center align-items-center">
                 <span class="app-brand-logo demo">
-                  <img style="width: 4rem;" src="<?= media() ?>/images/Logo-MDESV.png" alt="">
+                  <img style="width: 7rem; filter: drop-shadow(0 0 2px #ff0000);" src="<?= media() ?>/images/Logo-MDESV.png" alt="">
                 </span>
-                <span class="demo text-body fw-bolder fs-3">INICIO DE SESIÓN</span>
+                <span class="demo text-white fw-bolder fs-3">INICIAR SESIÓN</span>
               </a>
             </div>
             <!-- /Logo -->
-            <h4 class="mb-2">Bienvenidos a Caja 👋</h4>
-            <p class="mb-4">Inicia sesión en tu cuenta</p>
+            <h4 class="mb-3 text-center">Administración <span class="fw-bold text-primary">MDESV</span></h4>
             <form id="form_login" class="mb-3">
               <div class="mb-3">
-                <label for="text" class="form-label fw-bold">USUARIO</label>
+                <label for="text" class="form-label text-white">USUARIO</label>
                 <input type="text" class="form-control" name="nombre_usuario" id="nombre_usuario" required placeholder="Ingrese nombre de usuario" autofocus />
               </div>
               <div class="mb-3 form-password-toggle">
                 <div class="d-flex justify-content-between">
-                  <label class="form-label fw-bold" for="password">CONTRASEÑA</label>
+                  <label class="form-label text-white" for="password">CONTRASEÑA</label>
                 </div>
                 <div class="input-group input-group-merge">
                   <input type="password" class="form-control" name="pass_usuario" id="pass_usuario" required placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
@@ -69,8 +68,8 @@
             </form>
 
             <p class="text-center">
-              <span class="fw-bold">Nota: </span>
-              <span class="text-secondary">Sino tiene cuenta comunicate con el administrador.</span>
+              <span class="fw-bold text-white">Nota: </span>
+              <span style="color: #00b4fe;">Sino tiene cuenta comunicate con el administrador.</span>
             </p>
           </div>
         </div>

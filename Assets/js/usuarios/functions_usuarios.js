@@ -90,6 +90,36 @@ function cargarListUsuarios() {
     bDestroy: true,
     iDisplayLength: 10,
     Order: [[0, "desc"]],
+    columnDefs: [
+      {
+        class: 'col-1 text-center',
+        targets: 0
+      },
+      {
+        class: 'col-3',
+        targets: 1
+      },
+      {
+        class: 'col-1 text-center',
+        targets: 2
+      },
+      {
+        class: 'col-2 text-center',
+        targets: 3
+      },
+      {
+        class: 'col-3 text-center',
+        targets: 4
+      },
+      {
+        class: 'col-1 text-center',
+        targets: 5
+      },
+      {
+        class: 'col-1 text-center',
+        targets: 6
+      },
+    ]
   });
 }
 
