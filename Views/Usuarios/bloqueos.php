@@ -30,7 +30,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-body">
-            <table id="lista_bloqueos" class="table table-hover table-bordered table-striped w-100">
+            <table id="lista_bloqueos" class="table-bordered dataTable table-striped table-hover table-sm w-100">
               <thead>
                 <tr>
                   <th>N°</th>

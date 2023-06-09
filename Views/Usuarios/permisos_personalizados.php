@@ -15,10 +15,10 @@
               <i class="feather-file-text me-1"></i>
               Reporte
             </a>
-            <a class="btn btn-sm btn-light text-primary" href="<?= base_url() ?>Usuarios/nuevo">
+            <button class="btn btn-sm btn-light text-primary open_modal_usuarios">
               <i class="me-1" data-feather="plus"></i>
               Nuevo Usuario
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -30,15 +30,14 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-body">
-            <table id="lista_usuarios" class="table-bordered dataTable table-striped table-hover table-sm w-100">
+          <table id="tb_permisosPersonalizados" class="table-bordered dataTable table-striped table-hover table-sm w-100">
               <thead>
                 <tr>
                   <th>N°</th>
-                  <th>NOMBRES</th>
+                  <th>NOMBRES Y APELLIDOS</th>
                   <th>DNI</th>
-                  <th>CREACIÓN</th>
-                  <th>ROLES</th>
-                  <th>ESTADO</th>
+                  <th>CANTIDAD</th>
+                  <th class="text-center">FECHA PERMISO</th>
                   <th>ACCIONES</th>
                 </tr>
               </thead>
