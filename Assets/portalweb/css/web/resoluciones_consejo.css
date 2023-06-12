@@ -1,28 +1,28 @@
-section .__container__res__alcaldia {
+section .__container__res__consejo {
   display: flex;
   flex-direction: column;
   max-width: 1440px;
 }
 
-section .__container__res__alcaldia .__card__introduccion {
+section .__container__res__consejo .__card__introduccion {
   display: flex;
   flex-wrap: wrap;
   transition: padding 250ms;
 }
 
 @media (max-width: 1200px) {
-  section .__container__res__alcaldia .__card__introduccion {
+  section .__container__res__consejo .__card__introduccion {
     padding: 2rem;
   }
 }
 
 @media (max-width: 845px) {
-  section .__container__res__alcaldia .__card__introduccion {
+  section .__container__res__consejo .__card__introduccion {
     flex-direction: column;
   }
 }
 
-section .__container__res__alcaldia .__card__introduccion .__item__description {
+section .__container__res__consejo .__card__introduccion .__item__description {
   flex: 6 80px;
   display: flex;
   flex-flow: column wrap;
@@ -33,7 +33,7 @@ section .__container__res__alcaldia .__card__introduccion .__item__description {
 
 @media (max-width: 1440px) {
   section
-    .__container__res__alcaldia
+    .__container__res__consejo
     .__card__introduccion
     .__item__description {
     padding: 8rem 4rem;
@@ -42,7 +42,7 @@ section .__container__res__alcaldia .__card__introduccion .__item__description {
 
 @media (max-width: 1200px) {
   section
-    .__container__res__alcaldia
+    .__container__res__consejo
     .__card__introduccion
     .__item__description {
     padding: 4rem 0;
@@ -52,7 +52,7 @@ section .__container__res__alcaldia .__card__introduccion .__item__description {
 
 @media (max-width: 845px) {
   section
-    .__container__res__alcaldia
+    .__container__res__consejo
     .__card__introduccion
     .__item__description {
     padding: 3rem 7rem;
@@ -61,7 +61,7 @@ section .__container__res__alcaldia .__card__introduccion .__item__description {
 
 @media (max-width: 650px) {
   section
-    .__container__res__alcaldia
+    .__container__res__consejo
     .__card__introduccion
     .__item__description {
     padding: 2rem;
@@ -70,7 +70,7 @@ section .__container__res__alcaldia .__card__introduccion .__item__description {
 
 @media (max-width: 440px) {
   section
-    .__container__res__alcaldia
+    .__container__res__consejo
     .__card__introduccion
     .__item__description {
     padding: 0;
@@ -79,11 +79,11 @@ section .__container__res__alcaldia .__card__introduccion .__item__description {
 }
 
 section
-  .__container__res__alcaldia
+  .__container__res__consejo
   .__card__introduccion
   .__item__description
   h1 {
-  font-size: 4rem;
+  font-size: 4.7rem;
   font-weight: 700;
   text-transform: capitalize;
   letter-spacing: 0.01rem;
@@ -94,7 +94,7 @@ section
 
 @media screen and (max-width: 1020px) {
   section
-    .__container__res__alcaldia
+    .__container__res__consejo
     .__card__introduccion
     .__item__description {
     font-size: 3rem;
@@ -102,21 +102,21 @@ section
 }
 
 section
-  .__container__res__alcaldia
+  .__container__res__consejo
   .__card__introduccion
   .__item__description
   p {
   text-align: justify;
   margin-bottom: 0;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
 }
 
-section .__container__res__alcaldia .__card__introduccion .__item__img {
+section .__container__res__consejo .__card__introduccion .__item__img {
   flex: 6 80px;
 }
 
 section
-  .__container__res__alcaldia
+  .__container__res__consejo
   .__card__introduccion
   .__item__img
   .__content__img {
@@ -129,7 +129,7 @@ section
 
 @media (max-width: 1200px) {
   section
-    .__container__res__alcaldia
+    .__container__res__consejo
     .__card__introduccion
     .__item__img
     .__content__img {
@@ -138,7 +138,7 @@ section
 }
 
 section
-  .__container__res__alcaldia
+  .__container__res__consejo
   .__card__introduccion
   .__item__img
   .__content__img
@@ -150,19 +150,19 @@ section
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-section .__container__res__alcaldia .__card__anios {
+section .__container__res__consejo .__card__anios {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
 }
 
 @media (max-width: 1440px) {
-  section .__container__res__alcaldia .__card__anios {
+  section .__container__res__consejo .__card__anios {
     padding: 0 1rem;
   }
 }
 
-section .__container__res__alcaldia .__card__anios .__item__anio {
+section .__container__res__consejo .__card__anios .__item__anio {
   flex: 1 140px;
   font-size: 1.6rem;
   padding: 1.2rem 3rem;
@@ -179,30 +179,30 @@ section .__container__res__alcaldia .__card__anios .__item__anio {
   transition: all 250ms;
 }
 
-section .__container__res__alcaldia .__card__anios .__item__anio:hover {
+section .__container__res__consejo .__card__anios .__item__anio:hover {
   background-color: var(--amarillo-4);
   color: black;
 }
 
-section .__container__res__alcaldia .__card__anios :is(.active) {
+section .__container__res__consejo .__card__anios :is(.active) {
   background-color: var(--amarillo-4);
   color: black;
 }
 
-section .__container__res__alcaldia .__card__res__alcaldia {
+section .__container__res__consejo .__card__res__consejo {
   display: flex;
   flex-flow: column wrap;
   padding-bottom: 4rem;
 }
 
 @media (max-width: 1440px) {
-  section .__container__res__alcaldia .__card__res__alcaldia {
+  section .__container__res__consejo .__card__res__consejo {
     padding: 0 1rem;
     padding-bottom: 4rem;
   }
 }
 
-section .__container__res__alcaldia .__card__res__alcaldia .__title {
+section .__container__res__consejo .__card__res__consejo .__title {
   text-align: center;
   padding: 4rem 0;
   font-size: 3.5rem;
@@ -211,12 +211,12 @@ section .__container__res__alcaldia .__card__res__alcaldia .__title {
 }
 
 @media screen and (max-width: 1020px) {
-  section .__container__res__alcaldia .__card__res__alcaldia .__title {
+  section .__container__res__consejo .__card__res__consejo .__title {
     font-size: 2.5rem;
   }
 }
 
-section .__container__res__alcaldia .__card__res__alcaldia .__title span {
+section .__container__res__consejo .__card__res__consejo .__title span {
   color: var(--azul-5);
   font-size: 4.5rem;
 }

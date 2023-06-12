@@ -22,7 +22,8 @@ section .__container__consejo .__card__introduccion {
   }
 }
 
-section .__container__consejo .__card__introduccion .__item__description {
+section .__container__consejo .__card__introduccion 
+.__item__description {
   flex: 5 80px;
   display: flex;
   flex-flow: column wrap;
@@ -31,38 +32,44 @@ section .__container__consejo .__card__introduccion .__item__description {
 }
 
 @media (max-width: 1440px) {
-  section .__container__consejo .__card__introduccion .__item__description {
+  section .__container__consejo .__card__introduccion 
+  .__item__description {
     padding: 8rem 4rem;
   }
 }
 
 @media (max-width: 1200px) {
-  section .__container__consejo .__card__introduccion .__item__description {
+  section .__container__consejo .__card__introduccion 
+  .__item__description {
     padding: 4rem 0;
     padding-right: 2rem;
   }
 }
 
 @media (max-width: 845px) {
-  section .__container__consejo .__card__introduccion .__item__description {
+  section .__container__consejo .__card__introduccion 
+  .__item__description {
     padding: 3rem 7rem;
   }
 }
 
 @media (max-width: 650px) {
-  section .__container__consejo .__card__introduccion .__item__description {
+  section .__container__consejo .__card__introduccion 
+  .__item__description {
     padding: 2rem;
   }
 }
 
 @media (max-width: 440px) {
-  section .__container__consejo .__card__introduccion .__item__description {
+  section .__container__consejo .__card__introduccion 
+  .__item__description {
     padding: 0;
     margin-bottom: 2rem;
   }
 }
 
-section .__container__consejo .__card__introduccion .__item__description h1 {
+section .__container__consejo .__card__introduccion 
+.__item__description h1 {
   font-size: 4rem;
   font-weight: 700;
   text-transform: capitalize;
@@ -72,7 +79,8 @@ section .__container__consejo .__card__introduccion .__item__description h1 {
   color: var(--amarillo-6);
 }
 
-section .__container__consejo .__card__introduccion .__item__description p {
+section .__container__consejo .__card__introduccion
+ .__item__description p {
   text-align: justify;
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
@@ -151,7 +159,8 @@ section
   color: var(--blanco);
 }
 
-section .__container__consejo .__card__introduccion .__item__img {
+section .__container__consejo .__card__introduccion 
+.__item__img {
   flex: 7 80px;
 }
 

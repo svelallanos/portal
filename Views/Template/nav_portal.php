@@ -54,8 +54,8 @@
                         <li><a href="<?= base_url() ?>portalweb/alcalde">Alcalde</a></li>
                         <li><a href="<?= base_url() ?>portalweb/consejo">Consejo Municipal</a></li>
                         <li><a href="<?= base_url() ?>portalweb/funcionarios">Funcionarios</a></li>
-                        <li><a href="#">Comisiones</a></li>
-                        <li><a href="#">Organigrama</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/comisiones">Comisiones</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/organigrama">Organigrama</a></li>
                         <!-- <li><a href="#">Servicios <i class="fa-solid fa-angle-up __drop"></i></a>
                             <ul>
                                 <li><a href="#">Maquinarias</a></li>
@@ -69,14 +69,15 @@
                         <li><a href="#">Resoluciones <i class="fa-solid fa-angle-up __drop"></i></a>
                             <ul>
                                 <li><a href="<?= base_url() ?>portalweb/resoluciones_alcaldia">Alcaldía</a></li>
-                                <li><a href="<?= base_url() ?>portalweb/resoluciones_alcaldia">Gerencia</a></li>
-                                <li><a href="<?= base_url() ?>portalweb/resoluciones_alcaldia">Consejo</a></li>
+                                <li><a href="<?= base_url() ?>portalweb/resoluciones_gerencia">Gerencia</a></li>
+                                <li><a href="<?= base_url() ?>portalweb/resoluciones_consejo">Consejo</a></li>
+                               
                             </ul>
                         </li>
-                        <li><a href="<?= base_url() ?>portalweb/resoluciones_alcaldia">Ordenanzas Municipales</a></li>
-                        <li><a href="<?= base_url() ?>portalweb/resoluciones_alcaldia">Acuerdos de Consejo</a></li>
-                        <li><a href="<?= base_url() ?>portalweb/resoluciones_alcaldia">Decreto de Alcaldía</a></li>
-                        <li><a href="<?= base_url() ?>portalweb/resoluciones_alcaldia">Convenios</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/ordenanzas_municipales">Ordenanzas Municipales</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/acuerdo_consejo">Acuerdos de Consejo</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/decreto_alcaldia">Decreto de Alcaldía</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/convenios">Convenios</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Motores</a></li>
