@@ -12,7 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="<?= media() ?>/js/general/sweetalert2@11.js?version=<?= getVersion() ?>"></script>
 <script src="<?= media() ?>/js/general/all.js?version=<?= getVersion() ?>"></script>
-<script src="<?= media() ?>/js/general/jquery-3.6.0.min.js?version=<?= getVersion() ?>"></script>
+<script src="<?= media() ?>/js/general/jquery-3.7.0.js?version=<?= getVersion() ?>"></script>
 <script src="<?= media() ?>/js/general/jquery.dataTables.min.js?version=<?= getVersion() ?>"></script>
 <script src="<?= media() ?>/js/general/dataTables.bootstrap5.min.js?version=<?= getVersion() ?>"></script>
 <script src="<?= media() ?>/js/general/feather.min.js?version=<?= getVersion() ?>"></script>
