@@ -24,7 +24,7 @@
             <div class="__title">
                 Convenios&nbsp;<span class="__anio_select">2023</span>
             </div>
-            <table id="tb_res_alcaldia" class="table table-hover table-striped mb-0 bg-white w-100">
+            <table id="tb_convenios" class="table table-hover table-striped mb-0 bg-white w-100">
                 <thead>
                     <tr>
                         <th class="col-1 text-center">N°</th>

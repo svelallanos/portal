@@ -1,0 +1,285 @@
+section .__container__comisiones {
+display: flex;
+flex-direction: column;
+max-width: 1440px;
+width: 100%;
+}
+
+section .__container__comisiones .__card__introduccion {
+  display: flex;
+  flex-wrap: wrap;
+  transition: padding 250ms;
+}
+
+@media (max-width: 1200px) {
+  section .__container__comisiones .__card__introduccion {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 845px) {
+  section .__container__comisiones 
+  .__card__introduccion {
+    flex-direction: column;
+  }
+}
+
+section .__container__comisiones 
+.__card__introduccion 
+.__item__description {
+  flex: 6 80px;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 12rem 8rem;
+  transition: padding 250ms;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1440px) {
+  section
+    .__container__comisiones
+    .__card__introduccion
+    .__item__description {
+    padding: 8rem 4rem;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  section
+    .__container__comisiones
+    .__card__introduccion
+    .__item__description {
+    padding: 4rem 0;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 845px) {
+  section
+    .__container__comisiones
+    .__card__introduccion
+    .__item__description {
+    padding: 3rem 7rem;
+  }
+}
+
+@media (max-width: 650px) {
+  section
+    .__container__comisiones
+    .__card__introduccion
+    .__item__description {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 440px) {
+  section
+    .__container__comisiones
+    .__card__introduccion
+    .__item__description {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+section
+  .__container__comisiones
+  .__card__introduccion
+  .__item__description
+  h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: capitalize;
+  letter-spacing: 0.01rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--azul-5);
+}
+
+@media screen and (max-width: 1020px) {
+  section
+    .__container__comisiones
+    .__card__introduccion
+    .__item__description {
+    font-size: 3rem;
+  }
+}
+
+section
+  .__container__comisiones
+  .__card__introduccion
+  .__item__description
+  .__anio{
+    color: var(--azul-6);
+    font-size:7rem;
+  }
+
+
+
+
+section
+  .__container__comisiones
+  .__card__introduccion
+  .__item__description
+  p {
+  text-align: justify;
+  margin-bottom: 0;
+  font-size: 2.1rem;
+  /* estructura del ingreso del video*/
+}
+section
+  .__container__comisiones
+  .__card__introduccion
+  .__item__description
+  .__view__detalle {
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+margin-top: 4rem;
+
+
+}
+
+@media (max-width: 845px) {
+  section
+    .__container__comisiones
+    .__card__introduccion
+    .__item__description
+    .__view__detalle {
+    justify-content: center;
+  }
+}
+
+section
+  .__container__comisiones
+  .__card__introduccion
+  .__item__description
+  .__view__detalle
+  a:nth-child(2) {
+  background-color: var(--bg-light);
+  border-radius: 50%;
+  padding: 1.5rem;
+  margin-left: 1rem;
+  box-shadow: 0px -7px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in;
+}
+
+section
+  .__container__comisiones
+  .__card__introduccion
+  .__item__description
+  .__view__detalle
+  a
+  i {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: var(--bg-btn-danger);
+}
+
+section
+  .__container__comisiones
+  .__card__introduccion
+  .__item__description
+  .__view__detalle
+  a:nth-child(2):hover {
+  background-color: var(--bg-btn-danger);
+}
+
+section
+  .__container__comisiones
+  .__card__introduccion
+  .__item__description
+  .__view__detalle
+  a:hover
+  i {
+  color: var(--blanco);
+}
+
+
+
+
+/*--------------estructira del la vista del pdf...............*/
+
+section .__container__comisiones 
+.__card__comisiones{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 2rem;
+overflow: auto;
+border-radius: 5rem;
+
+height: 80rem;
+width:100%;
+
+}
+section .__container__comisiones .__card__comisiones 
+.__comisiones__pdf{
+
+height: 80rem;
+width:100%;
+border-radius:5rem ;
+cursor:pointer;
+
+} 
+
+
+section .__container__comisiones .__card__comisiones 
+.__comisiones__pdf iframe{
+height: 90rem;
+width:100%;
+  border: none;
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+/* estructura de los estilos del video en equipo*/
+
+section #modal_view_equipo .modal-content .modal-header {
+  background-color: var(--amarillo-4);
+  color: var(--azul-4);
+}
+
+section #modal_view_equipo .modal-content .modal-header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+section #modal_view_equipo .modal-content .modal-header button {
+  padding: 1.2rem;
+  border-radius: 100%;
+  border: 0.1rem solid var(--gris-6);
+  opacity: 1;
+}
+
+section #modal_view_equipo .modal-content .modal-body {
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+section #modal_view_equipo .modal-content .modal-body iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}

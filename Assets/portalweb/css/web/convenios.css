@@ -83,7 +83,7 @@ section
   .__card__introduccion
   .__item__description
   h1 {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 700;
   text-transform: capitalize;
   letter-spacing: 0.01rem;
@@ -108,7 +108,7 @@ section
   p {
   text-align: justify;
   margin-bottom: 0;
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 section .__container__convenios .__card__introduccion .__item__img {
@@ -209,7 +209,7 @@ section .__container__convenios .__card__convenios
  .__title {
   text-align: center;
   padding: 4rem 0;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: bold;
   color: var(--gris-1);
 }
@@ -217,10 +217,14 @@ section .__container__convenios .__card__convenios
 @media screen and (max-width: 1020px) {
   section .__container__convenios .__card__convenios
    .__title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 }
 
+section .__container__convenios .__card__convenios
+.__title .__anio_select{
+  font-size: 5rem;
+}
 section .__container__convenios .__card__convenios
  .__title span {
   color: var(--azul-5);

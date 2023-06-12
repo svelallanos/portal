@@ -30,7 +30,14 @@
                 <span>Municipalidad Distrital de Elías Soplín Vargas</span>
             </div>
             <div class="__saludo">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia ut consequatur soluta delectus quod adipisci eveniet nisi, veritatis sequi odio laboriosam repellat accusantium dignissimos voluptatibus amet repellendus explicabo in pariatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt laboriosam omnis, at neque nam nostrum ab quae officiis nulla quasi ex nihil expedita, ea ratione! Nesciunt dolore rerum sequi a!Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi cum recusandae ea! Voluptas minus sequi incidunt magnam ad accusamus nihil dolorum quaerat consequatur ab obcaecati consequuntur, error odit perferendis tenetur.lorenm</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia ut consequatur
+                     soluta delectus quod adipisci eveniet nisi, veritatis sequi odio laboriosam repellat
+                      accusantium dignissimos voluptatibus amet repellendus explicabo in pariatur?Lorem ipsum 
+                      dolor sit amet consectetur adipisicing elit. Deserunt laboriosam omnis, at neque
+                       nam nostrum ab quae officiis nulla quasi ex nihil expedita, ea ratione! Nesciunt 
+                       dolore rerum sequi a!Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quasi cum recusandae ea! Voluptas minus sequi incidunt magnam ad accusamus nihil
+                         dolorum quaerat consequatur ab obcaecati consequuntur, error odit perferendis tenetur.lorenm</p>
             </div>
         </div>
     </div>

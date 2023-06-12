@@ -54,8 +54,8 @@
                         <li><a href="<?= base_url() ?>portalweb/alcalde">Alcalde</a></li>
                         <li><a href="<?= base_url() ?>portalweb/consejo">Consejo Municipal</a></li>
                         <li><a href="<?= base_url() ?>portalweb/funcionarios">Funcionarios</a></li>
-                        <li><a href="#">Comisiones</a></li>
-                        <li><a href="#">Organigrama</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/comisiones">Comisiones</a></li>
+                        <li><a href="<?= base_url() ?>portalweb/organigrama">Organigrama</a></li>
                         <!-- <li><a href="#">Servicios <i class="fa-solid fa-angle-up __drop"></i></a>
                             <ul>
                                 <li><a href="#">Maquinarias</a></li>

@@ -222,4 +222,5 @@ section .__container__ordenanzas__municipales
 
 section .__container__ordenanzas__municipales .__card__ordenanzas__municipales .__title span {
   color: var(--azul-5);
+  font-size: 4.5rem;
 }

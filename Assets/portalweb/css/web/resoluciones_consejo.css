@@ -218,4 +218,5 @@ section .__container__res__consejo .__card__res__consejo .__title {
 
 section .__container__res__consejo .__card__res__consejo .__title span {
   color: var(--azul-5);
+  font-size: 4.5rem;
 }

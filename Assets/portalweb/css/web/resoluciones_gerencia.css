@@ -227,4 +227,5 @@ section .__container__res__gerencia .__card__res__gerencia
 
 section .__container__res__gerencia .__card__res__gerencia .__title span {
   color: var(--azul-5);
+  font-size: 4.5rem;
 }
