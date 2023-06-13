@@ -15,7 +15,7 @@
                             <i class="feather-file-text me-1"></i>
                             Reporte
                         </a>
-                        <button type="button" class="btn btn-sm btn-light text-primary">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal_alcalde" class="btn btn-sm btn-light text-primary">
                             <i class="me-1" data-feather="plus"></i>
                             Nuevo
                         </button>
@@ -47,6 +47,6 @@
     
 </main>
 
-<?php footerAdmin($data) 
-
+<?php footerAdmin($data);
+getModal('modal_alcalde',$data);
 ?>
