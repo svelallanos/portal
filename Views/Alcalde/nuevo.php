@@ -55,32 +55,56 @@
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (first name)-->
-                                <div class="col-md-6 mb-2">
+                                <!-- <div class="col-md-6 mb-2">
                                     <label class="small mb-1">Usuario Login</label>
                                     <input required class="form-control" id="usuarios_login" type="text" name="usuarios_login" placeholder="Usuario de inicio de sesion">
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label class="small mb-1">DNI</label>
-                                    <input required class="form-control" id="usuarios_dni" name="usuarios_dni" type="text" placeholder="Ingrese número de dni del usuario">
-                                </div>
+                                </div> -->
                                 <div class="col-md-6 mb-2">
                                     <label class="small mb-1">Nombre</label>
-                                    <input required class="form-control" name="usuarios_nombres" id="usuarios_nombres" type="text" placeholder="Ingrese nombre de usuario">
+                                    <input required class="form-control" name="alcalde_nombres" id="alcalde_nombres" type="text" placeholder="Ingrese nombre de usuario">
                                 </div>
+                               
                                 <!-- Form Group (last name)-->
                                 <div class="col-md-6 mb-2">
                                     <label class="small mb-1">Apellido Paterno</label>
-                                    <input required class="form-control" name="usuarios_paterno" id="usuarios_paterno" type="text" placeholder="Ingrese apellido paterno del usuario">
+                                    <input required class="form-control" name="alcalde_apellidopaterno" id="alcalde_apellidopaterno" type="text" placeholder="Ingrese apellido paterno del usuario">
                                 </div>
+
                                 <div class="col-md-6">
                                     <label class="small mb-1">Apellido Materno</label>
-                                    <input required class="form-control" name="usuarios_materno" id="usuarios_materno" type="text" placeholder="Ingrese el apellido materno del usuario">
+                                    <input required class="form-control" name="alcalde_apellidomaterno" id="alcalde_apellidomaterno" type="text" placeholder="Ingrese el apellido materno del usuario">
                                 </div>
-                            </div>
-                            <div class="mb-3">
+
+                                <div class="col-md-6 mb-2">
+                                    <label class="small mb-1">DNI</label>
+                                    <input required class="form-control" id="alcalde_dni" name="alcalde_dni" type="text" placeholder="Ingrese número de dni del usuario">
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label class="small mb-1">RUC</label>
+                                    <input required class="form-control" id="alcalde_ruc" name="alcalde_ruc" type="text" placeholder="Ingrese número ruc del usuario">
+                                </div>
+
+                                <div class="col-md-6 mb-2">
                                 <label class="small mb-1">Correo Electrónico</label>
-                                <input required class="form-control" id="usuarios_email" name="usuarios_email" type="email" placeholder="name@example.com">
+                                <input required class="form-control" id="alcalde_email" name="alcalde_email" type="email" placeholder="name@example.com">
                             </div>
+                            <div class="col-md-6 mb-2">
+                                    <label class="small mb-1">Celular</label>
+                                    <input required class="form-control" id="alcalde_celular" name="alcalde_celular" type="text" placeholder="Ingrese número de celular del usuario">
+                                </div>
+                              
+                                <div class="col-md-12 mb-3">
+                        <label for="gestion_descripcion" class="form-label fw-bold">Resumen</label>
+                        <textarea class="form-control" id="alcalde_resumen" name="alcalde_resumen" required rows="3"></textarea>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label for="gestion_descripcion" class="form-label fw-bold">Saludo</label>
+                        <textarea class="form-control" id="alcalde_saludo" name="alcalde_saludo" required rows="3"></textarea>
+                    </div>
+                            </div>
+                            
                         </form>
                     </div>
                 </div>
