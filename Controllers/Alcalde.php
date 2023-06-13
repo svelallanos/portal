@@ -54,4 +54,17 @@ class Alcalde extends Controllers
 
         json($dataAlcalde);
     }
+
+    public function nuevo() {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(7, true);
+
+        $data['page_id'] = 7;
+        $data['page_tag'] = "MDESV - Portal Web";
+        $data['page_title'] = ":. Nuevo alcalde - Portal Web";
+        $data['page_name'] = "Nuevo alcalde";
+        // $data['page_css'] = "alcalde/alcalde";
+        $data['page_function_js'] = "alcalde/functions_alcalde";
+        $this->views->getView($this, "nuevo", $data);
+    }
 }
