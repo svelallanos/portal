@@ -24,13 +24,29 @@
             </div>
         </div>
     </header>
-    <div class="container-xl px-4 mt-5">
-        <div class="row">
+    <div class="container-xxl px-4 mt-5">
             <div class="card p-3">
-                Hola samuel 
+                <div class="tabla-responsive">
+                    <table id="tb_alcalde" class="table-bordered dataTable table-striped table-hover table-sm w-100">
+                        <thead>
+                            <tr>
+                                <th>ACCIONES</th>
+                                <th>NOMBRES</th>
+                                <th>DNI</th>
+                                <th>RUC</th>
+                                <th>EMAIL</th>
+                                <th>GESTION</th>
+                                <th>ESTADO</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+               
             </div>
         </div>
-    </div>
+    
 </main>
 
-<?php footerAdmin($data) ?>
+<?php footerAdmin($data) 
+
+?>
