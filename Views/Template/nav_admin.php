@@ -25,7 +25,7 @@
           Inicio
         </a>
         <!-- Sidenav panel administrador-->
-        <?php if (verificarPermiso($data, 1) || verificarPermiso($data, 2) || verificarPermiso($data, 3) || verificarPermiso($data, 4) || verificarPermiso($data, 6)) { ?>
+        <?php if (verificarPermiso($data, 1) || verificarPermiso($data, 2) || verificarPermiso($data, 3) || verificarPermiso($data, 4) || verificarPermiso($data, 6) || verificarPermiso($data, 7) || verificarPermiso($data, 8)) { ?>
           <div class="sidenav-menu-heading pt-2">Panel Administrador</div>
           <!-- Sidenav Accordion (Dashboard)-->
           <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
@@ -65,6 +65,18 @@
             <a class="nav-link" href="<?= base_url() ?>gestion">
               <div class="nav-link-icon"><i class="feather-server"></i></div>
               Gestión Alcaldía
+            </a>
+          <?php } ?>
+          <?php if (verificarPermiso($data, 7)) { ?>
+            <a class="nav-link" href="<?= base_url() ?>alcalde">
+              <div class="nav-link-icon"><i class="feather-user"></i></div>
+              Alcalde
+            </a>
+          <?php } ?>
+          <?php if (verificarPermiso($data, 8)) { ?>
+            <a class="nav-link" href="<?= base_url() ?>empresa">
+              <div class="nav-link-icon"><i class="feather-feather"></i></div>
+              Empresa
             </a>
           <?php } ?>
 
