@@ -85,11 +85,7 @@
                                     <label class="small mb-1">Celular</label>
                                     <input required class="form-control" id="alcalde_celular" name="alcalde_celular" type="text" placeholder="Ingrese número de celular">
                                 </div>
-                                <div class="col-md-3 mb-2">
-                                    <label class="small mb-1">Celular</label>
-                                    <input required class="form-control" id="alcalde_celular" name="alcalde_celular" type="text" placeholder="Ingrese número de celular">
-                                </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-5 mb-2">
                                     <label class="small mb-1">Gestión</label>
                                     <select required class="form-select" id="gestion_id" name="gestion_id">
                                         <option selected>Seleccione</option>
