@@ -7,7 +7,6 @@ $(document).ready(function () {
 
 function cargarAlcalde() {
     dataAlcalde = $('#tb_alcalde').DataTable({
-
         aProcessing: true,
         aServerSide: true,
         language: languajeDefault,
@@ -17,12 +16,12 @@ function cargarAlcalde() {
         },
         columns: [
             { data: "options" },
-            { data: "alcalde_nombres" },
+            { data: "nombres" },
             { data: "alcalde_dni" },
             { data: "alcalde_ruc" },
             { data: "alcalde_email" },
-            { data: "gestion_id" },
-            { data: "alcalde_estado" },
+            { data: "gestion" },
+            { data: "estado" },
         ],
         resonsieve: "true",
         bDestroy: true,
@@ -34,7 +33,7 @@ function cargarAlcalde() {
                 targets: 0,
             },
             {
-                class: "col-4",
+                class: "col-3",
                 targets: 1,
             },
             {
@@ -46,11 +45,11 @@ function cargarAlcalde() {
                 targets: 3,
             },
             {
-                class: "col-2 text-center",
+                class: "col-2",
                 targets: 4,
             },
             {
-                class: "col-1 text-center",
+                class: "col-2 text-center",
                 targets: 5,
             },
             {

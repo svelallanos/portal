@@ -10,16 +10,16 @@
                             <?= !empty($data['page_name']) ? $data['page_name'] : 'Sin Nombre' ?>
                         </h1>
                     </div>
-                    <!-- <div class="col-12 col-xl-auto mb-3">
+                    <div class="col-12 col-xl-auto mb-3">
                         <a class="btn btn-sm btn-danger-soft text-danger" href="#">
                             <i class="feather-file-text me-1"></i>
                             Reporte
                         </a>
-                        <a class="btn btn-sm btn-light text-primary" href="<?= base_url() ?>Roles/Nuevo">
+                        <button type="button" class="btn btn-sm btn-light text-primary">
                             <i class="me-1" data-feather="plus"></i>
-                            Nuevo Rol
-                        </a>
-                    </div> -->
+                            Nuevo
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

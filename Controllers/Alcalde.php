@@ -26,10 +26,28 @@ class Alcalde extends Controllers
         parent::verificarLogin(true);
         parent::verificarPermiso(8, true);
 
+        // Cargar datos gestion
+        $dataGestion = $this->model->selectsGestion();
+        $auxDataGestion = array();
+
+        foreach ($dataGestion as $key => $value) {
+            $auxDataGestion[$value['gestion_id']] = $value['gestion_nombre'];
+        }     
+
         $dataAlcalde = $this->model->selectsAlcalde();
 
         foreach ($dataAlcalde as $key => $value) {
             $dataAlcalde[$key]['options'] = '<button class="btn btn-sm btn-warning btn-icon"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-danger btn-icon"><i class="feather-trash-2"></i></button>';
+
+
+            $dataAlcalde[$key]['gestion'] = $auxDataGestion[$value['gestion_id']];
+
+            $dataAlcalde[$key]['nombres'] = $value['alcalde_nombres'].', '.$value['alcalde_apellidopaterno'].' '.$value['alcalde_apellidomaterno'];
+
+            $dataAlcalde[$key]['estado'] = '<span class="badge bg-danger">Inactivo</span>';
+            if(intval($value['alcalde_estado']) === 1){
+                $dataAlcalde[$key]['estado'] = '<span class="badge bg-success">Activo</span>';
+            }
         }
 
 

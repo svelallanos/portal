@@ -8,12 +8,21 @@ class AlcaldeModel extends Mysql
     }
 
     // Select All
+
     public function selectsAlcalde()
     {
         $sql = 'SELECT * FROM alcalde';
         $request = $this->select_all($sql, array(), DB_PORTAL);
         return $request;
     }
+
+    public function selectsGestion()
+    {
+        $sql = 'SELECT * FROM gestion_municipal';
+        $request = $this->select_all($sql, array(), DB_PORTAL);
+        return $request;
+    }
+
     // Select
 
     // Insert
