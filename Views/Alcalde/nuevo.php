@@ -33,7 +33,7 @@
                 <div class="card mb-4 mb-xl-0">
                     <div class="card-header" style="background-color: #00273c; color: #00b4fe;">Imagen de Perfil</div>
                     <div class="card-body text-center">
-                        <img data-path="<?= media() ?>/images/fotoperfil/" class="__img_editarperfil img-account-profile rounded-circle mb-2" src="<?= media() ?>/images/fotoperfil/sin_foto.png" alt="">
+                        <img data-path="<?= media() ?>/images/alcalde/" class="__img_editarperfil img-account-profile rounded-circle mb-2" src="<?= media() ?>/images/alcalde/sin_foto.png" alt="">
                         <!-- Profile picture help block-->
                         <div class="small font-italic text-muted mb-2">JPG o PNG de un tamaño máximo de 3 MB</div>
                         <form id="upload_perfil">
@@ -51,60 +51,57 @@
                 <div class="card mb-4">
                     <div class="card-header" style="background-color: #00273c; color: #00b4fe;">Datos del Alcalde</div>
                     <div class="card-body">
-                        <form id="form_update_usuario" >
+                        <form id="form_update_usuario">
                             <!-- Form Row-->
-                            <div class="row gx-3 mb-3">
-                                <!-- Form Group (first name)-->
-                                <!-- <div class="col-md-6 mb-2">
-                                    <label class="small mb-1">Usuario Login</label>
-                                    <input required class="form-control" id="usuarios_login" type="text" name="usuarios_login" placeholder="Usuario de inicio de sesion">
-                                </div> -->
-                                <div class="col-md-6 mb-2">
+                            <div class="row gx-3">
+                                <div class="col-md-4 mb-2">
                                     <label class="small mb-1">Nombre</label>
-                                    <input required class="form-control" name="alcalde_nombres" id="alcalde_nombres" type="text" placeholder="Ingrese nombre de usuario">
+                                    <input required class="form-control" name="alcalde_nombres" id="alcalde_nombres" type="text" placeholder="Ingrese nombre">
                                 </div>
-                               
-                                <!-- Form Group (last name)-->
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-4 mb-2">
                                     <label class="small mb-1">Apellido Paterno</label>
-                                    <input required class="form-control" name="alcalde_apellidopaterno" id="alcalde_apellidopaterno" type="text" placeholder="Ingrese apellido paterno del usuario">
+                                    <input required class="form-control" name="alcalde_paterno" id="alcalde_paterno" type="text" placeholder="Ingrese apellido paterno">
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label class="small mb-1">Apellido Materno</label>
-                                    <input required class="form-control" name="alcalde_apellidomaterno" id="alcalde_apellidomaterno" type="text" placeholder="Ingrese el apellido materno del usuario">
+                                    <input required class="form-control" name="alcalde_materno" id="alcalde_materno" type="text" placeholder="Ingrese apellido materno">
                                 </div>
 
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-3 mb-2">
                                     <label class="small mb-1">DNI</label>
-                                    <input required class="form-control" id="alcalde_dni" name="alcalde_dni" type="text" placeholder="Ingrese número de dni del usuario">
+                                    <input required class="form-control" id="alcalde_dni" name="alcalde_dni" type="text" placeholder="Ingrese número de dni">
                                 </div>
 
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-3 mb-2">
                                     <label class="small mb-1">RUC</label>
-                                    <input required class="form-control" id="alcalde_ruc" name="alcalde_ruc" type="text" placeholder="Ingrese número ruc del usuario">
+                                    <input required class="form-control" id="alcalde_ruc" name="alcalde_ruc" type="text" placeholder="Ingrese número ruc">
                                 </div>
-
                                 <div class="col-md-6 mb-2">
-                                <label class="small mb-1">Correo Electrónico</label>
-                                <input required class="form-control" id="alcalde_email" name="alcalde_email" type="email" placeholder="name@example.com">
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                    <label class="small mb-1">Celular</label>
-                                    <input required class="form-control" id="alcalde_celular" name="alcalde_celular" type="text" placeholder="Ingrese número de celular del usuario">
+                                    <label class="small mb-1">Correo Electrónico</label>
+                                    <input required class="form-control" id="alcalde_email" name="alcalde_email" type="email" placeholder="name@example.com">
                                 </div>
-                              
-                                <div class="col-md-12 mb-3">
-                        <label for="gestion_descripcion" class="form-label fw-bold">Resumen</label>
-                        <textarea class="form-control" id="alcalde_resumen" name="alcalde_resumen" required rows="3"></textarea>
-                    </div>
+                                <div class="col-md-3 mb-2">
+                                    <label class="small mb-1">Celular</label>
+                                    <input required class="form-control" id="alcalde_celular" name="alcalde_celular" type="text" placeholder="Ingrese número de celular">
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <label class="small mb-1">Celular</label>
+                                    <input required class="form-control" id="alcalde_celular" name="alcalde_celular" type="text" placeholder="Ingrese número de celular">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="small mb-1">Gestión</label>
+                                    <select required class="form-select" id="gestion_id" name="gestion_id">
+                                        <option selected>Seleccione</option>
+                                        <option value="1">One</option>
+                                    </select>
+                                </div>
 
-                    <div class="col-md-12 mb-3">
-                        <label for="gestion_descripcion" class="form-label fw-bold">Saludo</label>
-                        <textarea class="form-control" id="alcalde_saludo" name="alcalde_saludo" required rows="3"></textarea>
-                    </div>
+                                <div class="col-md-12 mb-0">
+                                    <label for="gestion_descripcion" class="small mb-1">Saludo</label>
+                                    <textarea required class="form-control" id="alcalde_saludo" name="alcalde_saludo" rows="3" placeholder="Saludo del alcalde"></textarea>
+                                </div>
                             </div>
-                            
                         </form>
                     </div>
                 </div>
