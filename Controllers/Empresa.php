@@ -20,7 +20,8 @@ class Empresa extends Controllers
         $this->views->getView($this, "empresa", $data);
     }
 
-    public function selectsEmpresa() {
+    public function selectsEmpresa()
+    {
         parent::verificarLogin(true);
         parent::verificarPermiso(8, true);
 
@@ -39,12 +40,25 @@ class Empresa extends Controllers
             $dataEmpresa[$key]['email'] = $auxDataEmail[$value['email_id']];
 
             $dataEmpresa[$key]['estado'] = '<span class="badge bg-danger">Inactivo</span>';
-            if(intval($value['empresa_estado']) == 1){
+            if (intval($value['empresa_estado']) == 1) {
                 $dataEmpresa[$key]['estado'] = '<span class="badge bg-success">Activo</span>';
             }
         }
 
 
         json($dataEmpresa);
+    }
+
+    public function nuevo()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(8, true);
+
+        $data['page_id'] = 8;
+        $data['page_tag'] = "MDESV - Portal Web";
+        $data['page_title'] = ":. Nueva empresa - Portal Web";
+        $data['page_name'] = "Nueva empresa";
+        $data['page_function_js'] = "empresa/functions_empresa";
+        $this->views->getView($this, "nuevo", $data);
     }
 }

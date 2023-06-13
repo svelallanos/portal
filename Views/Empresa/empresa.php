@@ -15,10 +15,10 @@
                             <i class="feather-file-text me-1"></i>
                             Reporte
                         </a>
-                        <button type="button" class="btn btn-sm btn-light text-primary" data-bs-toggle="modal" data-bs-target="#modal_empresa">
+                        <a href="<?= base_url() ?>Empresa/nuevo" class="btn btn-sm btn-light text-primary">
                             <i class="me-1" data-feather="plus"></i>
                             Nuevo
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
