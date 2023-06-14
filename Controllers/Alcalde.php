@@ -142,8 +142,13 @@ class Alcalde extends Controllers
             $_POST['alcalde_saludo']
         );
 
-
-
-        json($inserAlcalde);
+        if(intval($inserAlcalde) > 0){
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos registrados correctamente',
+                'value' => 'success'
+            );
+        }
+        json($return);
     }
 }

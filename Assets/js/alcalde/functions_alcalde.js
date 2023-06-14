@@ -66,11 +66,12 @@ function selectPerfil() {
     $('.cargar_imagen').click(function () {
         $('#file_imagen_perfil').click();
 
-
+        let pathImage = $('#__img_perfilalcalde').attr('data-path');
+        const imagenPrevisualizacion = document.getElementById("__img_perfilalcalde");
+        imagenPrevisualizacion.src = pathImage + 'sin_foto.png';
     });
 
     $('#file_imagen_perfil').change(function () {
-
         const seleccionArchivos = document.getElementById("file_imagen_perfil");
         const imagenPrevisualizacion = document.getElementById("__img_perfilalcalde");
 
@@ -93,6 +94,24 @@ function saveAlcalde() {
         const form = document.getElementById('form_alcalde');
         const formData = new FormData(form);
 
+        abrirLoadingModal();
         const request = axios.post(base_url + 'Alcalde/saveAlcalde', formData);
+
+        request.then(res => {
+            cerrarLoadingModal();
+            if (res.data.status) {
+                Swal.fire("CORRECTO", res.data.msg, res.data.value);
+
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            } else {
+                Swal.fire("ALERTA", res.data.msg, res.data.value);
+            }
+        });
+
+        request.catch(error => {
+            Swal.fire("ALERTA", error, 'error');
+        });
     });
 }
