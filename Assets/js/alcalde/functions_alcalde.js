@@ -75,6 +75,6 @@ function saveAlcalde() {
         const form = document.getElementById('form_alcalde');
         const formData = new FormData(form);
 
-        const request = axios.post(base_url+'Alcalde/saveAlcalde', formData);
+        const request = axios.post(base_url + 'Alcalde/saveAlcalde', formData);
     });
 }

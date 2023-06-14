@@ -77,6 +77,40 @@ class Alcalde extends Controllers
         parent::verificarLogin(true);
         parent::verificarPermiso(7, true);
 
-        json($_FILES);
+        // validamos que selecciona foto
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de registrar al Alcalde ',
+            'value' => 'error'
+        );
+
+        $file = $_FILES['file_imagen_perfil'];
+
+        if (!isset($file) || $file['error'] !== 0) {
+            $file['name'] = 'sin_foto.png';
+        } else {
+            if ($file['type'] !== 'image/jpeg' && $file['type'] !== 'image/png') {
+                $return['msg'] = 'Formato de imagen no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtFotos() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            
+        }
+
+
+
+        json($_POST);
     }
 }

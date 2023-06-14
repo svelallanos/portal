@@ -37,12 +37,10 @@
                             <img data-path="<?= media() ?>/images/alcalde/" class="__img_editarperfil img-account-profile rounded-circle mb-2" src="<?= media() ?>/images/alcalde/sin_foto.png" alt="">
                             <!-- Profile picture help block-->
                             <div class="small font-italic text-muted mb-2">JPG o PNG de un tamaño máximo de 3 MB</div>
-                            <form id="upload_perfil">
-                                <div class="mb-3 d-none">
-                                    <input id="file_imagen_perfil" accept="image/jpeg, image/png" name="file_imagen_perfil" class="form-control" type="file">
-                                </div>
-                                <button class="btn btn-sm btn-purple-soft text-purple cargar_imagen" title="subir foto de perfil" type="button"><i class="feather-upload"></i> &nbsp Cargar imagen</button>
-                            </form>
+                            <div class="mb-3 d-none">
+                                <input id="file_imagen_perfil" accept="image/jpeg, image/png" name="file_imagen_perfil" class="form-control" type="file">
+                            </div>
+                            <button class="btn btn-sm btn-purple-soft text-purple cargar_imagen" title="subir foto de perfil" type="button"><i class="feather-upload"></i> &nbsp Cargar imagen</button>
                         </div>
                     </div>
                 </div>
