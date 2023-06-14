@@ -12,11 +12,12 @@ class Alcalde extends Controllers
         parent::verificarLogin(true);
         parent::verificarPermiso(7, true);
 
+        $this->model->selectsGestion();
+
         $data['page_id'] = 7;
         $data['page_tag'] = "MDESV - Portal Web";
         $data['page_title'] = ":. Alcalde - Portal Web";
         $data['page_name'] = "Alcalde";
-        // $data['page_css'] = "alcalde/alcalde";
         $data['page_function_js'] = "alcalde/functions_alcalde";
         $this->views->getView($this, "alcalde", $data);
     }
@@ -32,7 +33,7 @@ class Alcalde extends Controllers
 
         foreach ($dataGestion as $key => $value) {
             $auxDataGestion[$value['gestion_id']] = $value['gestion_nombre'];
-        }     
+        }
 
         $dataAlcalde = $this->model->selectsAlcalde();
 
@@ -42,10 +43,10 @@ class Alcalde extends Controllers
 
             $dataAlcalde[$key]['gestion'] = $auxDataGestion[$value['gestion_id']];
 
-            $dataAlcalde[$key]['nombres'] = $value['alcalde_nombres'].', '.$value['alcalde_apellidopaterno'].' '.$value['alcalde_apellidomaterno'];
+            $dataAlcalde[$key]['nombres'] = $value['alcalde_nombres'] . ', ' . $value['alcalde_apellidopaterno'] . ' ' . $value['alcalde_apellidomaterno'];
 
             $dataAlcalde[$key]['estado'] = '<span class="badge bg-danger">Inactivo</span>';
-            if(intval($value['alcalde_estado']) === 1){
+            if (intval($value['alcalde_estado']) === 1) {
                 $dataAlcalde[$key]['estado'] = '<span class="badge bg-success">Activo</span>';
             }
         }
@@ -55,7 +56,8 @@ class Alcalde extends Controllers
         json($dataAlcalde);
     }
 
-    public function nuevo() {
+    public function nuevo()
+    {
         parent::verificarLogin(true);
         parent::verificarPermiso(7, true);
 
@@ -63,8 +65,18 @@ class Alcalde extends Controllers
         $data['page_tag'] = "MDESV - Portal Web";
         $data['page_title'] = ":. Nuevo alcalde - Portal Web";
         $data['page_name'] = "Nuevo alcalde";
-        // $data['page_css'] = "alcalde/alcalde";
         $data['page_function_js'] = "alcalde/functions_alcalde";
+
+        $data['gestion'] = $this->model->selectsGestion();
+
         $this->views->getView($this, "nuevo", $data);
+    }
+
+    public function saveAlcalde()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(7, true);
+
+        json($_FILES);
     }
 }

@@ -2,7 +2,8 @@ var dataAlcalde;
 
 $(document).ready(function () {
     cargarAlcalde();
-
+    selectPerfil();
+    saveAlcalde();
 });
 
 function cargarAlcalde() {
@@ -58,5 +59,22 @@ function cargarAlcalde() {
             },
         ],
 
+    });
+}
+
+function selectPerfil() {
+    $('.cargar_imagen').click(function () {
+        $('#file_imagen_perfil').click();
+    });
+}
+
+function saveAlcalde() {
+    $('#form_alcalde').submit(function (e) {
+        e.preventDefault();
+
+        const form = document.getElementById('form_alcalde');
+        const formData = new FormData(form);
+
+        const request = axios.post(base_url+'Alcalde/saveAlcalde', formData);
     });
 }
