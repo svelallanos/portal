@@ -34,7 +34,7 @@
                     <div class="card mb-4 mb-xl-0">
                         <div class="card-header" style="background-color: #00273c; color: #00b4fe;">Imagen de Perfil</div>
                         <div class="card-body text-center">
-                            <img data-path="<?= media() ?>/images/alcalde/" class="__img_editarperfil img-account-profile rounded-circle mb-2" src="<?= media() ?>/images/alcalde/sin_foto.png" alt="">
+                            <img data-path="<?= media() ?>/images/alcalde/" class="img-account-profile rounded-circle mb-2" id="__img_perfilalcalde" src="<?= media() ?>/images/alcalde/sin_foto.png" alt="">
                             <!-- Profile picture help block-->
                             <div class="small font-italic text-muted mb-2">JPG o PNG de un tamaño máximo de 3 MB</div>
                             <div class="mb-3 d-none">
@@ -90,9 +90,13 @@
                                         <?php } ?>
                                     </select>
                                 </div>
+                                <div class="col-md-12 mb-0">
+                                    <label class="small mb-1">Resumen Corto</label>
+                                    <textarea required class="form-control" id="alcalde_resumen" name="alcalde_resumen" rows="3" placeholder="Saludo del alcalde"></textarea>
+                                </div>
 
                                 <div class="col-md-12 mb-0">
-                                    <label for="gestion_descripcion" class="small mb-1">Saludo</label>
+                                    <label class="small mb-1">Saludo</label>
                                     <textarea required class="form-control" id="alcalde_saludo" name="alcalde_saludo" rows="3" placeholder="Saludo del alcalde"></textarea>
                                 </div>
                             </div>

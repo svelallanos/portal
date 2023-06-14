@@ -65,6 +65,24 @@ function cargarAlcalde() {
 function selectPerfil() {
     $('.cargar_imagen').click(function () {
         $('#file_imagen_perfil').click();
+
+
+    });
+
+    $('#file_imagen_perfil').change(function () {
+
+        const seleccionArchivos = document.getElementById("file_imagen_perfil");
+        const imagenPrevisualizacion = document.getElementById("__img_perfilalcalde");
+
+        const archivos = seleccionArchivos.files;
+
+        if (!archivos || !archivos.length) {
+            imagenPrevisualizacion.src = "";
+            return;
+        }
+        const primerArchivo = archivos[0];
+        const objectURL = URL.createObjectURL(primerArchivo);
+        imagenPrevisualizacion.src = objectURL;
     });
 }
 

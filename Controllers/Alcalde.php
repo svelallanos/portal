@@ -84,11 +84,12 @@ class Alcalde extends Controllers
             'value' => 'error'
         );
 
-        $file = $_FILES['file_imagen_perfil'];
+        $file_name = 'sin_foto.png';
+        
+        if (isset($_FILES['file_imagen_perfil']) && $_FILES['file_imagen_perfil']['error'] === 0) {
+            
+            $file = $_FILES['file_imagen_perfil'];
 
-        if (!isset($file) || $file['error'] !== 0) {
-            $file['name'] = 'sin_foto.png';
-        } else {
             if ($file['type'] !== 'image/jpeg' && $file['type'] !== 'image/png') {
                 $return['msg'] = 'Formato de imagen no válida.';
                 $return['value'] = 'warning';
@@ -106,11 +107,43 @@ class Alcalde extends Controllers
                 }
             }
 
-            
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'alcalde_profile_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $onlyName = $file['name'];
+            $file['name'] = getPathFotoAlcalde() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
         }
 
+        $inserAlcalde = $this->model->insertAlcalde(
+            $_POST['gestion_id'],
+            $_POST['alcalde_nombres'],
+            $_POST['alcalde_paterno'],
+            $_POST['alcalde_materno'],
+            $_POST['alcalde_dni'],
+            $_POST['alcalde_ruc'],
+            $_POST['alcalde_email'],
+            $_POST['alcalde_celular'],
+            $file_name,
+            $_POST['alcalde_resumen'],
+            $_POST['alcalde_saludo']
+        );
 
 
-        json($_POST);
+
+        json($inserAlcalde);
     }
 }

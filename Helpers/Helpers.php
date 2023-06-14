@@ -15,6 +15,11 @@ function getPathFotoPerfil()
   return PATH_FOTOPERFIL;
 }
 
+function getPathFotoAlcalde()
+{
+  return PATH_FOTOALCALDE;
+}
+
 function headerAdmin($data = "")
 {
   $view_header = "Views/Template/header_admin.php";
