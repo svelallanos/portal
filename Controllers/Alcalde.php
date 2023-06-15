@@ -151,4 +151,25 @@ class Alcalde extends Controllers
         }
         json($return);
     }
+    public function deleteAlcalde()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(7,true);
+
+        $return =[
+            'status'=>false,
+            'msg'=> 'error al momento de eliminar la gestion',
+            'value'=>'error'
+        ];
+        $deleteAlcalde =$this->model->deleteAlcalde($_POST['alcalde_id']);
+
+        if($deleteAlcalde){
+            $return =[
+            'status'=>true,
+            'msg'=> 'Gestion eliminada correctamente',
+            'value'=>'succes' 
+            ];
+        }
+        json($return);
+    }
 }

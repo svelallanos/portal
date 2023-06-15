@@ -4,6 +4,7 @@ $(document).ready(function () {
     cargarAlcalde();
     selectPerfil();
     saveAlcalde();
+    deleteAlcalde()
 });
 
 function cargarAlcalde() {
@@ -114,4 +115,49 @@ function saveAlcalde() {
             Swal.fire("ALERTA", error, 'error');
         });
     });
+}
+
+function deleteAlcalde() {
+    $(document).on('click', '__delete_alcalde', function () {
+        let alcalde_id = $($this).attr('data-gestion_id');
+        let alcalde_nombres = $(this).attr('data-alcalde-nombres');
+
+        Swal.fire({
+            title: 'ELIMINAR GESTIÓN',
+            text: `¿Esta seguro de eliminar la ${dataAlcalde_nombre}?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'Cancelar' 
+        }).then((result)=>{
+            if(result.isconfirmed){
+
+                const formData =new FormData();
+                FormData.appeend('alcalde_id',alcalde_id);
+
+                abrirLoadingModal();
+                const request =axios.post(base_url + 'Alcalde/deleteAlcalde',formData);
+
+                request.then(res=>{
+                    if(res.data.status){
+                        dataAlcalde.ajax.reload(()=>cerrarLoadingModal());
+                        Toast.fire({
+                            icon:res.data.value,
+                            title: res.data.msg
+                        } )
+
+                    }else{
+                        cerrarLoadingModal();
+                        toast.fire({
+                            icon: res.data.value,
+                            title: res.data.msg
+                        })
+                    }
+                })
+            }
+        })
+
+    })
 }
