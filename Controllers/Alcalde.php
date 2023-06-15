@@ -38,7 +38,7 @@ class Alcalde extends Controllers
         $dataAlcalde = $this->model->selectsAlcalde();
 
         foreach ($dataAlcalde as $key => $value) {
-            $dataAlcalde[$key]['options'] = '<button class="btn btn-sm btn-warning btn-icon"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-danger btn-icon"><i class="feather-trash-2"></i></button>';
+            $dataAlcalde[$key]['options'] = '<button class="btn btn-sm btn-warning btn-icon"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-danger btn-icon __delete_alcalde" data-alcalde_id="' . $value['alcalde_id'] . '" data-alcalde_nombres="' . $value['alcalde_nombres'] . '"><i class="feather-trash-2"></i></button>';
 
 
             $dataAlcalde[$key]['gestion'] = $auxDataGestion[$value['gestion_id']];
@@ -85,9 +85,9 @@ class Alcalde extends Controllers
         );
 
         $file_name = 'sin_foto.png';
-        
+
         if (isset($_FILES['file_imagen_perfil']) && $_FILES['file_imagen_perfil']['error'] === 0) {
-            
+
             $file = $_FILES['file_imagen_perfil'];
 
             if ($file['type'] !== 'image/jpeg' && $file['type'] !== 'image/png') {
@@ -142,7 +142,7 @@ class Alcalde extends Controllers
             $_POST['alcalde_saludo']
         );
 
-        if(intval($inserAlcalde) > 0){
+        if (intval($inserAlcalde) > 0) {
             $return = array(
                 'status' => true,
                 'msg' => 'Datos registrados correctamente',
@@ -151,23 +151,25 @@ class Alcalde extends Controllers
         }
         json($return);
     }
+
     public function deleteAlcalde()
     {
         parent::verificarLogin(true);
-        parent::verificarPermiso(7,true);
+        parent::verificarPermiso(7, true);
 
-        $return =[
-            'status'=>false,
-            'msg'=> 'error al momento de eliminar la gestion',
-            'value'=>'error'
+        $return = [
+            'status' => false,
+            'msg' => 'error al momento de eliminar al Alcalde.',
+            'value' => 'error'
         ];
-        $deleteAlcalde =$this->model->deleteAlcalde($_POST['alcalde_id']);
 
-        if($deleteAlcalde){
-            $return =[
-            'status'=>true,
-            'msg'=> 'Gestion eliminada correctamente',
-            'value'=>'succes' 
+        $deleteAlcalde = $this->model->deleteAlcalde($_POST['alcalde_id']);
+
+        if ($deleteAlcalde) {
+            $return = [
+                'status' => true,
+                'msg' => 'Alcalde eliminado correctamente.',
+                'value' => 'success'
             ];
         }
         json($return);

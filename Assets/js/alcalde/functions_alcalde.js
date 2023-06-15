@@ -118,44 +118,44 @@ function saveAlcalde() {
 }
 
 function deleteAlcalde() {
-    $(document).on('click', '__delete_alcalde', function () {
-        let alcalde_id = $($this).attr('data-gestion_id');
-        let alcalde_nombres = $(this).attr('data-alcalde-nombres');
+    $(document).on('click', '.__delete_alcalde', function () {
+        let alcalde_id = $(this).attr('data-alcalde_id');
+        let alcalde_nombres = $(this).attr('data-alcalde_nombres');
 
         Swal.fire({
-            title: 'ELIMINAR GESTIÓN',
-            text: `¿Esta seguro de eliminar la ${dataAlcalde_nombre}?`,
+            title: 'ELIMINAR ALCALDE',
+            text: `¿Esta seguro de eliminar al alcalde ${alcalde_nombres}?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si',
-            cancelButtonText: 'Cancelar' 
-        }).then((result)=>{
-            if(result.isconfirmed){
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
 
-                const formData =new FormData();
-                FormData.appeend('alcalde_id',alcalde_id);
+                const formData = new FormData();
+                formData.append('alcalde_id', alcalde_id);
 
                 abrirLoadingModal();
-                const request =axios.post(base_url + 'Alcalde/deleteAlcalde',formData);
+                const request = axios.post(base_url + 'Alcalde/deleteAlcalde', formData);
 
-                request.then(res=>{
-                    if(res.data.status){
-                        dataAlcalde.ajax.reload(()=>cerrarLoadingModal());
+                request.then(res => {
+                    if (res.data.status) {
+                        dataAlcalde.ajax.reload(() => cerrarLoadingModal());
+
                         Toast.fire({
-                            icon:res.data.value,
+                            icon: res.data.value,
                             title: res.data.msg
-                        } )
-
-                    }else{
+                        })
+                    } else {
                         cerrarLoadingModal();
-                        toast.fire({
+                        Toast.fire({
                             icon: res.data.value,
                             title: res.data.msg
                         })
                     }
-                })
+                });
             }
         })
 

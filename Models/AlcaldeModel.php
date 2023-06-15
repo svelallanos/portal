@@ -50,17 +50,16 @@ class AlcaldeModel extends Mysql
         return $request;
     }
 
-  
+
     // Delete
 
-    public function deleteGestion(int $alcalde_id)
+    public function deleteAlcalde(int $alcalde_id)
     {
         $sql = 'DELETE FROM alcalde
-        WHERE alcalde_id =:alcalde_id';
+        WHERE alcalde_id = :alcalde_id';
 
         $request = $this->delete($sql, ['alcalde_id' => $alcalde_id], DB_PORTAL);
 
         return $request;
     }
-
 }
