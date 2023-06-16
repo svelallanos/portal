@@ -47,7 +47,7 @@
               </a>
             </div>
             <!-- /Logo -->
-            <h4 class="mb-3 text-center">Administración <span class="fw-bold text-primary">MDESV</span></h4>
+            <h4 style="color: #ffff00" class="mb-3 text-center">Administración <span class="fw-bold text-primary">MDESV</span></h4>
             <form id="form_login" class="mb-3">
               <div class="mb-3">
                 <label for="text" class="form-label text-white">USUARIO</label>
@@ -71,6 +71,7 @@
               <span class="fw-bold text-white">Nota: </span>
               <span style="color: #00b4fe;">Sino tiene cuenta comunicate con el administrador.</span>
             </p>
+            <div><a class="fw-bold" href="<?= base_url() ?>"><i class="fa-solid fa-left-long fa-beat"></i>&nbsp;&nbsp;Regresar</a></div>
           </div>
         </div>
         <!-- /Register -->
@@ -85,7 +86,7 @@
   </script>
 
   <!-- Core JS -->
-  <!-- build:js assets/vendor/js/core.js -->
+  <script src="<?= media() ?>/js/general/all.js?version=<?= getVersion() ?>"></script>
   <script src="<?= media() ?>/js/general/login/jquery.js"></script>
   <script src="<?= media() ?>/js/general/login/popper.js"></script>
   <script src="<?= media() ?>/js/general/login/bootstrap.js"></script>
