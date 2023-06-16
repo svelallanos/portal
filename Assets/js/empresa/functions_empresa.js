@@ -4,6 +4,7 @@ $(document).ready(function () {
     cargarEmpresa();
     selectPerfil();
     saveEmpresa();
+    deleteEmpresa();
 });
 
 function cargarEmpresa() {
@@ -83,6 +84,70 @@ function saveEmpresa() {
         const form = document.getElementById('form_empresa');
         const formData = new FormData(form);
 
+        abrirLoadingModal();
         const request = axios.post(base_url + 'Empresa/saveEmpresa', formData);
+
+        request.then(res => {
+            cerrarLoadingModal();
+            if (res.data.status) {
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                });
+
+                setTimeout(function () {
+                    location.reload();
+                }, 3000);
+            } else {
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+            }
+        });
+
+        request.catch(error => {
+            Toast.fire({
+                icon: res.data.value,
+                title: error
+            })
+        });
+    });
+}
+
+function deleteEmpresa() {
+    $(document).on('click', '.__delete_empresa', function () {
+        let empresa_id = $(this).attr('data-empresa_id');
+        
+        const formData = new FormData();
+
+        formData.append('empresa_id', empresa_id);
+
+        abrirLoadingModal();
+        const request = axios.post(base_url + 'Empresa/deleteEmpresa', formData);
+        request.then(res => {
+            if (res.data.status) {
+                dataEmpresa.ajax.reload(() => cerrarLoadingModal());
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                });
+
+            } else {
+                cerrarLoadingModal();
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+            }
+        });
+
+        request.catch(error => {
+            Toast.fire({
+                icon: res.data.value,
+                title: error
+            })
+        });
+
     });
 }

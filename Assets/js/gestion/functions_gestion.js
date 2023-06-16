@@ -108,10 +108,16 @@ function saveGestion() {
 
                 dataGestion.ajax.reload(() => cerrarLoadingModal());
                 $('#modal_gestion').modal('hide');
-                Swal.fire("CORRECTO", res.data.msg, res.data.value);
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
             } else {
                 cerrarLoadingModal();
-                Swal.fire("ALERTA", res.data.msg, res.data.value);
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
             }
         });
     });

@@ -35,7 +35,7 @@ class Empresa extends Controllers
         $dataEmpresa = $this->model->selectsEmpresa();
 
         foreach ($dataEmpresa as $key => $value) {
-            $dataEmpresa[$key]['options'] = '<button class="btn btn-sm btn-danger btn-icon"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-warning btn-icon"><i class="feather-edit"></i></button>';
+            $dataEmpresa[$key]['options'] = '<button data-empresa_id="' . $value['empresa_id'] . '" class="btn btn-sm btn-danger btn-icon __delete_empresa"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-warning btn-icon __edit_empresa"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-primary btn-icon __view_empresa"><i class="feather-eye"></i></button>';
 
             $dataEmpresa[$key]['email'] = $auxDataEmail[$value['email_id']];
 
@@ -105,12 +105,12 @@ class Empresa extends Controllers
                 json($return);
             }
 
-            $file['name'] = 'alcalde_profile_' . date('Ymd_His') . '.' . $file['name'];
+            $file['name'] = 'empresa_profile_' . date('Ymd_His') . '.' . $file['name'];
 
             $file_name = $file['name'];
 
             $onlyName = $file['name'];
-            $file['name'] = getPathFotoAlcalde() . $file['name'];
+            $file['name'] = getPathFotoEmpresa() . $file['name'];
 
             $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
 
@@ -119,26 +119,47 @@ class Empresa extends Controllers
             }
         }
 
-        $inserAlcalde = $this->model->insertAlcalde(
-            $_POST['gestion_id'],
-            $_POST['alcalde_nombres'],
-            $_POST['alcalde_paterno'],
-            $_POST['alcalde_materno'],
-            $_POST['alcalde_dni'],
-            $_POST['alcalde_ruc'],
-            $_POST['alcalde_email'],
-            $_POST['alcalde_celular'],
+        $inserEmpresa = $this->model->insertEmpresa(
+            $_POST['empresa_nombre'],
+            $_POST['empresa_descripcion'],
+            $_POST['empresa_ruc'],
+            $_POST['empresa_email'],
             $file_name,
-            $_POST['alcalde_resumen'],
-            $_POST['alcalde_saludo']
+            $_POST['empresa_mision'],
+            $_POST['empresa_vision'],
+            $_POST['empresa_historia'],
+            $_POST['empresa_poblacion']
         );
 
-        if (intval($inserAlcalde) > 0) {
+        if (intval($inserEmpresa) > 0) {
             $return = array(
                 'status' => true,
                 'msg' => 'Datos registrados correctamente',
                 'value' => 'success'
             );
+        }
+        json($return);
+    }
+
+    public function deleteEmpresa()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(8, true);
+
+        $return = [
+            'status' => false,
+            'msg' => 'Error al momento de eliminar la Empresa',
+            'value' => 'error'
+        ];
+
+        $deleteEmpresa = $this->model->deleteEmpresa($_POST['empresa_id']);
+
+        if ($deleteEmpresa) {
+            $return = [
+                'status' => true,
+                'msg' => 'Datos eliminados correctamente.',
+                'value' => 'success'
+            ];
         }
         json($return);
     }
