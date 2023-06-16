@@ -38,7 +38,7 @@ class Alcalde extends Controllers
         $dataAlcalde = $this->model->selectsAlcalde();
 
         foreach ($dataAlcalde as $key => $value) {
-            $dataAlcalde[$key]['options'] = '<button class="btn btn-sm btn-warning btn-icon"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-danger btn-icon __delete_alcalde" data-alcalde_id="' . $value['alcalde_id'] . '" data-alcalde_nombres="' . $value['alcalde_nombres'] . '"><i class="feather-trash-2"></i></button>';
+            $dataAlcalde[$key]['options'] = '<button class="btn btn-sm btn-danger btn-icon __delete_alcalde" data-alcalde_id="' . $value['alcalde_id'] . '" data-alcalde_nombres="' . $value['alcalde_nombres'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-warning btn-icon"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-primary btn-icon __view_alcalde" data-alcalde_id="' . $value['alcalde_id'] . '" data-alcalde_nombres="' . $value['alcalde_nombres'] . '"><i class="feather-eye"></i></button>';
 
 
             $dataAlcalde[$key]['gestion'] = $auxDataGestion[$value['gestion_id']];
