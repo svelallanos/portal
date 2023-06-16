@@ -35,7 +35,7 @@ class Empresa extends Controllers
         $dataEmpresa = $this->model->selectsEmpresa();
 
         foreach ($dataEmpresa as $key => $value) {
-            $dataEmpresa[$key]['options'] = '<button data-empresa_id="' . $value['empresa_id'] . '" class="btn btn-sm btn-danger btn-icon __delete_empresa"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-warning btn-icon __edit_empresa"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-primary btn-icon __view_empresa"><i class="feather-eye"></i></button>';
+            $dataEmpresa[$key]['options'] = '<button data-empresa_id="' . $value['empresa_id'] . '" data-empresa_nombre="'.$value['empresa_nombre'].'" class="btn btn-sm btn-danger btn-icon __delete_empresa"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-warning btn-icon __edit_empresa"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-primary btn-icon __view_empresa"><i class="feather-eye"></i></button>';
 
             $dataEmpresa[$key]['email'] = $auxDataEmail[$value['email_id']];
 

@@ -118,36 +118,49 @@ function saveEmpresa() {
 function deleteEmpresa() {
     $(document).on('click', '.__delete_empresa', function () {
         let empresa_id = $(this).attr('data-empresa_id');
-        
+        let empresa_nombre = $(this).attr('data-empresa_nombre');
+
         const formData = new FormData();
 
         formData.append('empresa_id', empresa_id);
 
-        abrirLoadingModal();
-        const request = axios.post(base_url + 'Empresa/deleteEmpresa', formData);
-        request.then(res => {
-            if (res.data.status) {
-                dataEmpresa.ajax.reload(() => cerrarLoadingModal());
-                Toast.fire({
-                    icon: res.data.value,
-                    title: res.data.msg
+        Swal.fire({
+            title: 'ELIMINAR EMPRESA',
+            html: "¿Esta seguro de eliminar la empresa : <b>" + empresa_nombre+'</b>',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                abrirLoadingModal();
+                const request = axios.post(base_url + 'Empresa/deleteEmpresa', formData);
+                request.then(res => {
+                    if (res.data.status) {
+                        dataEmpresa.ajax.reload(() => cerrarLoadingModal());
+                        Toast.fire({
+                            icon: res.data.value,
+                            title: res.data.msg
+                        });
+
+                    } else {
+                        cerrarLoadingModal();
+                        Toast.fire({
+                            icon: res.data.value,
+                            title: res.data.msg
+                        })
+                    }
                 });
 
-            } else {
-                cerrarLoadingModal();
-                Toast.fire({
-                    icon: res.data.value,
-                    title: res.data.msg
-                })
+                request.catch(error => {
+                    Toast.fire({
+                        icon: res.data.value,
+                        title: error
+                    })
+                });
             }
-        });
-
-        request.catch(error => {
-            Toast.fire({
-                icon: res.data.value,
-                title: error
-            })
-        });
-
+        })
     });
 }

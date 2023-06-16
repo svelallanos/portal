@@ -124,7 +124,7 @@ function deleteAlcalde() {
 
         Swal.fire({
             title: 'ELIMINAR ALCALDE',
-            text: `¿Esta seguro de eliminar al alcalde ${alcalde_nombres}?`,
+            html: '¿Esta seguro de eliminar al alcalde: <b>' + alcalde_nombres + '</b>',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
