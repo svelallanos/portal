@@ -12,7 +12,7 @@
                             </h1>
                         </div>
                         <div class="col-12 col-xl-auto mb-3">
-                            <a class="btn btn-sm btn-indigo-soft text-indigo" href="<?= base_url() ?>Empresa">
+                            <a class="btn btn-sm btn-indigo-soft text-indigo" href="<?= base_url() ?>empresa">
                                 <i class="fa-solid fa-reply me-1"></i>
                                 Retornar
                             </a>
