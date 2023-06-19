@@ -23,6 +23,17 @@ class EmpresaModel extends Mysql
         return $request;
     }
 
+    // Select
+
+    public function selectEmpresa(int $empresa_id)
+    {
+        $sql = 'SELECT * FROM empresa 
+        WHERE empresa_id = :empresa_id';
+        $request = $this->select($sql, array('empresa_id' => $empresa_id), DB_PORTAL);
+
+        return $request;
+    }
+
     // Insert
 
     public function insertEmpresa(string $empresa_nombre, string $empresa_descripcion, string $empresa_ruc, int $email_id, string $empresa_logo, string $empresa_mision, string $empresa_vision, string $empresa_historia, string $empresa_poblacion)
@@ -46,11 +57,47 @@ class EmpresaModel extends Mysql
         return $request;
     }
 
+    // Update
+
+    public function updateEmpresa(int $empresa_id, string $empresa_nombre, string $empresa_descripcion, string $empresa_ruc, int $email_id, string $empresa_logo, string $empresa_mision, string $empresa_vision, string $empresa_historia, string $empresa_poblacion)
+    {
+        $sql = 'UPDATE empresa SET 
+        empresa_nombre = :empresa_nombre, 
+        empresa_descripcion = :empresa_descripcion, 
+        empresa_ruc = :empresa_ruc, 
+        email_id = :email_id, 
+        empresa_logo = :empresa_logo, 
+        empresa_mision = :empresa_mision, 
+        empresa_vision = :empresa_vision, 
+        empresa_historia = :empresa_historia, 
+        empresa_poblacion = :empresa_poblacion 
+        WHERE empresa_id = :empresa_id';
+
+        $arrData = [
+            'empresa_nombre' => $empresa_nombre,
+            'empresa_descripcion' => $empresa_descripcion,
+            'empresa_ruc' => $empresa_ruc,
+            'email_id' => $email_id,
+            'empresa_logo' => $empresa_logo,
+            'empresa_mision' => $empresa_mision,
+            'empresa_vision' => $empresa_vision,
+            'empresa_historia' => $empresa_historia,
+            'empresa_poblacion' => $empresa_poblacion,
+            'empresa_id' => $empresa_id
+        ];
+
+        $request = $this->update($sql, $arrData, DB_PORTAL);
+
+        return $request;
+    }
+
+    // Delete
+
     public function deleteEmpresa(int $empresa_id)
     {
         $sql = 'DELETE FROM empresa
         WHERE empresa_id = :empresa_id';
-        $request = $this->delete($sql, ['empresa_id'=> $empresa_id], DB_PORTAL);
+        $request = $this->delete($sql, ['empresa_id' => $empresa_id], DB_PORTAL);
 
         return $request;
     }
