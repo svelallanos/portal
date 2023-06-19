@@ -206,6 +206,8 @@ function updateEmpresa() {
 
         formData.append('eempresa_id', empresa_id);
 
+        abrirLoadingModal();
+        
         const request = axios.post(base_url + 'Empresa/updateEmpresa', formData);
 
         request.then(res => {
