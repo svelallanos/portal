@@ -40,35 +40,31 @@ class Alcalde extends Controllers
         $dataAlcalde = $this->model->selectsAlcalde();
 
         foreach ($dataAlcalde as $key => $value) {
-            $dataAlcalde[$key]['options'] = '<button class="btn btn-sm btn-danger btn-icon __delete_alcalde" data-alcalde_id="' . $value['alcalde_id'] . '" data-alcalde_nombres="' . $value['alcalde_nombres'] . '"><i class="feather-trash-2"></i></button>
-            
-            &nbsp;<button class="btn btn-sm btn-warning btn-icon __edit_alcalde"
-            data-alcalde_id = "' . $value['alcalde_id'] .
-                '" data-alcalde_nombres = "' . $value['alcalde_nombres'] .
-                '" data-alcalde_apellidopaterno = "' . $value['alcalde_apellidopaterno'] .
-                '" data-alcalde_apellidomaterno = "' . $value['alcalde_apellidomaterno'] .
-                '" data-alcalde_dni = "' . $value['alcalde_dni'] .
-                '" data-alcalde_ruc = "' . $value['alcalde_ruc'] .
-                '" data-alcalde_email = "' . $value['alcalde_email'] .
-                '" data-alcalde_celular = "' . $value['alcalde_celular'] .
-                '" data-gestion_id = "' . $value['gestion_id'] .
-                '" data-alcalde_resumen = "' . $value['alcalde_resumen'] .
-                '" data-alcalde_saludo = "' . $value['alcalde_saludo'] .
-                '"title="Editar alcalde"><i class="feather-edit"></i></button>
-                
-                &nbsp;<button class="btn btn-sm btn-primary btn-icon __view_alcalde"
-                 data-alcalde_nombres = "' . $value['alcalde_nombres'] .
-                '" data-alcalde_apellidopaterno = "' . $value['alcalde_apellidopaterno'] .
-                '" data-alcalde_apellidomaterno = "' . $value['alcalde_apellidomaterno'] .
-                '" data-alcalde_dni = "' . $value['alcalde_dni'] .
-                '" data-alcalde_ruc = "' . $value['alcalde_ruc'] .
-                '" data-alcalde_email = "' . $value['alcalde_email'] .
-                '" data-alcalde_celular = "' . $value['alcalde_celular'] .
-                '" data-gestion_id = "' . $value['gestion_id'] .
-                '" data-alcalde_resumen = "' . $value['alcalde_resumen'] .
-                '" data-alcalde_saludo = "' . $value['alcalde_saludo'] .
-                 '"title="vista"><i class="feather-eye"></i></button>';
-
+            $dataAlcalde[$key]['options'] = '<button class="btn btn-sm btn-danger btn-icon __delete_alcalde" data-alcalde_id="' . $value['alcalde_id'] . '" data-alcalde_nombres="' . $value['alcalde_nombres'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-warning btn-icon __edit_alcalde" 
+            data-alcalde_id = "' . $value['alcalde_id'] . '" 
+            data-alcalde_nombres = "' . $value['alcalde_nombres'] . '" 
+            data-alcalde_apellidopaterno = "' . $value['alcalde_apellidopaterno'] . '" 
+            data-alcalde_apellidomaterno = "' . $value['alcalde_apellidomaterno'] . '" 
+            data-alcalde_dni = "' . $value['alcalde_dni'] . '" 
+            data-alcalde_ruc = "' . $value['alcalde_ruc'] . '" 
+            data-alcalde_email = "' . $value['alcalde_email'] . '" 
+            data-alcalde_celular = "' . $value['alcalde_celular'] . '" 
+            data-alcalde_photo = "' . $value['alcalde_photo'] . '" 
+            data-gestion_id = "' . $value['gestion_id'] . '" 
+            data-alcalde_resumen = "' . $value['alcalde_resumen'] . '" 
+            data-alcalde_saludo = "' . $value['alcalde_saludo'] . '" 
+            title="Editar alcalde"><i class="feather-edit"></i></button>&nbsp;<button class="btn btn-sm btn-primary btn-icon __view_alcalde" data-alcalde_nombres = "' . $value['alcalde_nombres'] . '" 
+            data-alcalde_apellidopaterno = "' . $value['alcalde_apellidopaterno'] . '" 
+            data-alcalde_apellidomaterno = "' . $value['alcalde_apellidomaterno'] . '" 
+            data-alcalde_dni = "' . $value['alcalde_dni'] . '" 
+            data-alcalde_ruc = "' . $value['alcalde_ruc'] . '" 
+            data-alcalde_email = "' . $value['alcalde_email'] . '" 
+            data-alcalde_celular = "' . $value['alcalde_celular'] . '" 
+            data-alcalde_photo = "' . $value['alcalde_photo'] . '" 
+            data-gestion_id = "' . $value['gestion_id'] . '" 
+            data-alcalde_resumen = "' . $value['alcalde_resumen'] . '" 
+            data-alcalde_saludo = "' . $value['alcalde_saludo'] . '" 
+            title="vista"><i class="feather-eye"></i></button>';
 
             $dataAlcalde[$key]['gestion'] = $auxDataGestion[$value['gestion_id']];
 
@@ -185,6 +181,97 @@ class Alcalde extends Controllers
         json($return);
     }
 
+    public function updateAlcalde()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(7, true);
+
+        // validamos que selecciona foto
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de actualzar datos del Alcalde.',
+            'value' => 'error'
+        );
+
+        // validamos post
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['ealcalde_id'])) {
+            json($return);
+        }
+
+        // Seleccionamos el alcalde
+
+        $dataAlcalde = $this->model->selectAlcalde($_POST['ealcalde_id']);
+
+        $file_name = $dataAlcalde['alcalde_photo'];
+
+        if (isset($_FILES['ephoto_alcalde']) && $_FILES['ephoto_alcalde']['error'] === 0) {
+
+            $file = $_FILES['ephoto_alcalde'];
+
+            if ($file['type'] !== 'image/jpeg' && $file['type'] !== 'image/png') {
+                $return['msg'] = 'Formato de imagen no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtFotos() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'alcalde_profile_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $onlyName = $file['name'];
+            $file['name'] = getPathFotoAlcalde() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
+        }
+
+        $updateAlcalde = $this->model->updateAlcalde(
+            $_POST['ealcalde_id'],
+            $_POST['egestion_id'],
+            $_POST['ealcalde_nombres'],
+            $_POST['ealcalde_paterno'],
+            $_POST['ealcalde_materno'],
+            $_POST['ealcalde_dni'],
+            $_POST['ealcalde_ruc'],
+            $_POST['ealcalde_email'],
+            $_POST['ealcalde_celular'],
+            $file_name,
+            $_POST['ealcalde_resumen'],
+            $_POST['ealcalde_saludo']
+        );
+
+        if (intval($updateAlcalde) > 0) {
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos actualizados correctamente',
+                'value' => 'success'
+            );
+        }
+        json($return);
+    }
+
     public function deleteAlcalde()
     {
         parent::verificarLogin(true);
@@ -205,35 +292,6 @@ class Alcalde extends Controllers
                 'value' => 'success'
             ];
         }
-        json($return);
-    }
-    public function updateAlcalde()
-    {
-        parent::verificarLogin(true);
-        parent::verificarPermiso(7, true);
-
-        $return = [
-            'status' => false,
-            'msg' => 'Error al momento de actualizar la Gestión de Alcaldía.',
-            'value' => 'error'
-        ];
-
-        $anioInicio = explode('-', $_POST['alcalde_inicio_editar'])[0];
-
-        $anioFinal = explode('-', $_POST['alcalde_fin_editar'])[0];
-
-        $nameAlcalde = 'Alcalde ' . $anioInicio . ' - ' . $anioFinal;
-
-        $updateAlcalde = $this->model->updateAlcalde($_POST['alcalde_id'], $nameAlcalde, $_POST['alcalde_descripcion_editar'], $_POST['alcalde_inicio_editar'], $_POST['alcalde_fin_editar']);
-
-        if ($updateAlcalde) {
-            $return = [
-                'status' => true,
-                'msg' => 'Gestión actualizada correctamente.',
-                'value' => 'success'
-            ];
-        }
-
         json($return);
     }
 }

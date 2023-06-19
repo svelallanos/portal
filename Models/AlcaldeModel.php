@@ -25,6 +25,14 @@ class AlcaldeModel extends Mysql
 
     // Select
 
+    public function selectAlcalde(int $alcalde_id)
+    {
+        $sql = 'SELECT * FROM alcalde 
+        WHERE alcalde_id = :alcalde_id';
+        $request = $this->select($sql, array('alcalde_id' => $alcalde_id), DB_PORTAL);
+        return $request;
+    }
+
     // Insert
 
     public function insertAlcalde(int $gestion_id, string $alcalde_nombres, string $alcalde_apellidopaterno, string $alcalde_apellidomaterno, string $alcalde_dni, string $alcalde_ruc, string $alcalde_email, string $alcalde_celular, string $alcalde_photo, string $alcalde_resumen, string $alcalde_saludo)
@@ -50,6 +58,44 @@ class AlcaldeModel extends Mysql
         return $request;
     }
 
+    // Update
+
+    public function updateAlcalde(int $alcalde_id, int $gestion_id, string $alcalde_nombres, string $alcalde_apellidopaterno, string $alcalde_apellidomaterno, string $alcalde_dni, string $alcalde_ruc, string $alcalde_email, string $alcalde_celular, string $alcalde_photo, string $alcalde_resumen, string $alcalde_saludo)
+    {
+        $sql = 'UPDATE alcalde SET 
+        gestion_id = :gestion_id, 
+        alcalde_nombres = :alcalde_nombres, 
+        alcalde_apellidopaterno = :alcalde_apellidopaterno, 
+        alcalde_apellidomaterno = :alcalde_apellidomaterno, 
+        alcalde_dni = :alcalde_dni, 
+        alcalde_ruc = :alcalde_ruc, 
+        alcalde_email = :alcalde_email, 
+        alcalde_celular = :alcalde_celular, 
+        alcalde_photo = :alcalde_photo, 
+        alcalde_resumen = :alcalde_resumen, 
+        alcalde_saludo = :alcalde_saludo 
+        WHERE alcalde_id = :alcalde_id';
+
+        $arrData = [
+            'gestion_id' => $gestion_id,
+            'alcalde_nombres' => $alcalde_nombres,
+            'alcalde_apellidopaterno' => $alcalde_apellidopaterno,
+            'alcalde_apellidomaterno' => $alcalde_apellidomaterno,
+            'alcalde_dni' => $alcalde_dni,
+            'alcalde_ruc' => $alcalde_ruc,
+            'alcalde_email' => $alcalde_email,
+            'alcalde_celular' => $alcalde_celular,
+            'alcalde_photo' => $alcalde_photo,
+            'alcalde_resumen' => $alcalde_resumen,
+            'alcalde_saludo' => $alcalde_saludo,
+            'alcalde_id' => $alcalde_id
+        ];
+
+        $request = $this->update($sql, $arrData, DB_PORTAL);
+
+        return $request;
+    }
+
 
     // Delete
 
@@ -59,30 +105,6 @@ class AlcaldeModel extends Mysql
         WHERE alcalde_id = :alcalde_id';
 
         $request = $this->delete($sql, ['alcalde_id' => $alcalde_id], DB_PORTAL);
-
-        return $request;
-    }
-    //...............................
-    public function updateAlcalde(int $alcalde_id, string $alcalde_nombres, string $alcalde_apellidopaterno, string $alcalde_apellidomaterno, string $alcalde_dni, string $alcalde_ruc, string $alcalde_email, string $alcalde_celular, string $gestion_id, string $alcalde_resumen, string $alcalde_saludo, string $alcalde_estado)
-    {
-        $sql = 'UPDATE alcalde SET alcalde_nombre = :alcalde_nombre,alcalde_apellidopaterno = :alcalde_apellidopaterno, alcalde_apellidomaterno = :alcalde_apellidomaterno, alcalde_dni = :alcalde_dni,alcalde_ruc = :alcalde_ruc,alcalde_email = :alcalde_email,alcalde_celular = :alcalde_celular,gestion_id = :gestion_id,alcalde_resumen = :alcalde_resumen,alcalde_saludo = :alcalde_saludo,
-        WHERE alcalde_id = :alcalde_id';
-
-        $arrData = [
-            'alcalde_id' => $alcalde_id,
-            'alcalde_nombres' => $alcalde_nombres,
-            'alcalde_apellidopaterno' => $alcalde_apellidopaterno,
-            'alcalde_apellidomaterno' => $alcalde_apellidomaterno,
-            'alcalde_dni' => $alcalde_dni,
-            'alcalde_ruc' => $alcalde_ruc,
-            'alcalde_email' => $alcalde_email,
-            'alcalde_celular' => $alcalde_celular,
-            'gestion_id'=>$gestion_id,
-            'alcalde_resumen' => $alcalde_resumen,
-            'alcalde_saludo' => $alcalde_saludo
-        ];
-
-        $request = $this->update($sql, $arrData, DB_PORTAL);
 
         return $request;
     }
