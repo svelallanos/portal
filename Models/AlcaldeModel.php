@@ -62,4 +62,28 @@ class AlcaldeModel extends Mysql
 
         return $request;
     }
+    //...............................
+    public function updateAlcalde(int $alcalde_id, string $alcalde_nombres, string $alcalde_apellidopaterno, string $alcalde_apellidomaterno, string $alcalde_dni, string $alcalde_ruc, string $alcalde_email, string $alcalde_celular, string $gestion_id, string $alcalde_resumen, string $alcalde_saludo, string $alcalde_estado)
+    {
+        $sql = 'UPDATE alcalde SET alcalde_nombre = :alcalde_nombre,alcalde_apellidopaterno = :alcalde_apellidopaterno, alcalde_apellidomaterno = :alcalde_apellidomaterno, alcalde_dni = :alcalde_dni,alcalde_ruc = :alcalde_ruc,alcalde_email = :alcalde_email,alcalde_celular = :alcalde_celular,gestion_id = :gestion_id,alcalde_resumen = :alcalde_resumen,alcalde_saludo = :alcalde_saludo,
+        WHERE alcalde_id = :alcalde_id';
+
+        $arrData = [
+            'alcalde_id' => $alcalde_id,
+            'alcalde_nombres' => $alcalde_nombres,
+            'alcalde_apellidopaterno' => $alcalde_apellidopaterno,
+            'alcalde_apellidomaterno' => $alcalde_apellidomaterno,
+            'alcalde_dni' => $alcalde_dni,
+            'alcalde_ruc' => $alcalde_ruc,
+            'alcalde_email' => $alcalde_email,
+            'alcalde_celular' => $alcalde_celular,
+            'gestion_id'=>$gestion_id,
+            'alcalde_resumen' => $alcalde_resumen,
+            'alcalde_saludo' => $alcalde_saludo
+        ];
+
+        $request = $this->update($sql, $arrData, DB_PORTAL);
+
+        return $request;
+    }
 }

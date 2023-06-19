@@ -2,9 +2,11 @@ var dataAlcalde;
 
 $(document).ready(function () {
     cargarAlcalde();
+    openModal();
     selectPerfil();
     saveAlcalde();
-    deleteAlcalde()
+    deleteAlcalde();
+    openModalAlcalde()
 });
 
 function cargarAlcalde() {
@@ -63,6 +65,69 @@ function cargarAlcalde() {
     });
 }
 
+function openModal(){
+    $(document).on('click','.__edit_alcalde',function(){
+        let alcalde_id = $(this).attr('data-alcalde_id');
+        let alcalde_nombres = $(this).attr('data-alcalde_nombres');
+        let alcalde_apellidopaterno = $(this).attr('data-alcalde_apellidopaterno');
+        let alcalde_apellidomaterno = $(this).attr('data-alcalde_apellidomaterno');
+        let alcalde_dni = $(this).attr('data-alcalde_dni');
+        let alcalde_ruc = $(this).attr('data-alcalde_ruc');
+        let alcalde_email = $(this).attr('data-alcalde_email');
+        let alcalde_celular = $(this).attr('data-alcalde_celular');
+        let gestion_id = $(this).attr('data-gestion_id');
+        let alcalde_resumen = $(this).attr('data-alcalde_resumen');
+        let alcalde_saludo = $(this).attr('data-alcalde_saludo');
+
+        $('#alcalde_id_editar').val(alcalde_id);
+        $('#alcalde_nombres_editar').val(alcalde_nombres);
+        $('#alcalde_paterno_editar').val(alcalde_apellidopaterno);
+        $('#alcalde_materno_editar').val(alcalde_apellidomaterno);
+        $('#alcalde_dni_editar').val(alcalde_dni);
+        $('#alcalde_ruc_editar').val(alcalde_ruc);
+        $('#alcalde_email_editar').val(alcalde_email);
+        $('#alcalde_celular_editar').val(alcalde_celular);
+        $('#gestion_id_editar').val(gestion_id);
+        $('#alcalde_resumen_editar').val(alcalde_resumen);
+        $('#alcalde_saludo_editar').val(alcalde_saludo);
+
+
+        $('#form_alcalde_editar').attr('data-alcalde_id', alcalde_id);
+
+        $('#emodal_alcalde').modal('show');
+    });
+
+    $(document).on('click','.__view_alcalde',function(){
+        let alcalde_id = $(this).attr('data-alcalde_id');
+        let alcalde_nombres = $(this).attr('data-alcalde_nombres');
+        let alcalde_apellidopaterno = $(this).attr('data-alcalde_apellidopaterno');
+        let alcalde_apellidomaterno = $(this).attr('data-alcalde_apellidomaterno');
+        let alcalde_dni = $(this).attr('data-alcalde_dni');
+        let alcalde_ruc = $(this).attr('data-alcalde_ruc');
+        let alcalde_email = $(this).attr('data-alcalde_email');
+        let alcalde_celular = $(this).attr('data-alcalde_celular');
+        let gestion_id = $(this).attr('data-gestion_id');
+        let alcalde_resumen = $(this).attr('data-alcalde_resumen');
+        let alcalde_saludo = $(this).attr('data-alcalde_saludo');
+
+        $('#form_alcalde_vista').attr('data-alcalde_id', alcalde_id);
+
+        $('#alcalde_id_vista').val(alcalde_id);
+        $('#alcalde_nombres_vista').val(alcalde_nombres);
+        $('#alcalde_paterno_vista').val(alcalde_apellidopaterno);
+        $('#alcalde_materno_vista').val(alcalde_apellidomaterno);
+        $('#alcalde_dni_vista').val(alcalde_dni);
+        $('#alcalde_ruc_vista').val(alcalde_ruc);
+        $('#alcalde_email_vista').val(alcalde_email);
+        $('#alcalde_celular_vista').val(alcalde_celular);
+        $('#gestion_id_vista').val(gestion_id);
+        $('#alcalde_resumen_vista').val(alcalde_resumen);
+        $('#alcalde_saludo_vista').val(alcalde_saludo);
+
+        $('#viewmodal_alcalde').modal('show');
+    })
+}
+
 function selectPerfil() {
     $('.cargar_imagen').click(function () {
         $('#file_imagen_perfil').click();
@@ -119,8 +184,8 @@ function saveAlcalde() {
 
 function deleteAlcalde() {
     $(document).on('click', '.__delete_alcalde', function () {
-        let alcalde_id = $(this).attr('data-alcalde_id');
-        let alcalde_nombres = $(this).attr('data-alcalde_nombres');
+        let alcalde_dni = $(this).attr('data-alcalde_id');
+        let  = $(this).attr('data-');
 
         Swal.fire({
             title: 'ELIMINAR ALCALDE',
@@ -162,3 +227,36 @@ function deleteAlcalde() {
 
     })
 }
+
+function updateAlcalde() {
+    $('#form_alcalde_editar').submit(function (e) {
+        e.preventDefault();
+
+        let alcalde_id = $(this).attr('data-alcalde_id');
+
+        const form = document.getElementById('form_alcalde_editar');
+        const formData = new FormData(form);
+
+        formData.append('alcalde_id', alcalde_id);
+
+        const request = axios.post(base_url + 'Acalde/updateAlcalde', formData);
+
+        request.then(res => {
+            if (res.data.status) {
+                dataAlcalde.ajax.reload(() => cerrarLoadingModal());
+                $('#modal_alcalde_editar').modal('hide');
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+            } else {
+                cerrarLoadingModal();
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+            }
+        });
+    });
+}
+
