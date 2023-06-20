@@ -79,28 +79,44 @@
               Empresa
             </a>
           <?php } ?>
-
         <?php } ?>
 
-        <!-- Sidenav panel gestion -->
-        <?php if (verificarPermiso($data, 9)) { ?>
-          <div class="sidenav-menu-heading pt-2">Panel Gestión</div>
-          <!-- Sidenav Accordion (Dashboard)-->
-          <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseGestion" aria-expanded="false" aria-controls="collapseGestion">
+        <?php if (verificarPermiso($data, 9) || verificarPermiso($data, 10) || verificarPermiso($data, 11) || verificarPermiso($data, 12)) { ?>
+          <div class="sidenav-menu-heading pt-2">Normatividad</div>
+          <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseNormatividad" aria-expanded="false" aria-controls="collapseNormatividad">
             <div class="nav-link-icon"><i class="feather-settings"></i></div>
-            Gestión Alcalde
+            Resoluciones
             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
           </a>
-          <div class="collapse" id="collapseGestion" data-bs-parent="#accordionSidenav">
+          <div class="collapse" id="collapseNormatividad" data-bs-parent="#accordionSidenav">
             <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
               <?php if (verificarPermiso($data, 9)) { ?>
-                <!-- <a class="nav-link" href="<?= base_url() ?>gestion">
-                  Gestión
-                  <span class="badge bg-indigo-soft text-indigo ms-auto">Gestión</span>
-                </a> -->
+                <a class="nav-link" href="<?= base_url() ?>resoluciones/alcaldia">
+                  Acaldía
+                  <span class="badge bg-teal-soft text-teal ms-auto">RE</span>
+                </a>
+              <?php } ?>
+              <?php if (verificarPermiso($data, 10)) { ?>
+                <a class="nav-link" href="<?= base_url() ?>resoluciones/gerencia">
+                  Gerencia
+                  <span class="badge bg-teal-soft text-teal ms-auto">RE</span>
+                </a>
+              <?php } ?>
+              <?php if (verificarPermiso($data, 11)) { ?>
+                <a class="nav-link" href="<?= base_url() ?>resoluciones/consejo">
+                  Consejo
+                  <span class="badge bg-teal-soft text-teal ms-auto">RE</span>
+                </a>
               <?php } ?>
             </nav>
           </div>
+          <?php if (verificarPermiso($data, 12)) { ?>
+            <a class="nav-link" href="<?= base_url() ?>ordenanzas">
+              <div class="nav-link-icon"><i class="feather-feather"></i></div>
+              Ordenanzas
+              <span class="badge bg-indigo-soft text-indigo ms-auto">OM</span>
+            </a>
+          <?php } ?>
         <?php } ?>
 
         <!-- Sidenav Heading (Addons)-->
