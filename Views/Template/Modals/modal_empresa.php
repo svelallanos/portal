@@ -1,47 +1,64 @@
 <!-- Modal -->
-<div class="modal fade" id="modal_empresa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="emodal_empresa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: var(--bs-azul-1);">
-                <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">DATOS DE EMPRESA</h1>
+            <div class="modal-header bg-warning">
+                <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">EDITAR EMPRESA</h1>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-2" id="form_empresa">
-                    <div class="col-md-12 mb-3">
-                        <label for="empresa_nombre" class="form-label fw-bold">Nombre empresa</label>
-                        <input type="text" class="form-control" id="empresa_nombre" name="empresa_nombre" required>
-                    </div>
-                    <div class="col-md-12 mb-3">
-                        <label for="empresa_descripcion" class="form-label fw-bold">Descripción</label>
-                        <textarea class="form-control" id="empresa_descripcion" name="empresa_descripcion" required rows="3"></textarea>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="empresa_ruc" class="form-label fw-bold">RUC</label>
-                        <input type="text" class="form-control" id="empresa_ruc" name="empresa_ruc" required>
+                <form class="row g-2" id="eform_empresa">
+                    <div class="col-md-4 d-flex flex-column align-items-center">
+                        <img style="border: 2px solid red;" id="elogo_empresa" data-path="<?= media() ?>/images/empresa/" class="img-account-profile rounded-circle mb-2 w-75 h-auto" src="<?= media() ?>/images/empresa/sin_logo.png" alt="">
+                        <div class="small font-italic text-muted mb-2">JPG o PNG de un tamaño máximo de 3 MB</div>
+                        <div class="mb-3 d-none">
+                            <input id="eempresa_logo" accept="image/jpeg, image/png" name="eempresa_logo" class="form-control" type="file">
+                        </div>
+                        <button class="btn btn-sm btn-pink-soft text-pink ecargar_imagen" title="subir foto de perfil" type="button"><i class="feather-upload"></i> &nbsp Cargar imagen</button>
                     </div>
                     <div class="col-md-8">
-                        <label for="gestion_fin" class="form-label fw-bold">EMAIL</label>
-                        <input type="text" class="form-control" id="gestion_fin" name="gestion_fin" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="empresa_mision" class="form-label fw-bold">MISION</label>
-                        <textarea class="form-control" id="empresa_mision" name="empresa_mision" required rows="3"></textarea>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="empresa_vision" class="form-label fw-bold">VISION</label>
-                        <textarea class="form-control" id="empresa_vision" name="empresa_vision" required rows="3"></textarea>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="empresa_historia" class="form-label fw-bold">HISTORIA</label>
-                        <textarea class="form-control" id="empresa_historia" name="empresa_historia" required rows="3"></textarea>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="empresa_poblacion" class="form-label fw-bold">POBLACION</label>
-                        <textarea class="form-control" id="empresa_poblacion" name="empresa_poblacion" required rows="3"></textarea>
-                    </div>
-                    <div class="col-12 m-0 text-end">
-                        <button class="btn btn-primary-soft text-primary" type="submit"><i class="feather-save"></i>&nbsp;Enviar</button>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label class="small fw-bold mb-1">Nombre</label>
+                                <input required type="text" class="form-control" id="eempresa_nombre" name="eempresa_nombre" placeholder="Nombre de la entidad">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="small fw-bold mb-1">Descripción</label>
+                                <textarea required class="form-control" id="eempresa_descripcion" name="eempresa_descripcion" rows="3" placeholder="Descripción de la entidad"></textarea>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="small fw-bold mb-1">Ruc</label>
+                                <input required type="text" class="form-control" id="eempresa_ruc" name="eempresa_ruc" placeholder="Ruc de la entidad">
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <label class="small fw-bold mb-1">Email</label>
+                                <select required class="form-select" id="eempresa_email" name="eempresa_email">
+                                    <option value="" selected>Selecione</option>
+                                    <?php foreach ($data['email'] as $key => $value) { ?>
+                                        <option value="<?= $value['email_id'] ?>"><?= $value['email_nombre'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="small fw-bold mb-1">Misión</label>
+                                <textarea class="form-control" id="eempresa_mision" name="eempresa_mision" required rows="3" placeholder="Misión de la entidad..."></textarea>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="small fw-bold mb-1">Visión</label>
+                                <textarea class="form-control" id="eempresa_vision" name="eempresa_vision" required rows="3" placeholder="Visión de la entidad..."></textarea>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="small fw-bold mb-1">Historia</label>
+                                <textarea class="form-control" id="eempresa_historia" name="eempresa_historia" required rows="3" placeholder="Historia de la entidad ..."></textarea>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="small fw-bold mb-1">Población</label>
+                                <textarea class="form-control" id="eempresa_poblacion" name="eempresa_poblacion" required rows="3" placeholder="Longitud poblacional"></textarea>
+                            </div>
+                            <div class="col-12 m-0 text-end">
+                                <button class="btn btn-primary-soft text-primary" type="submit"><i class="feather-save"></i>&nbsp;Actualizar</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -49,35 +66,61 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal_gestion_editar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="vmodal_empresa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header bg-warning">
-                <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">GESTIÓN ALCALDÍA</h1>
+            <div class="modal-header bg-indigo">
+                <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">DATOS DE EMPRESA</h1>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-2" id="form_gestion_editar" data-gestion_id="">
-                    <div class="col-md-8 mb-3">
-                        <label for="gestion_nombre_editar" class="form-label fw-bold">Nombres</label>
-                        <input type="text" class="form-control" id="gestion_nombre_editar" value="Gestión " name="gestion_nombre_editar" disabled>
+                <div class="row g-2">
+                    <div class="col-md-4 d-flex flex-column align-items-center">
+                        <img style="border: 2px solid red;" id="vlogo_empresa" data-path="<?= media() ?>/images/empresa/" class="img-account-profile rounded-circle mb-2 w-75 h-auto" src="<?= media() ?>/images/empresa/sin_logo.png" alt="">
+                        <div class="small font-italic text-muted mb-2">Logo de la Empresa</div>
                     </div>
-                    <div class="col-md-12 mb-3">
-                        <label for="gestion_descripcion_editar" class="form-label fw-bold">Descripción</label>
-                        <textarea class="form-control" id="gestion_descripcion_editar" name="gestion_descripcion_editar" required rows="3"></textarea>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label class="small fw-bold mb-1">Nombre</label>
+                                <input disabled type="text" class="form-control bg-white" id="vempresa_nombre" name="vempresa_nombre" placeholder="Nombre de la entidad">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="small fw-bold mb-1">Descripción</label>
+                                <textarea disabled class="form-control bg-white" id="vempresa_descripcion" name="vempresa_descripcion" rows="3" placeholder="Descripción de la entidad"></textarea>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="small fw-bold mb-1">Ruc</label>
+                                <input disabled type="text" class="form-control bg-white" id="vempresa_ruc" name="vempresa_ruc" placeholder="Ruc de la entidad">
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <label class="small fw-bold mb-1">Email</label>
+                                <select disabled class="form-select bg-white" id="vempresa_email" name="vempresa_email">
+                                    <option value="" selected>Selecione</option>
+                                    <?php foreach ($data['email'] as $key => $value) { ?>
+                                        <option value="<?= $value['email_id'] ?>"><?= $value['email_nombre'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="small fw-bold mb-1">Misión</label>
+                                <textarea class="form-control bg-white" id="vempresa_mision" name="vempresa_mision" disabled rows="3" placeholder="Misión de la entidad..."></textarea>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="small fw-bold mb-1">Visión</label>
+                                <textarea class="form-control bg-white" id="vempresa_vision" name="vempresa_vision" disabled rows="3" placeholder="Visión de la entidad..."></textarea>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="small fw-bold mb-1">Historia</label>
+                                <textarea class="form-control bg-white" id="vempresa_historia" name="vempresa_historia" disabled rows="3" placeholder="Historia de la entidad ..."></textarea>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="small fw-bold mb-1">Población</label>
+                                <textarea class="form-control bg-white" id="vempresa_poblacion" name="vempresa_poblacion" disabled rows="3" placeholder="Longitud poblacional"></textarea>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="gestion_inicio_editar" class="form-label fw-bold">Fecha Inicio</label>
-                        <input type="date" class="form-control" id="gestion_inicio_editar" name="gestion_inicio_editar" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="gestion_fin_editar" class="form-label fw-bold">Fecha Fin</label>
-                        <input type="date" class="form-control" id="gestion_fin_editar" name="gestion_fin_editar" required>
-                    </div>
-                    <div class="col-12 m-0 text-end">
-                        <button class="btn btn-primary-soft text-primary" type="submit"><i class="feather-rotate-cw"></i>&nbsp;Actualizar</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
