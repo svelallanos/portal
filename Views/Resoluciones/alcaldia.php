@@ -10,22 +10,42 @@
                             <?= !empty($data['page_name']) ? $data['page_name'] : 'Sin Nombre' ?>
                         </h1>
                     </div>
-                    <!-- <div class="col-12 col-xl-auto mb-3">
+                    <div class="col-12 col-xl-auto mb-3">
                         <a class="btn btn-sm btn-danger-soft text-danger" href="#">
                             <i class="feather-file-text me-1"></i>
                             Reporte
                         </a>
-                        <a class="btn btn-sm btn-light text-primary" href="<?= base_url() ?>Roles/Nuevo">
+                        <button type="button" class="btn btn-sm btn-light text-primary">
                             <i class="me-1" data-feather="plus"></i>
-                            Nuevo Rol
-                        </a>
-                    </div> -->
+                            Nueva Resolución
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     <div class="container-xl px-4 mt-5">
-        ...contenido
+        <div class="row">
+            <div class="card p-3">
+                <div class="table-responsive">
+                    <table id="tb_alcaldia" class="table-bordered dataTable table-striped table-hover table-sm w-100">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>NOMBRES</th>
+                                <th>DESCRIPCIÓN</th>
+                                <th>AÑO</th>
+                                <th>FECHA PUBLICACIÓN</th>
+                                <th>ESTADO</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 
