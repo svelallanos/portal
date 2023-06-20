@@ -48,14 +48,46 @@ class Resoluciones extends Controllers
             if ($value['ralcaldia_estado'] == 1) {
                 $dataAlcaldia[$key]['estado'] = '<span class="badge bg-success-soft text-success border fw-bold">Publicado</span>';
 
-                $dataAlcaldia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_ralcaldia" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+                $dataAlcaldia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_ralcaldia" data-ralcaldia_id="'.$value['ralcaldia_id'].'" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
             } else {
                 $dataAlcaldia[$key]['estado'] = '<span class="badge bg-indigo-soft text-indigo border">Sin publicar</span>';
 
-                $dataAlcaldia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_ralcaldia"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_ralcaldia"><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ralcaldia"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+                $dataAlcaldia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_ralcaldia"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_ralcaldia"><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ralcaldia" data-ralcaldia_id="'.$value['ralcaldia_id'].'"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
             }
         }
 
         json($dataAlcaldia);
+    }
+
+    public function changeEstado()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(9, true);
+
+        $return = [
+            'status' => false,
+            'msg' => 'Error al momento de actualizar el estado de la Resolución de Alcaldía.',
+            'value' => 'error',
+        ];
+
+        $msg = 'Resolución de Alcaldía Despublicado.';
+        if($_POST['ralcaldia_estado'] == 1)
+        {
+            $msg = 'Resolución de Alcaldía Publicado.';
+        }
+
+        $updateEstado = $this->model->updateEstado($_POST['ralcaldia_id'], $_POST['ralcaldia_estado']);
+
+        if(!$updateEstado){
+            return $return;
+        }
+
+        $return = [
+            'status' => true,
+            'msg' => $msg,
+            'value' => 'success',
+        ];
+
+        json($return);
     }
 }

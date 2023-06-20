@@ -27,5 +27,15 @@ class ResolucionesModel extends Mysql
     // Select
     // Insert
     // Update
+
+    public function updateEstado(int $ralcaldia_id, int $ralcaldia_estado)
+    {
+        $sql = 'UPDATE re_alcaldia SET ralcaldia_estado = :ralcaldia_estado
+        WHERE ralcaldia_id = :ralcaldia_id';
+        $request = $this->update($sql, ['ralcaldia_estado' => $ralcaldia_estado, 'ralcaldia_id' => $ralcaldia_id], DB_PORTAL);
+
+        return $request;
+    }
+
     // Delete
 }
