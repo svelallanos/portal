@@ -84,7 +84,7 @@
         <?php if (verificarPermiso($data, 9) || verificarPermiso($data, 10) || verificarPermiso($data, 11) || verificarPermiso($data, 12)) { ?>
           <div class="sidenav-menu-heading pt-2">Normatividad</div>
           <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseNormatividad" aria-expanded="false" aria-controls="collapseNormatividad">
-            <div class="nav-link-icon"><i class="feather-settings"></i></div>
+            <div class="nav-link-icon"><i class="feather-book"></i></div>
             Resoluciones
             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
           </a>
@@ -112,7 +112,7 @@
           </div>
           <?php if (verificarPermiso($data, 12)) { ?>
             <a class="nav-link" href="<?= base_url() ?>ordenanzas">
-              <div class="nav-link-icon"><i class="feather-feather"></i></div>
+              <div class="nav-link-icon"><i class="feather-book-open"></i></div>
               Ordenanzas
               <span class="badge bg-indigo-soft text-indigo ms-auto">OM</span>
             </a>
