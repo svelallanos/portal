@@ -49,27 +49,35 @@ class Resoluciones extends Controllers
             if ($value['ralcaldia_estado'] == 1) {
                 $dataAlcaldia[$key]['estado'] = '<span class="badge bg-success-soft text-success border fw-bold">Publicado</span>';
 
-                $dataAlcaldia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+                $dataAlcaldia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
             } else {
                 $dataAlcaldia[$key]['estado'] = '<span class="badge bg-indigo-soft text-indigo border">Sin publicar</span>';
 
                 $dataAlcaldia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '" data-ralcaldia_nombre = "' . $value['ralcaldia_nombre'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_ralcaldia" 
                 data-ralcaldia_id = "' . $value['ralcaldia_id'] . '" 
-                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
             }
         }
 
         json($dataAlcaldia);
     }
 
-    public function selectReAlcaldia()
+    public function selectReAlcaldia(bool $json = true, $ralcaldia_id = null)
     {
         parent::verificarLogin(true);
         parent::verificarPermiso(9, true);
 
-        $selectReAlcaldia = $this->model->selectReAlcaldia($_POST['ralcaldia_id']);
+        if (is_null($ralcaldia_id)) {
+            $ralcaldia_id = $_POST['ralcaldia_id'];
+        }
 
-        json($selectReAlcaldia);
+        $selectReAlcaldia = $this->model->selectReAlcaldia($ralcaldia_id);
+
+        if ($json) {
+            json($selectReAlcaldia);
+        }
+
+        return $selectReAlcaldia;
     }
 
     public function selectsAnios()
@@ -185,7 +193,78 @@ class Resoluciones extends Controllers
         parent::verificarLogin(true);
         parent::verificarPermiso(9, true);
 
-        json($_POST);
+        // json($_POST);
+
+        // validamos que selecciona el doc
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de actualizar la Resolución de Alcaldía.',
+            'value' => 'error'
+        );
+
+        $dataReAlcaldia = $this->selectReAlcaldia(false, $_POST['eralcaldia_id']);
+
+        $file_name = $dataReAlcaldia['ralcaldia_archivo'];
+
+        if (isset($_FILES['eralcaldia_archivo']) && $_FILES['eralcaldia_archivo']['error'] === 0) {
+
+            $file = $_FILES['eralcaldia_archivo'];
+
+            if ($file['type'] !== 'application/pdf') {
+                $return['msg'] = 'Formato de documento no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtDocs() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'realcaldia_doc_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $file['name'] = getPathDocReAlcaldia() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
+        }
+
+        $updateReAlcaldia = $this->model->updateReAlcaldia(
+            $_POST['eralcaldia_id'],
+            $_POST['eanios_id'],
+            $_POST['eralcaldia_nombre'],
+            $_POST['eralcaldia_descripcion'],
+            $file_name,
+            $_POST['eralcaldia_fechapublicacion']
+        );
+
+        if ($updateReAlcaldia) {
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos actualizados correctamente',
+                'value' => 'success'
+            );
+        }
+
+        json($return);
     }
 
     public function deleteReAlcaldia()

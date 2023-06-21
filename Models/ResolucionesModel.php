@@ -64,6 +64,31 @@ class ResolucionesModel extends Mysql
         return $request;
     }
 
+    public function updateReAlcaldia(int $ralcaldia_id, int $anios_id, string $ralcaldia_nombre, string $ralcaldia_descripcion, string $ralcaldia_archivo, string $ralcaldia_fechapublicacion)
+    {
+        $sql = 'UPDATE re_alcaldia SET 
+        anios_id = :anios_id,
+        ralcaldia_nombre = :ralcaldia_nombre,
+        ralcaldia_descripcion = :ralcaldia_descripcion,
+        ralcaldia_archivo = :ralcaldia_archivo,
+        ralcaldia_fechapublicacion = :ralcaldia_fechapublicacion
+        WHERE ralcaldia_id = :ralcaldia_id
+        ';
+
+        $arrData = [
+            'anios_id' => $anios_id,
+            'ralcaldia_nombre' => $ralcaldia_nombre,
+            'ralcaldia_descripcion' => $ralcaldia_descripcion,
+            'ralcaldia_archivo' => $ralcaldia_archivo,
+            'ralcaldia_fechapublicacion' => $ralcaldia_fechapublicacion,
+            'ralcaldia_id' => $ralcaldia_id
+        ];
+
+        $request = $this->update($sql, $arrData, DB_PORTAL);
+
+        return $request;
+    }
+
     // Delete
 
     public function deleteReAlcaldia(int $ralcaldia_id)

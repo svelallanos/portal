@@ -73,11 +73,11 @@ function openModal() {
         const formData = new FormData();
         formData.append('ralcaldia_id', ralcaldia_id);
 
+        abrirLoadingModal();
         const request = axios.post(base_url + 'Resoluciones/selectReAlcaldia', formData);
 
         request.then(res => {
-            console.log(res.data);
-
+            cerrarLoadingModal();
             $('#eform_ralcaldia').attr('data-ralcaldia_id', res.data.ralcaldia_id);
 
             $('#eanios_id').val(res.data.anios_id);
@@ -86,6 +86,32 @@ function openModal() {
             $('#eralcaldia_fechapublicacion').val(res.data.ralcaldia_fechapublicacion);
 
             $('#emodel_ralcaldia').modal('show');
+        });
+    });
+
+    $(document).on('click', '.__view_ralcaldia', function () {
+        let ralcaldia_id = $(this).attr('data-ralcaldia_id');
+
+        // Consultamos el id de la resolucion seleccionada
+        const formData = new FormData();
+        formData.append('ralcaldia_id', ralcaldia_id);
+
+        abrirLoadingModal();
+        const request = axios.post(base_url + 'Resoluciones/selectReAlcaldia', formData);
+
+        request.then(res => {
+            cerrarLoadingModal();
+
+            let pathRA = $('#view_ralcaldia').attr('data-path');
+
+            $('#vanios_id').val(res.data.anios_id);
+            $('#vralcaldia_nombre').val(res.data.ralcaldia_nombre);
+            $('#vralcaldia_descripcion').val(res.data.ralcaldia_descripcion);
+            $('#vralcaldia_fechapublicacion').val(res.data.ralcaldia_fechapublicacion);
+
+            $('#file_ralcaldia').attr('href', pathRA + res.data.ralcaldia_archivo);
+
+            $('#vmodel_ralcaldia').modal('show');
         });
     });
 }
@@ -185,6 +211,31 @@ function updateReAlcaldia() {
         formData.append('eralcaldia_id', eralcaldia_id);
 
         const request = axios.post(base_url + 'Resoluciones/updateReAlcaldia', formData);
+
+        request.then(res => {
+            if (res.data.status) {
+                dataAlcaldia.ajax.reload(() => cerrarLoadingModal());
+
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+                $('#emodel_ralcaldia').modal('hide');
+            } else {
+                cerrarLoadingModal();
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+            }
+        });
+
+        request.catch(error => {
+            Toast.fire({
+                icon: 'error',
+                title: error
+            })
+        });
     });
 }
 
