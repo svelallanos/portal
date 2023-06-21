@@ -180,6 +180,14 @@ class Resoluciones extends Controllers
         json($return);
     }
 
+    public function updateReAlcaldia()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(9, true);
+
+        json($_POST);
+    }
+
     public function deleteReAlcaldia()
     {
         parent::verificarLogin(true);

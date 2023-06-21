@@ -5,8 +5,9 @@ $(document).ready(function () {
     openModal();
     publicarReAlcaldia();
     despublicarReAlcaldia();
-    deleteReAlcaldia();
     saveReAlcaldia();
+    updateReAlcaldia();
+    deleteReAlcaldia();
 });
 
 function cargarAlcaldia() {
@@ -77,7 +78,14 @@ function openModal() {
         request.then(res => {
             console.log(res.data);
 
-            $('#').val();
+            $('#eform_ralcaldia').attr('data-ralcaldia_id', res.data.ralcaldia_id);
+
+            $('#eanios_id').val(res.data.anios_id);
+            $('#eralcaldia_nombre').val(res.data.ralcaldia_nombre);
+            $('#eralcaldia_descripcion').val(res.data.ralcaldia_descripcion);
+            $('#eralcaldia_fechapublicacion').val(res.data.ralcaldia_fechapublicacion);
+
+            $('#emodel_ralcaldia').modal('show');
         });
     });
 }
@@ -129,6 +137,57 @@ function changeEstado(id, status = 2) {
     });
 }
 
+function saveReAlcaldia() {
+    $('#form_ralcaldia').submit(function (e) {
+        e.preventDefault();
+
+        const form = document.getElementById('form_ralcaldia');
+        const formData = new FormData(form);
+
+        abrirLoadingModal();
+        const request = axios.post(base_url + 'Resoluciones/insertReAlcaldia', formData);
+
+        request.then(res => {
+            if (res.data.status) {
+                dataAlcaldia.ajax.reload(() => cerrarLoadingModal());
+
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+                $('#model_ralcaldia').modal('hide');
+            } else {
+                cerrarLoadingModal();
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+            }
+        });
+
+        request.catch(error => {
+            Toast.fire({
+                icon: 'error',
+                title: error
+            })
+        });
+    });
+}
+
+function updateReAlcaldia() {
+    $('#eform_ralcaldia').submit(function (e) {
+        e.preventDefault();
+
+        let eralcaldia_id = $(this).attr('data-ralcaldia_id');
+        const form = document.getElementById('eform_ralcaldia');
+        const formData = new FormData(form);
+
+        formData.append('eralcaldia_id', eralcaldia_id);
+
+        const request = axios.post(base_url + 'Resoluciones/updateReAlcaldia', formData);
+    });
+}
+
 function deleteReAlcaldia() {
     $(document).on('click', '.__delete_ralcaldia', function () {
         let ralcaldia_id = $(this).attr('data-ralcaldia_id');
@@ -177,42 +236,5 @@ function deleteReAlcaldia() {
                 });
             }
         })
-    });
-}
-
-function saveReAlcaldia() {
-    $('#form_ralcaldia').submit(function (e) {
-        e.preventDefault();
-
-        const form = document.getElementById('form_ralcaldia');
-        const formData = new FormData(form);
-
-        abrirLoadingModal();
-        const request = axios.post(base_url + 'Resoluciones/insertReAlcaldia', formData);
-
-        request.then(res => {
-            if (res.data.status) {
-                dataAlcaldia.ajax.reload(() => cerrarLoadingModal());
-
-                Toast.fire({
-                    icon: res.data.value,
-                    title: res.data.msg
-                })
-                $('#model_ralcaldia').modal('hide');
-            } else {
-                cerrarLoadingModal();
-                Toast.fire({
-                    icon: res.data.value,
-                    title: res.data.msg
-                })
-            }
-        });
-
-        request.catch(error => {
-            Toast.fire({
-                icon: 'error',
-                title: error
-            })
-        });
     });
 }
