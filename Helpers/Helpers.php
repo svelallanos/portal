@@ -30,6 +30,16 @@ function getPathDocReAlcaldia()
   return PATH_DOCREALCALDIA;
 }
 
+function getPathDocReGerencia()
+{
+  return PATH_DOCREGERENCIA;
+}
+
+function getPathDocReConsejo()
+{
+  return PATH_DOCRECONSEJO;
+}
+
 function headerAdmin($data = "")
 {
   $view_header = "Views/Template/header_admin.php";

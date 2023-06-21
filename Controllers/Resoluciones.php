@@ -23,6 +23,21 @@ class Resoluciones extends Controllers
         $this->views->getView($this, "alcaldia", $data);
     }
 
+    public function gerencia()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(10, true);
+
+        $data['page_id'] = 10;
+        $data['page_tag'] = "MDESV - Portal Web";
+        $data['page_title'] = ":. Resoluciones de Gerencia - Portal Web";
+        $data['page_name'] = "Resoluciones de Gerencia";
+        $data['page_function_js'] = "resoluciones/functions_gerencia";
+
+        $data['anios'] = $this->selectsAnios();
+        $this->views->getView($this, "gerencia", $data);
+    }
+
     public function selectsReAlcaldia()
     {
         parent::verificarLogin(true);
@@ -62,6 +77,45 @@ class Resoluciones extends Controllers
         json($dataAlcaldia);
     }
 
+    public function selectsReGerencia()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(10, true);
+
+        // Consultamos los años
+        $dataAnios = $this->selectsAnios();
+        $auxDataAnios = [];
+
+        foreach ($dataAnios as $key => $value) {
+            $auxDataAnios[$value['anios_id']] = $value['anios_nombre'];
+        }
+
+        $dataGerencia = $this->model->selectsReGerencia();
+
+        foreach ($dataGerencia as $key => $value) {
+            $value['rgerencia_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['rgerencia_fechapublicacion']) . 'America/Lima');
+            $dataGerencia[$key]['rgerencia_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['rgerencia_fechapublicacion']->format('h:i A') . '</span> - ' . $value['rgerencia_fechapublicacion']->format('d/m/Y') . '</div>';
+
+            $dataGerencia[$key]['numero'] = $key + 1;
+
+            $dataGerencia[$key]['anio'] = $auxDataAnios[$value['anios_id']];
+
+            if ($value['rgerencia_estado'] == 1) {
+                $dataGerencia[$key]['estado'] = '<span class="badge bg-success-soft text-success border fw-bold">Publicado</span>';
+
+                $dataGerencia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+            } else {
+                $dataGerencia[$key]['estado'] = '<span class="badge bg-indigo-soft text-indigo border">Sin publicar</span>';
+
+                $dataGerencia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '" data-rgerencia_nombre = "' . $value['rgerencia_nombre'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_rgerencia" 
+                data-rgerencia_id = "' . $value['rgerencia_id'] . '" 
+                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+            }
+        }
+
+        json($dataGerencia);
+    }
+
     public function selectReAlcaldia(bool $json = true, $ralcaldia_id = null)
     {
         parent::verificarLogin(true);
@@ -78,6 +132,24 @@ class Resoluciones extends Controllers
         }
 
         return $selectReAlcaldia;
+    }
+
+    public function selectReGerencia(bool $json = true, $rgerencia_id = null)
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(10, true);
+
+        if (is_null($rgerencia_id)) {
+            $rgerencia_id = $_POST['rgerencia_id'];
+        }
+
+        $selectReGerencia = $this->model->selectReGerencia($rgerencia_id);
+
+        if ($json) {
+            json($selectReGerencia);
+        }
+
+        return $selectReGerencia;
     }
 
     public function selectsAnios()
@@ -102,6 +174,35 @@ class Resoluciones extends Controllers
         }
 
         $updateEstado = $this->model->updateEstado($_POST['ralcaldia_id'], $_POST['ralcaldia_estado']);
+
+        if ($updateEstado) {
+            $return = [
+                'status' => true,
+                'msg' => $msg,
+                'value' => 'success',
+            ];
+        }
+
+        json($return);
+    }
+
+    public function changeEstadoGerencia()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(10, true);
+
+        $return = [
+            'status' => false,
+            'msg' => 'Error al momento de actualizar el estado de la Resolución de Gerencia.',
+            'value' => 'error',
+        ];
+
+        $msg = 'Resolución de Gerencia Despublicado.';
+        if ($_POST['rgerencia_estado'] == 1) {
+            $msg = 'Resolución de Gerencia Publicado.';
+        }
+
+        $updateEstado = $this->model->updateEstadoGerencia($_POST['rgerencia_id'], $_POST['rgerencia_estado']);
 
         if ($updateEstado) {
             $return = [
@@ -179,6 +280,80 @@ class Resoluciones extends Controllers
         );
 
         if (intval($saveReAlcaldia) > 0) {
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos registrados correctamente',
+                'value' => 'success'
+            );
+        }
+        json($return);
+    }
+
+    public function saveReGerencia()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(10, true);
+
+        // validamos que selecciona el doc
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de registrar la Resolución de Gerencia.',
+            'value' => 'error'
+        );
+
+        $file_name = 'sin_doc.png';
+
+        if (isset($_FILES['rgerencia_archivo']) && $_FILES['rgerencia_archivo']['error'] === 0) {
+
+            $file = $_FILES['rgerencia_archivo'];
+
+            if ($file['type'] !== 'application/pdf') {
+                $return['msg'] = 'Formato de documento no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtDocs() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'regerencia_doc_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $file['name'] = getPathDocReGerencia() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
+        }
+
+        $saveReGerencia = $this->model->saveReGerencia(
+            $_POST['anios_id'],
+            $_POST['rgerencia_nombre'],
+            $_POST['rgerencia_descripcion'],
+            $file_name,
+            $_POST['rgerencia_fechapublicacion'],
+            $this->defineDatosUserPortal()['usuarios_id']
+        );
+
+        if (intval($saveReGerencia) > 0) {
             $return = array(
                 'status' => true,
                 'msg' => 'Datos registrados correctamente',
@@ -267,6 +442,85 @@ class Resoluciones extends Controllers
         json($return);
     }
 
+    public function updateReGerencia()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(9, true);
+
+        // json($_POST);
+
+        // validamos que selecciona el doc
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de actualizar la Resolución de Gerencia.',
+            'value' => 'error'
+        );
+
+        $dataReGerencia = $this->selectReGerencia(false, $_POST['ergerencia_id']);
+
+        $file_name = $dataReGerencia['rgerencia_archivo'];
+
+        if (isset($_FILES['ergerencia_archivo']) && $_FILES['ergerencia_archivo']['error'] === 0) {
+
+            $file = $_FILES['ergerencia_archivo'];
+
+            if ($file['type'] !== 'application/pdf') {
+                $return['msg'] = 'Formato de documento no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtDocs() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'regerencia_doc_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $file['name'] = getPathDocReGerencia() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
+        }
+
+        $updateReGerencia = $this->model->updateReGerencia(
+            $_POST['ergerencia_id'],
+            $_POST['eanios_id'],
+            $_POST['ergerencia_nombre'],
+            $_POST['ergerencia_descripcion'],
+            $file_name,
+            $_POST['ergerencia_fechapublicacion']
+        );
+
+        if ($updateReGerencia) {
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos actualizados correctamente',
+                'value' => 'success'
+            );
+        }
+
+        json($return);
+    }
+
     public function deleteReAlcaldia()
     {
         parent::verificarLogin(true);
@@ -284,6 +538,30 @@ class Resoluciones extends Controllers
             $return = [
                 'status' => true,
                 'msg' => 'Resolución de Alcaldía eliminada correctamente.',
+                'value' => 'success',
+            ];
+        }
+
+        json($return);
+    }
+
+    public function deleteReGerencia()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(10, true);
+
+        $return = [
+            'status' => false,
+            'msg' => 'Error al momento de eliminar la Resolución de Gerencia.',
+            'value' => 'error',
+        ];
+
+        $deleteReGerencia = $this->model->deleteReGerencia($_POST['rgerencia_id']);
+
+        if ($deleteReGerencia) {
+            $return = [
+                'status' => true,
+                'msg' => 'Resolución de Gerencia eliminada correctamente.',
                 'value' => 'success',
             ];
         }
