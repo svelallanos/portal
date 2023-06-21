@@ -145,7 +145,7 @@ function saveReAlcaldia() {
         const formData = new FormData(form);
 
         abrirLoadingModal();
-        const request = axios.post(base_url + 'Resoluciones/insertReAlcaldia', formData);
+        const request = axios.post(base_url + 'Resoluciones/saveReAlcaldia', formData);
 
         request.then(res => {
             if (res.data.status) {

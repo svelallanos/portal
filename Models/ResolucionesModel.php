@@ -35,7 +35,7 @@ class ResolucionesModel extends Mysql
 
     // Insert
 
-    public function insertReAlcaldia(int $anios_id, string $ralcaldia_nombre, string $ralcaldia_descripcion, string $ralcaldia_archivo, string $ralcaldia_fechapublicacion, int $usuarios_id)
+    public function saveReAlcaldia(int $anios_id, string $ralcaldia_nombre, string $ralcaldia_descripcion, string $ralcaldia_archivo, string $ralcaldia_fechapublicacion, int $usuarios_id)
     {
         $sql = 'INSERT INTO re_alcaldia(anios_id,ralcaldia_nombre,ralcaldia_descripcion,ralcaldia_archivo,ralcaldia_fechapublicacion,usuarios_id) VALUES (:anios_id,:ralcaldia_nombre,:ralcaldia_descripcion,:ralcaldia_archivo,:ralcaldia_fechapublicacion,:usuarios_id)';
 

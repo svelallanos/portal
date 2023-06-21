@@ -106,7 +106,7 @@ class Resoluciones extends Controllers
         json($return);
     }
 
-    public function insertReAlcaldia()
+    public function saveReAlcaldia()
     {
         parent::verificarLogin(true);
         parent::verificarPermiso(9, true);
@@ -161,7 +161,7 @@ class Resoluciones extends Controllers
             }
         }
 
-        $insertReAlcaldia = $this->model->insertReAlcaldia(
+        $saveReAlcaldia = $this->model->saveReAlcaldia(
             $_POST['anios_id'],
             $_POST['ralcaldia_nombre'],
             $_POST['ralcaldia_descripcion'],
@@ -170,7 +170,7 @@ class Resoluciones extends Controllers
             $this->defineDatosUserPortal()['usuarios_id']
         );
 
-        if (intval($insertReAlcaldia) > 0) {
+        if (intval($saveReAlcaldia) > 0) {
             $return = array(
                 'status' => true,
                 'msg' => 'Datos registrados correctamente',
