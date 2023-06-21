@@ -9,24 +9,45 @@
                             <div class="page-header-icon"><i data-feather="users"></i></div>
                             <?= !empty($data['page_name']) ? $data['page_name'] : 'Sin Nombre' ?>
                         </h1>
-                    </div>
-                    <!-- <div class="col-12 col-xl-auto mb-3">
+                        </div>
+                    <div class="col-12 col-xl-auto mb-3">
                         <a class="btn btn-sm btn-danger-soft text-danger" href="#">
                             <i class="feather-file-text me-1"></i>
                             Reporte
                         </a>
-                        <a class="btn btn-sm btn-light text-primary" href="<?= base_url() ?>Roles/Nuevo">
+                        <button type="button" class="btn btn-sm btn-light text-primary" data-bs-toggle="modal" data-bs-target="#modal_ordenanzas">
                             <i class="me-1" data-feather="plus"></i>
-                            Nuevo Rol
-                        </a>
-                    </div> -->
+                            Nuevo
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     <div class="container-xl px-4 mt-5">
-        ...contenido
+        <div class="row">
+            <div class="card p-3">
+                <div class="table-responsive">
+                    <table id="tb_ordenanza" class="table-bordered dataTable table-striped table-hover table-sm w-100">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>NOMBRE</th>
+                                <th>DESCRIPCION</th>
+                                <th>AÑO</th>
+                                <th>FECHA PUBLICACION</th>
+                                <th>ESTADO</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 
-<?php footerAdmin($data) ?>
+<?php footerAdmin($data);
+getModal('modal_ordenanzas', $data);?>
