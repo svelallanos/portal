@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `alcalde` (
   `alcalde_dni` varchar(50) NOT NULL,
   `alcalde_ruc` varchar(50) NOT NULL,
   `alcalde_email` varchar(200) NOT NULL,
-  `alcalde_celular` int NOT NULL,
+  `alcalde_celular` varchar(50) NOT NULL,
   `alcalde_photo` varchar(100) NOT NULL DEFAULT 'sin_foto.png',
   `alcalde_resumen` text NOT NULL,
   `alcalde_saludo` text NOT NULL,
@@ -41,11 +41,38 @@ CREATE TABLE IF NOT EXISTS `alcalde` (
   PRIMARY KEY (`alcalde_id`),
   KEY `FK_alcalde_gestion_municipal` (`gestion_id`),
   CONSTRAINT `FK_alcalde_gestion_municipal` FOREIGN KEY (`gestion_id`) REFERENCES `gestion_municipal` (`gestion_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla portal_mdesv.alcalde: ~1 rows (aproximadamente)
 INSERT INTO `alcalde` (`alcalde_id`, `gestion_id`, `alcalde_nombres`, `alcalde_apellidopaterno`, `alcalde_apellidomaterno`, `alcalde_dni`, `alcalde_ruc`, `alcalde_email`, `alcalde_celular`, `alcalde_photo`, `alcalde_resumen`, `alcalde_saludo`, `alcalde_estado`, `alcalde_fechacreacion`, `alcalde_fechaupdate`) VALUES
-	(1, 1, 'Jose Dilmer', 'Saldaña', 'Jara', '98745632', '987456325478', 'dilmer@gmail.com', 987456321, 'sin_foto.png', 'hhhh', 'ddd', 1, '2023-06-13 20:02:48', '2023-06-13 20:13:50');
+	(1, 1, 'Jose Dilmer', 'Saldaña', 'Jara', '98745632', '14785965', 'dilmer@gmail.com', '987456321', 'alcalde_profile_20230619_182024.jpg', 'hhhh', 'ddd', 1, '2023-06-13 20:02:48', '2023-06-19 23:20:24');
+
+-- Volcando estructura para tabla portal_mdesv.anios
+DROP TABLE IF EXISTS `anios`;
+CREATE TABLE IF NOT EXISTS `anios` (
+  `anios_id` int NOT NULL AUTO_INCREMENT,
+  `anios_nombre` varchar(50) NOT NULL,
+  `anios_estado` tinyint NOT NULL DEFAULT '1',
+  `anios_fechacreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `anios_fechaupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`anios_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Volcando datos para la tabla portal_mdesv.anios: ~11 rows (aproximadamente)
+INSERT INTO `anios` (`anios_id`, `anios_nombre`, `anios_estado`, `anios_fechacreacion`, `anios_fechaupdate`) VALUES
+	(1, '2011', 1, '2023-06-20 15:05:21', '2023-06-20 15:05:21'),
+	(2, '2012', 1, '2023-06-20 15:05:28', '2023-06-20 15:05:28'),
+	(3, '2013', 1, '2023-06-20 15:05:43', '2023-06-20 15:05:43'),
+	(4, '2014', 1, '2023-06-20 15:05:47', '2023-06-20 15:05:47'),
+	(5, '2015', 1, '2023-06-20 15:05:51', '2023-06-20 15:05:51'),
+	(6, '2016', 1, '2023-06-20 15:05:56', '2023-06-20 15:05:56'),
+	(7, '2017', 1, '2023-06-20 15:06:00', '2023-06-20 15:06:00'),
+	(8, '2018', 1, '2023-06-20 15:06:04', '2023-06-20 15:06:04'),
+	(9, '2019', 1, '2023-06-20 15:06:08', '2023-06-20 15:06:08'),
+	(10, '2020', 1, '2023-06-20 15:06:13', '2023-06-20 15:06:13'),
+	(11, '2021', 1, '2023-06-20 15:06:16', '2023-06-20 15:06:16'),
+	(12, '2022', 1, '2023-06-20 15:06:20', '2023-06-20 15:06:20'),
+	(13, '2023', 1, '2023-06-20 15:06:24', '2023-06-20 15:06:24');
 
 -- Volcando estructura para tabla portal_mdesv.bloqueo
 DROP TABLE IF EXISTS `bloqueo`;
@@ -79,18 +106,22 @@ CREATE TABLE IF NOT EXISTS `detalle_rol_permiso` (
   KEY `FK_detalle_rol_permiso_permiso` (`permiso_id`),
   CONSTRAINT `FK_detalle_rol_permiso_permiso` FOREIGN KEY (`permiso_id`) REFERENCES `permiso` (`permiso_id`),
   CONSTRAINT `FK_detalle_rol_permiso_roles` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`roles_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=882 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=914 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla portal_mdesv.detalle_rol_permiso: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla portal_mdesv.detalle_rol_permiso: ~12 rows (aproximadamente)
 INSERT INTO `detalle_rol_permiso` (`drp_id`, `permiso_id`, `roles_id`, `drp_fechacreacion`, `drp_fechaupdate`) VALUES
-	(874, 1, 1, '2023-06-13 15:10:50', '2023-06-13 15:10:50'),
-	(875, 2, 1, '2023-06-13 15:10:50', '2023-06-13 15:10:50'),
-	(876, 3, 1, '2023-06-13 15:10:50', '2023-06-13 15:10:50'),
-	(877, 4, 1, '2023-06-13 15:10:50', '2023-06-13 15:10:50'),
-	(878, 5, 1, '2023-06-13 15:10:50', '2023-06-13 15:10:50'),
-	(879, 6, 1, '2023-06-13 15:10:50', '2023-06-13 15:10:50'),
-	(880, 7, 1, '2023-06-13 15:10:50', '2023-06-13 15:10:50'),
-	(881, 8, 1, '2023-06-13 15:10:50', '2023-06-13 15:10:50');
+	(902, 1, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(903, 2, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(904, 3, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(905, 4, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(906, 5, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(907, 6, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(908, 7, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(909, 8, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(910, 9, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(911, 10, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(912, 11, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03'),
+	(913, 12, 1, '2023-06-20 13:34:03', '2023-06-20 13:34:03');
 
 -- Volcando estructura para tabla portal_mdesv.detalle_rol_usuario
 DROP TABLE IF EXISTS `detalle_rol_usuario`;
@@ -108,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `detalle_rol_usuario` (
   CONSTRAINT `FK_detalle_rol_usuario_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`usuarios_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla portal_mdesv.detalle_rol_usuario: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla portal_mdesv.detalle_rol_usuario: ~2 rows (aproximadamente)
 INSERT INTO `detalle_rol_usuario` (`dru_id`, `roles_id`, `usuarios_id`, `dru_fechacreacion`, `dru_fechaupdate`) VALUES
 	(1, 1, 1, '2023-06-11 01:17:30', '2023-06-11 01:17:34'),
 	(67, 1, 27, '2023-06-13 14:55:43', '2023-06-13 14:55:43');
@@ -127,8 +158,6 @@ CREATE TABLE IF NOT EXISTS `det_permiso_usuarios` (
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla portal_mdesv.det_permiso_usuarios: ~0 rows (aproximadamente)
-INSERT INTO `det_permiso_usuarios` (`dpu_id`, `usuarios_id`, `permiso_id`, `dpu_estado`, `dpu_fechacreacion`, `dpu_fechaupdate`) VALUES
-	(30, 1, 5, 1, '2023-06-12 21:05:43', '2023-06-12 21:05:43');
 
 -- Volcando estructura para tabla portal_mdesv.email_institucional
 DROP TABLE IF EXISTS `email_institucional`;
@@ -140,11 +169,12 @@ CREATE TABLE IF NOT EXISTS `email_institucional` (
   `email_fechacreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `email_fechaupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`email_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla portal_mdesv.email_institucional: ~0 rows (aproximadamente)
 INSERT INTO `email_institucional` (`email_id`, `email_nombre`, `email_descripcion`, `email_estado`, `email_fechacreacion`, `email_fechaupdate`) VALUES
-	(1, 'municipio@munieliassoplinvargas.gob.pe', 'Correo principal de la institucion', 1, '2023-06-13 15:48:56', '2023-06-13 15:49:26');
+	(1, 'municipio@munieliassoplinvargas.gob.pe', 'Correo principal de la institucion', 1, '2023-06-13 15:48:56', '2023-06-13 15:49:26'),
+	(2, 'informatica@munieliassoplinvargas.gob.pe', 'Correo intitucional de la Oficina de Informatica y Estadistica', 1, '2023-06-16 16:17:47', '2023-06-16 16:17:47');
 
 -- Volcando estructura para tabla portal_mdesv.empresa
 DROP TABLE IF EXISTS `empresa`;
@@ -165,11 +195,11 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   PRIMARY KEY (`empresa_id`),
   KEY `FK_empresa_email_institucional` (`email_id`),
   CONSTRAINT `FK_empresa_email_institucional` FOREIGN KEY (`email_id`) REFERENCES `email_institucional` (`email_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla portal_mdesv.empresa: ~1 rows (aproximadamente)
 INSERT INTO `empresa` (`empresa_id`, `empresa_nombre`, `empresa_descripcion`, `empresa_ruc`, `email_id`, `empresa_logo`, `empresa_mision`, `empresa_vision`, `empresa_historia`, `empresa_poblacion`, `empresa_estado`, `empresa_fechacreacion`, `empresa_fechaupdate`) VALUES
-	(1, 'Municipalidad Distrital De Elías Soplín Vargas', 'Entidad del Gobierno', '20187362840', 1, 'sin_logo.png', 'Mision', 'Vision', 'Historia', 'Poblacion', 1, '2023-06-13 16:37:31', '2023-06-13 16:37:32');
+	(6, 'Municipalidad Distrital De Elías Soplín Vargas', 'Descripcion', '20187362840', 1, 'sin_logo.png', 'aaa', 'eee', 'iii', 'ooo', 1, '2023-06-16 22:40:00', '2023-06-19 22:24:07');
 
 -- Volcando estructura para tabla portal_mdesv.gestion_municipal
 DROP TABLE IF EXISTS `gestion_municipal`;
@@ -210,6 +240,28 @@ INSERT INTO `grupo_permiso` (`grupo_permiso_id`, `grupo_permiso_nombre`, `grupo_
 	(3, 'publicador', 1, '2022-09-02 20:52:34', '2023-04-19 20:03:27'),
 	(4, 'Invitado', 1, '2023-06-11 01:17:13', '2023-06-11 01:17:13');
 
+-- Volcando estructura para tabla portal_mdesv.ordenanza_municipal
+DROP TABLE IF EXISTS `ordenanza_municipal`;
+CREATE TABLE IF NOT EXISTS `ordenanza_municipal` (
+  `ordenanza_id` int NOT NULL AUTO_INCREMENT,
+  `anios_id` int NOT NULL,
+  `ordenanza_nombre` varchar(300) NOT NULL,
+  `ordenanza_descripcion` text NOT NULL,
+  `ordenanza_archivo` varchar(200) NOT NULL,
+  `ordenanza_fechapublicacion` datetime NOT NULL,
+  `usuarios_id` int NOT NULL,
+  `ordenanza_estado` tinyint NOT NULL DEFAULT '2',
+  `ordenanza_fechacreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ordenanza_fechaupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ordenanza_id`),
+  KEY `FK_ordenanza_municipal_anios` (`anios_id`),
+  KEY `FK_ordenanza_municipal_usuarios` (`usuarios_id`),
+  CONSTRAINT `FK_ordenanza_municipal_anios` FOREIGN KEY (`anios_id`) REFERENCES `anios` (`anios_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_ordenanza_municipal_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`usuarios_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Volcando datos para la tabla portal_mdesv.ordenanza_municipal: ~0 rows (aproximadamente)
+
 -- Volcando estructura para tabla portal_mdesv.permiso
 DROP TABLE IF EXISTS `permiso`;
 CREATE TABLE IF NOT EXISTS `permiso` (
@@ -223,9 +275,9 @@ CREATE TABLE IF NOT EXISTS `permiso` (
   PRIMARY KEY (`permiso_id`),
   KEY `FK_permiso_grupo_permiso` (`grupo_permiso_id`),
   CONSTRAINT `FK_permiso_grupo_permiso` FOREIGN KEY (`grupo_permiso_id`) REFERENCES `grupo_permiso` (`grupo_permiso_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla portal_mdesv.permiso: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla portal_mdesv.permiso: ~12 rows (aproximadamente)
 INSERT INTO `permiso` (`permiso_id`, `permiso_nombre`, `grupo_permiso_id`, `permiso_orden`, `permiso_estado`, `permiso_fechacreacion`, `permiso_fechaupdate`) VALUES
 	(1, 'Ver y editar usuarios', 1, 1, 1, '2022-08-25 14:15:53', '2023-06-12 13:23:46'),
 	(2, 'Ver y editar roles', 1, 2, 1, '2022-08-25 14:19:43', '2023-06-12 13:23:53'),
@@ -234,7 +286,83 @@ INSERT INTO `permiso` (`permiso_id`, `permiso_nombre`, `grupo_permiso_id`, `perm
 	(5, 'Ver perfil', 1, 5, 1, '2022-08-25 14:21:21', '2023-06-11 01:15:08'),
 	(6, 'Gestion alcaldia', 1, 6, 1, '2023-06-12 13:39:21', '2023-06-13 14:45:32'),
 	(7, 'Alcalde', 1, 7, 1, '2023-06-13 14:45:26', '2023-06-13 14:45:26'),
-	(8, 'Ver y editar empresa', 1, 8, 1, '2023-06-13 14:46:17', '2023-06-13 14:46:19');
+	(8, 'Ver y editar empresa', 1, 8, 1, '2023-06-13 14:46:17', '2023-06-13 14:46:19'),
+	(9, 'Resoluciones de Alcaldía', 1, 9, 1, '2023-06-20 13:26:09', '2023-06-20 13:26:09'),
+	(10, 'Resoluciones de Gerencia', 1, 10, 1, '2023-06-20 13:26:28', '2023-06-20 13:26:28'),
+	(11, 'Resoluciones de Consejo', 1, 11, 1, '2023-06-20 13:28:55', '2023-06-20 13:28:59'),
+	(12, 'Ordenanzas Municipales', 1, 12, 1, '2023-06-20 13:32:47', '2023-06-20 13:32:47');
+
+-- Volcando estructura para tabla portal_mdesv.re_alcaldia
+DROP TABLE IF EXISTS `re_alcaldia`;
+CREATE TABLE IF NOT EXISTS `re_alcaldia` (
+  `ralcaldia_id` int NOT NULL AUTO_INCREMENT,
+  `anios_id` int NOT NULL,
+  `ralcaldia_nombre` varchar(300) NOT NULL,
+  `ralcaldia_descripcion` text NOT NULL,
+  `ralcaldia_archivo` varchar(200) NOT NULL,
+  `ralcaldia_fechapublicacion` datetime NOT NULL,
+  `usuarios_id` int NOT NULL,
+  `ralcaldia_estado` tinyint NOT NULL DEFAULT '2',
+  `ralcaldia_fechacreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ralcaldia_fechaupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ralcaldia_id`),
+  KEY `FK_re_alcaldia_anios` (`anios_id`),
+  KEY `FK_re_alcaldia_usuarios` (`usuarios_id`),
+  CONSTRAINT `FK_re_alcaldia_anios` FOREIGN KEY (`anios_id`) REFERENCES `anios` (`anios_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_re_alcaldia_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`usuarios_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Volcando datos para la tabla portal_mdesv.re_alcaldia: ~1 rows (aproximadamente)
+INSERT INTO `re_alcaldia` (`ralcaldia_id`, `anios_id`, `ralcaldia_nombre`, `ralcaldia_descripcion`, `ralcaldia_archivo`, `ralcaldia_fechapublicacion`, `usuarios_id`, `ralcaldia_estado`, `ralcaldia_fechacreacion`, `ralcaldia_fechaupdate`) VALUES
+	(4, 13, 'gfdfg', 'dfgdsfg', 'realcaldia_doc_20230621_151523.pdf', '2023-06-09 15:15:00', 1, 2, '2023-06-21 20:15:23', '2023-06-21 20:26:01');
+
+-- Volcando estructura para tabla portal_mdesv.re_consejo
+DROP TABLE IF EXISTS `re_consejo`;
+CREATE TABLE IF NOT EXISTS `re_consejo` (
+  `rconsejo_id` int NOT NULL AUTO_INCREMENT,
+  `anios_id` int NOT NULL,
+  `rconsejo_nombre` varchar(300) NOT NULL,
+  `rconsejo_descripcion` text NOT NULL,
+  `rconsejo_archivo` varchar(200) NOT NULL,
+  `rconsejo_fechapublicacion` datetime NOT NULL,
+  `usuarios_id` int NOT NULL,
+  `rconsejo_estado` tinyint NOT NULL DEFAULT '2',
+  `rconsejo_fechacreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `rconsejo_fechaupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`rconsejo_id`),
+  KEY `FK_re_consejo_anios` (`anios_id`),
+  KEY `FK_re_consejo_usuarios` (`usuarios_id`),
+  CONSTRAINT `FK_re_consejo_anios` FOREIGN KEY (`anios_id`) REFERENCES `anios` (`anios_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_re_consejo_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`usuarios_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Volcando datos para la tabla portal_mdesv.re_consejo: ~0 rows (aproximadamente)
+INSERT INTO `re_consejo` (`rconsejo_id`, `anios_id`, `rconsejo_nombre`, `rconsejo_descripcion`, `rconsejo_archivo`, `rconsejo_fechapublicacion`, `usuarios_id`, `rconsejo_estado`, `rconsejo_fechacreacion`, `rconsejo_fechaupdate`) VALUES
+	(1, 13, 'fsdf', 'adsfasdfas', 'reconsejo_doc_20230621_173916.pdf', '2023-06-10 17:20:00', 1, 2, '2023-06-21 22:20:55', '2023-06-21 22:39:27');
+
+-- Volcando estructura para tabla portal_mdesv.re_gerencia
+DROP TABLE IF EXISTS `re_gerencia`;
+CREATE TABLE IF NOT EXISTS `re_gerencia` (
+  `rgerencia_id` int NOT NULL AUTO_INCREMENT,
+  `anios_id` int NOT NULL,
+  `rgerencia_nombre` varchar(300) NOT NULL,
+  `rgerencia_descripcion` text NOT NULL,
+  `rgerencia_archivo` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `rgerencia_fechapublicacion` datetime NOT NULL,
+  `usuarios_id` int NOT NULL,
+  `rgerencia_estado` tinyint NOT NULL DEFAULT '2',
+  `rgerencia_fechacreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `rgerencia_fechaupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`rgerencia_id`),
+  KEY `FK_re_gerencia_anios` (`anios_id`),
+  KEY `FK_re_gerencia_usuarios` (`usuarios_id`),
+  CONSTRAINT `FK_re_gerencia_anios` FOREIGN KEY (`anios_id`) REFERENCES `anios` (`anios_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_re_gerencia_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`usuarios_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Volcando datos para la tabla portal_mdesv.re_gerencia: ~1 rows (aproximadamente)
+INSERT INTO `re_gerencia` (`rgerencia_id`, `anios_id`, `rgerencia_nombre`, `rgerencia_descripcion`, `rgerencia_archivo`, `rgerencia_fechapublicacion`, `usuarios_id`, `rgerencia_estado`, `rgerencia_fechacreacion`, `rgerencia_fechaupdate`) VALUES
+	(2, 4, 'aaaaaaaaaaa', 'bbbbbbbbbbbbbb', 'regerencia_doc_20230621_170301.pdf', '2023-06-21 19:20:00', 1, 2, '2023-06-21 21:19:03', '2023-06-21 22:03:01');
 
 -- Volcando estructura para tabla portal_mdesv.roles
 DROP TABLE IF EXISTS `roles`;
