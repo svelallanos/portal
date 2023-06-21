@@ -30,6 +30,13 @@ class ResolucionesModel extends Mysql
         return $request;
     }
 
+    public function selectsReConsejo()
+    {
+        $sql = 'SELECT * FROM re_consejo';
+        $request = $this->select_all($sql, array(), DB_PORTAL);
+        return $request;
+    }
+
     // Select
 
     public function selectReAlcaldia(int $ralcaldia_id)
@@ -45,6 +52,14 @@ class ResolucionesModel extends Mysql
         $sql = 'SELECT * FROM re_gerencia
         WHERE rgerencia_id = :rgerencia_id';
         $request = $this->select($sql, array('rgerencia_id' => $rgerencia_id), DB_PORTAL);
+        return $request;
+    }
+
+    public function selectReConsejo(int $rconsejo_id)
+    {
+        $sql = 'SELECT * FROM re_consejo
+        WHERE rconsejo_id = :rconsejo_id';
+        $request = $this->select($sql, array('rconsejo_id' => $rconsejo_id), DB_PORTAL);
         return $request;
     }
 
@@ -86,6 +101,24 @@ class ResolucionesModel extends Mysql
         return $request;
     }
 
+    public function saveReConsejo(int $anios_id, string $rconsejo_nombre, string $rconsejo_descripcion, string $rconsejo_archivo, string $rconsejo_fechapublicacion, int $usuarios_id)
+    {
+        $sql = 'INSERT INTO re_consejo(anios_id,rconsejo_nombre,rconsejo_descripcion,rconsejo_archivo,rconsejo_fechapublicacion,usuarios_id) VALUES (:anios_id,:rconsejo_nombre,:rconsejo_descripcion,:rconsejo_archivo,:rconsejo_fechapublicacion,:usuarios_id)';
+
+        $arrData = [    
+            'anios_id' => $anios_id,
+            'rconsejo_nombre' => $rconsejo_nombre,
+            'rconsejo_descripcion' => $rconsejo_descripcion,
+            'rconsejo_archivo' => $rconsejo_archivo,
+            'rconsejo_fechapublicacion' => $rconsejo_fechapublicacion,
+            'usuarios_id' => $usuarios_id
+        ];
+
+        $request = $this->insert($sql, $arrData, DB_PORTAL);
+
+        return $request;
+    }
+
     // Update
 
     public function updateEstado(int $ralcaldia_id, int $ralcaldia_estado)
@@ -102,6 +135,15 @@ class ResolucionesModel extends Mysql
         $sql = 'UPDATE re_gerencia SET rgerencia_estado = :rgerencia_estado
         WHERE rgerencia_id = :rgerencia_id';
         $request = $this->update($sql, ['rgerencia_estado' => $rgerencia_estado, 'rgerencia_id' => $rgerencia_id], DB_PORTAL);
+
+        return $request;
+    }
+
+    public function updateEstadoConsejo(int $rconsejo_id, int $rconsejo_estado)
+    {
+        $sql = 'UPDATE re_consejo SET rconsejo_estado = :rconsejo_estado
+        WHERE rconsejo_id = :rconsejo_id';
+        $request = $this->update($sql, ['rconsejo_estado' => $rconsejo_estado, 'rconsejo_id' => $rconsejo_id], DB_PORTAL);
 
         return $request;
     }
@@ -156,6 +198,31 @@ class ResolucionesModel extends Mysql
         return $request;
     }
 
+    public function updateReConsejo(int $rconsejo_id, int $anios_id, string $rconsejo_nombre, string $rconsejo_descripcion, string $rconsejo_archivo, string $rconsejo_fechapublicacion)
+    {
+        $sql = 'UPDATE re_consejo SET 
+        anios_id = :anios_id,
+        rconsejo_nombre = :rconsejo_nombre,
+        rconsejo_descripcion = :rconsejo_descripcion,
+        rconsejo_archivo = :rconsejo_archivo,
+        rconsejo_fechapublicacion = :rconsejo_fechapublicacion
+        WHERE rconsejo_id = :rconsejo_id
+        ';
+
+        $arrData = [
+            'anios_id' => $anios_id,
+            'rconsejo_nombre' => $rconsejo_nombre,
+            'rconsejo_descripcion' => $rconsejo_descripcion,
+            'rconsejo_archivo' => $rconsejo_archivo,
+            'rconsejo_fechapublicacion' => $rconsejo_fechapublicacion,
+            'rconsejo_id' => $rconsejo_id
+        ];
+
+        $request = $this->update($sql, $arrData, DB_PORTAL);
+
+        return $request;
+    }
+
     // Delete
 
     public function deleteReAlcaldia(int $ralcaldia_id)
@@ -171,6 +238,14 @@ class ResolucionesModel extends Mysql
         $sql = 'DELETE FROM re_gerencia
         WHERE rgerencia_id = :rgerencia_id';
         $request = $this->delete($sql, array('rgerencia_id' => $rgerencia_id), DB_PORTAL);
+        return $request;
+    }
+
+    public function deleteReConsejo(int $rconsejo_id)
+    {
+        $sql = 'DELETE FROM re_consejo
+        WHERE rconsejo_id = :rconsejo_id';
+        $request = $this->delete($sql, array('rconsejo_id' => $rconsejo_id), DB_PORTAL);
         return $request;
     }
 }

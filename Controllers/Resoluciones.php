@@ -38,6 +38,21 @@ class Resoluciones extends Controllers
         $this->views->getView($this, "gerencia", $data);
     }
 
+    public function consejo()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(11, true);
+
+        $data['page_id'] = 11;
+        $data['page_tag'] = "MDESV - Portal Web";
+        $data['page_title'] = ":. Resoluciones de Consejo - Portal Web";
+        $data['page_name'] = "Resoluciones de Consejo";
+        $data['page_function_js'] = "resoluciones/functions_consejo";
+
+        $data['anios'] = $this->selectsAnios();
+        $this->views->getView($this, "consejo", $data);
+    }
+
     public function selectsReAlcaldia()
     {
         parent::verificarLogin(true);
@@ -116,6 +131,45 @@ class Resoluciones extends Controllers
         json($dataGerencia);
     }
 
+    public function selectsReConsejo()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(10, true);
+
+        // Consultamos los años
+        $dataAnios = $this->selectsAnios();
+        $auxDataAnios = [];
+
+        foreach ($dataAnios as $key => $value) {
+            $auxDataAnios[$value['anios_id']] = $value['anios_nombre'];
+        }
+
+        $dataConsejo = $this->model->selectsReConsejo();
+
+        foreach ($dataConsejo as $key => $value) {
+            $value['rconsejo_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['rconsejo_fechapublicacion']) . 'America/Lima');
+            $dataConsejo[$key]['rconsejo_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['rconsejo_fechapublicacion']->format('h:i A') . '</span> - ' . $value['rconsejo_fechapublicacion']->format('d/m/Y') . '</div>';
+
+            $dataConsejo[$key]['numero'] = $key + 1;
+
+            $dataConsejo[$key]['anio'] = $auxDataAnios[$value['anios_id']];
+
+            if ($value['rconsejo_estado'] == 1) {
+                $dataConsejo[$key]['estado'] = '<span class="badge bg-success-soft text-success border fw-bold">Publicado</span>';
+
+                $dataConsejo[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+            } else {
+                $dataConsejo[$key]['estado'] = '<span class="badge bg-indigo-soft text-indigo border">Sin publicar</span>';
+
+                $dataConsejo[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '" data-rconsejo_nombre = "' . $value['rconsejo_nombre'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_rconsejo" 
+                data-rconsejo_id = "' . $value['rconsejo_id'] . '" 
+                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+            }
+        }
+
+        json($dataConsejo);
+    }
+
     public function selectReAlcaldia(bool $json = true, $ralcaldia_id = null)
     {
         parent::verificarLogin(true);
@@ -150,6 +204,24 @@ class Resoluciones extends Controllers
         }
 
         return $selectReGerencia;
+    }
+
+    public function selectReConsejo(bool $json = true, $rconsejo_id = null)
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(11, true);
+
+        if (is_null($rconsejo_id)) {
+            $rconsejo_id = $_POST['rconsejo_id'];
+        }
+
+        $selectReConsejo = $this->model->selectReConsejo($rconsejo_id);
+
+        if ($json) {
+            json($selectReConsejo);
+        }
+
+        return $selectReConsejo;
     }
 
     public function selectsAnios()
@@ -203,6 +275,35 @@ class Resoluciones extends Controllers
         }
 
         $updateEstado = $this->model->updateEstadoGerencia($_POST['rgerencia_id'], $_POST['rgerencia_estado']);
+
+        if ($updateEstado) {
+            $return = [
+                'status' => true,
+                'msg' => $msg,
+                'value' => 'success',
+            ];
+        }
+
+        json($return);
+    }
+
+    public function changeEstadoConsejo()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(11, true);
+
+        $return = [
+            'status' => false,
+            'msg' => 'Error al momento de actualizar el estado de la Resolución de Consejo.',
+            'value' => 'error',
+        ];
+
+        $msg = 'Resolución de Consejo Despublicado.';
+        if ($_POST['rconsejo_estado'] == 1) {
+            $msg = 'Resolución de Consejo Publicado.';
+        }
+
+        $updateEstado = $this->model->updateEstadoConsejo($_POST['rconsejo_id'], $_POST['rconsejo_estado']);
 
         if ($updateEstado) {
             $return = [
@@ -363,6 +464,80 @@ class Resoluciones extends Controllers
         json($return);
     }
 
+    public function saveReConsejo()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(11, true);
+
+        // validamos que selecciona el doc
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de registrar la Resolución de Consejo.',
+            'value' => 'error'
+        );
+
+        $file_name = 'sin_doc.png';
+
+        if (isset($_FILES['rconsejo_archivo']) && $_FILES['rconsejo_archivo']['error'] === 0) {
+
+            $file = $_FILES['rconsejo_archivo'];
+
+            if ($file['type'] !== 'application/pdf') {
+                $return['msg'] = 'Formato de documento no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtDocs() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'reconsejo_doc_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $file['name'] = getPathDocReConsejo() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
+        }
+
+        $saveReConsejo = $this->model->saveReConsejo(
+            $_POST['anios_id'],
+            $_POST['rconsejo_nombre'],
+            $_POST['rconsejo_descripcion'],
+            $file_name,
+            $_POST['rconsejo_fechapublicacion'],
+            $this->defineDatosUserPortal()['usuarios_id']
+        );
+
+        if (intval($saveReConsejo) > 0) {
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos registrados correctamente',
+                'value' => 'success'
+            );
+        }
+        json($return);
+    }
+
     public function updateReAlcaldia()
     {
         parent::verificarLogin(true);
@@ -445,7 +620,7 @@ class Resoluciones extends Controllers
     public function updateReGerencia()
     {
         parent::verificarLogin(true);
-        parent::verificarPermiso(9, true);
+        parent::verificarPermiso(10, true);
 
         // json($_POST);
 
@@ -521,6 +696,85 @@ class Resoluciones extends Controllers
         json($return);
     }
 
+    public function updateReConsejo()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(11, true);
+
+        // json($_POST);
+
+        // validamos que selecciona el doc
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de actualizar la Resolución de Consejo.',
+            'value' => 'error'
+        );
+
+        $dataReConsejo = $this->selectReConsejo(false, $_POST['erconsejo_id']);
+
+        $file_name = $dataReConsejo['rconsejo_archivo'];
+
+        if (isset($_FILES['erconsejo_archivo']) && $_FILES['erconsejo_archivo']['error'] === 0) {
+
+            $file = $_FILES['erconsejo_archivo'];
+
+            if ($file['type'] !== 'application/pdf') {
+                $return['msg'] = 'Formato de documento no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtDocs() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'reconsejo_doc_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $file['name'] = getPathDocReConsejo() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
+        }
+
+        $updateReConsejo = $this->model->updateReConsejo(
+            $_POST['erconsejo_id'],
+            $_POST['eanios_id'],
+            $_POST['erconsejo_nombre'],
+            $_POST['erconsejo_descripcion'],
+            $file_name,
+            $_POST['erconsejo_fechapublicacion']
+        );
+
+        if ($updateReConsejo) {
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos actualizados correctamente',
+                'value' => 'success'
+            );
+        }
+
+        json($return);
+    }
+
     public function deleteReAlcaldia()
     {
         parent::verificarLogin(true);
@@ -562,6 +816,30 @@ class Resoluciones extends Controllers
             $return = [
                 'status' => true,
                 'msg' => 'Resolución de Gerencia eliminada correctamente.',
+                'value' => 'success',
+            ];
+        }
+
+        json($return);
+    }
+
+    public function deleteReConsejo()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(11, true);
+
+        $return = [
+            'status' => false,
+            'msg' => 'Error al momento de eliminar la Resolución de Consejo.',
+            'value' => 'error',
+        ];
+
+        $deleteReConsejo = $this->model->deleteReConsejo($_POST['rconsejo_id']);
+
+        if ($deleteReConsejo) {
+            $return = [
+                'status' => true,
+                'msg' => 'Resolución de Consejo eliminada correctamente.',
                 'value' => 'success',
             ];
         }
