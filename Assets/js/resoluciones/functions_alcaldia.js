@@ -2,8 +2,11 @@ var dataAlcaldia;
 
 $(document).ready(function () {
     cargarAlcaldia();
+    openModal();
     publicarReAlcaldia();
     despublicarReAlcaldia();
+    deleteReAlcaldia();
+    saveReAlcaldia();
 });
 
 function cargarAlcaldia() {
@@ -61,6 +64,24 @@ function cargarAlcaldia() {
     });
 }
 
+function openModal() {
+    $(document).on('click', '.__edit_ralcaldia', function () {
+        let ralcaldia_id = $(this).attr('data-ralcaldia_id');
+
+        // Consultamos el id de la resolucion seleccionada
+        const formData = new FormData();
+        formData.append('ralcaldia_id', ralcaldia_id);
+
+        const request = axios.post(base_url + 'Resoluciones/selectReAlcaldia', formData);
+
+        request.then(res => {
+            console.log(res.data);
+
+            $('#').val();
+        });
+    });
+}
+
 function publicarReAlcaldia() {
     $(document).on('click', '.__publicar_ralcaldia', function () {
         let ralcaldia_id = $(this).attr('data-ralcaldia_id');
@@ -105,5 +126,93 @@ function changeEstado(id, status = 2) {
             icon: 'error',
             title: error
         })
+    });
+}
+
+function deleteReAlcaldia() {
+    $(document).on('click', '.__delete_ralcaldia', function () {
+        let ralcaldia_id = $(this).attr('data-ralcaldia_id');
+        let ralcaldia_nombre = $(this).attr('data-ralcaldia_nombre');
+
+        Swal.fire({
+            title: 'ELIMINAR RESOLUCIÓN DE ALCALDÍA',
+            html: '¿Esta seguro de eliminar la resolución: <b>' + ralcaldia_nombre + '</b> de alcaldía.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                const formData = new FormData();
+                formData.append('ralcaldia_id', ralcaldia_id);
+
+                abrirLoadingModal();
+                const request = axios.post(base_url + 'Resoluciones/deleteReAlcaldia', formData);
+
+                request.then(res => {
+                    if (res.data.status) {
+                        dataAlcaldia.ajax.reload(() => cerrarLoadingModal());
+
+                        Toast.fire({
+                            icon: res.data.value,
+                            title: res.data.msg
+                        })
+                    } else {
+                        cerrarLoadingModal();
+                        Toast.fire({
+                            icon: res.data.value,
+                            title: res.data.msg
+                        })
+                    }
+                });
+
+                request.catch(error => {
+                    Toast.fire({
+                        icon: 'error',
+                        title: error
+                    })
+                });
+            }
+        })
+    });
+}
+
+function saveReAlcaldia() {
+    $('#form_ralcaldia').submit(function (e) {
+        e.preventDefault();
+
+        const form = document.getElementById('form_ralcaldia');
+        const formData = new FormData(form);
+
+        abrirLoadingModal();
+        const request = axios.post(base_url + 'Resoluciones/insertReAlcaldia', formData);
+
+        request.then(res => {
+            if (res.data.status) {
+                dataAlcaldia.ajax.reload(() => cerrarLoadingModal());
+
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+                $('#model_ralcaldia').modal('hide');
+            } else {
+                cerrarLoadingModal();
+                Toast.fire({
+                    icon: res.data.value,
+                    title: res.data.msg
+                })
+            }
+        });
+
+        request.catch(error => {
+            Toast.fire({
+                icon: 'error',
+                title: error
+            })
+        });
     });
 }

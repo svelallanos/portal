@@ -25,6 +25,11 @@ function getPathFotoEmpresa()
   return PATH_FOTOEMPRESA;
 }
 
+function getPathDocReAlcaldia()
+{
+  return PATH_DOCREALCALDIA;
+}
+
 function headerAdmin($data = "")
 {
   $view_header = "Views/Template/header_admin.php";
@@ -103,6 +108,12 @@ function getExtension(string $name)
 function getExtFotos()
 {
   $ext_type = array('gif', 'jpg', 'jpe', 'jpeg', 'png');
+  return $ext_type;
+}
+
+function getExtDocs()
+{
+  $ext_type = array('pdf', 'doc', 'docs', 'xls');
   return $ext_type;
 }
 

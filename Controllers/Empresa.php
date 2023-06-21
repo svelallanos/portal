@@ -135,8 +135,7 @@ class Empresa extends Controllers
             $file['name'] = 'empresa_profile_' . date('Ymd_His') . '.' . $file['name'];
 
             $file_name = $file['name'];
-
-            $onlyName = $file['name'];
+            
             $file['name'] = getPathFotoEmpresa() . $file['name'];
 
             $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
