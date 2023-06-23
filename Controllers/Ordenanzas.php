@@ -16,8 +16,198 @@ class Ordenanzas extends Controllers
         $data['page_tag'] = "MDESV - Portal Web";
         $data['page_title'] = ":. Ordenanzas Municipales - Portal Web";
         $data['page_name'] = "Ordenanzas Municipales";
-        // $data['page_css'] = "web/index";
-        $data['page_function_js'] = "resoluciones/functions_ordenanzas";
+        $data['page_function_js'] = "ordenanzas/functions_ordenanzas";
+
+        $data['anios'] = $this->selectsAnios();
         $this->views->getView($this, "ordenanzas", $data);
+    }
+
+    public function selectsOrdenanzas()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(12, true);
+
+        // Consultamos los años
+        $dataAnios = $this->selectsAnios();
+        $auxDataAnios = [];
+
+        foreach ($dataAnios as $key => $value) {
+            $auxDataAnios[$value['anios_id']] = $value['anios_nombre'];
+        }
+
+        $dataOrdenanzas = $this->model->selectsOrdenanzas();
+
+        foreach ($dataOrdenanzas as $key => $value) {
+            $value['ordenanza_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['ordenanza_fechapublicacion']) . 'America/Lima');
+            $dataOrdenanzas[$key]['ordenanza_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['ordenanza_fechapublicacion']->format('h:i A') . '</span> - ' . $value['ordenanza_fechapublicacion']->format('d/m/Y') . '</div>';
+
+            $dataOrdenanzas[$key]['numero'] = $key + 1;
+
+            $dataOrdenanzas[$key]['anio'] = $auxDataAnios[$value['anios_id']];
+
+            if ($value['ordenanza_estado'] == 1) {
+                $dataOrdenanzas[$key]['estado'] = '<span class="badge bg-success-soft text-success border fw-bold">Publicado</span>';
+
+                $dataOrdenanzas[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+            } else {
+                $dataOrdenanzas[$key]['estado'] = '<span class="badge bg-indigo-soft text-indigo border">Sin publicar</span>';
+
+                $dataOrdenanzas[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" data-ordenanza_nombre = "' . $value['ordenanza_nombre'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_ordenanza" 
+                data-ordenanza_id = "' . $value['ordenanza_id'] . '" 
+                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+            }
+        }
+
+        json($dataOrdenanzas);
+    }
+
+    public function selectReAlcaldia(bool $json = true, $ralcaldia_id = null)
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(12, true);
+
+        if (is_null($ralcaldia_id)) {
+            $ralcaldia_id = $_POST['ralcaldia_id'];
+        }
+
+        $selectReAlcaldia = $this->model->selectReAlcaldia($ralcaldia_id);
+
+        if ($json) {
+            json($selectReAlcaldia);
+        }
+
+        return $selectReAlcaldia;
+    }
+
+    public function selectsAnios()
+    {
+        return $this->model->selectsAnios();
+    }
+
+    public function changeEstado()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(12, true);
+
+        $return = [
+            'status' => false,
+            'msg' => 'Error al momento de actualizar el estado de la Ordenanza Municipal.',
+            'value' => 'error',
+        ];
+
+        $msg = 'Ordenanza Municipal Despublicado.';
+        if ($_POST['ordenanza_estado'] == 1) {
+            $msg = 'Ordenanza Municipal Publicado.';
+        }
+
+        $updateEstado = $this->model->updateEstado($_POST['ordenanza_id'], $_POST['ordenanza_estado']);
+
+        if ($updateEstado) {
+            $return = [
+                'status' => true,
+                'msg' => $msg,
+                'value' => 'success',
+            ];
+        }
+
+        json($return);
+    }
+
+    public function saveOrdenanza()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(12, true);
+
+        // validamos que selecciona el doc
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de registrar la Ordenanza Municipal.',
+            'value' => 'error'
+        );
+
+        $file_name = 'sin_doc.png';
+
+        if (isset($_FILES['ordenanza_archivo']) && $_FILES['ordenanza_archivo']['error'] === 0) {
+
+            $file = $_FILES['ordenanza_archivo'];
+
+            if ($file['type'] !== 'application/pdf') {
+                $return['msg'] = 'Formato de documento no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtDocs() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'ordenanza_doc_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $file['name'] = getPathDocOrdenanza() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
+        }
+
+        $saveOrdenanza = $this->model->saveOrdenanza(
+            $_POST['anios_id'],
+            $_POST['ordenanza_nombre'],
+            $_POST['ordenanza_descripcion'],
+            $file_name,
+            $_POST['ordenanza_fechapublicacion'],
+            $this->defineDatosUserPortal()['usuarios_id']
+        );
+
+        if (intval($saveOrdenanza) > 0) {
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos registrados correctamente',
+                'value' => 'success'
+            );
+        }
+        json($return);
+    }
+
+    public function deleteOrdenanza()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(9, true);
+
+        $return = [
+            'status' => false,
+            'msg' => 'Error al momento de eliminar la ordenanza municipal.',
+            'value' => 'error',
+        ];
+
+        $deleteOrdenanza = $this->model->deleteOrdenanza($_POST['ordenanza_id']);
+
+        if ($deleteOrdenanza) {
+            $return = [
+                'status' => true,
+                'msg' => 'Ordenanza Municipal eliminada correctamente.',
+                'value' => 'success',
+            ];
+        }
+
+        json($return);
     }
 }

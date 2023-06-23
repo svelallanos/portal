@@ -40,6 +40,11 @@ function getPathDocReConsejo()
   return PATH_DOCRECONSEJO;
 }
 
+function getPathDocOrdenanza()
+{
+  return PATH_DOCORDENANZA;
+}
+
 function headerAdmin($data = "")
 {
   $view_header = "Views/Template/header_admin.php";
