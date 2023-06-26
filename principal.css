@@ -1,0 +1,54 @@
+:root {
+    --bg-azul-1: #00273c;
+    --bg-azul-2: #186adc;
+    --bg-verde-1: #05bc14;
+    --bg-verde-2: #015b1d;
+  }
+  
+  html {
+    font-size: 62.5%;
+    letter-spacing: 0.03rem;
+  }
+  
+  body {
+    box-sizing: border-box;
+    font-family: "Source Sans Pro", sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header {
+    padding: 0 !important;
+    margin: 0;
+  }
+  
+  header .header_bg {
+    width: 100%;
+    background-color: var(--bg-azul-1);
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  header .header_bg .header_social {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  header .header_bg .header_social .logos {
+      display: flex;
+  }
+  
+  header .header_bg .header_social .logos :is(.logo, .alcalde) img {
+    width: 100px;
+    background-color: red;
+  }
+  
+  header .header_bg .header_social .social {
+      background-color: yellow;
+  }
+  
