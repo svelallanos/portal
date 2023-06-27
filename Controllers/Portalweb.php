@@ -217,14 +217,17 @@ class Portalweb extends Controllers
 
     public function resoluciones_alcaldia()
     {
-        $data['page_id'] = 51;
-        $data['page_tag'] = "MDESV - Sistema Caja";
-        $data['page_title'] = ":. Roles - Sistema Caja";
-        $data['page_name'] = "Lista de Roles";
+        $data['page_id'] = 10;
+        $data['page_tag'] = "MDESV - Portal Web";
+        $data['page_title'] = ":. Roles - Portal Web";
+        $data['page_name'] = "Resoluciones de alcaldía";
         $data['page_css'] = "web/resoluciones_alcaldia";
         $data['page_function_js'] = "web/functions_res_alcaldia";
         $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
         $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+
+
+        $data['anios'] = $this->model->selectsAnios();
         $this->views->getView($this, "resoluciones_alcaldia", $data);
     }
 
@@ -305,7 +308,6 @@ class Portalweb extends Controllers
         $this->views->getView($this, "convenios", $data);
     }
 
-
     public function organigrama()
     {
         $data['page_id'] = 51;
@@ -330,5 +332,22 @@ class Portalweb extends Controllers
         $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
         $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
         $this->views->getView($this, "comisiones", $data);
+    }
+
+    // Cargar Select
+
+    public function selectsReAlcaldia()
+    {
+        $_POST['anios_id'] = intval($_POST['anios_id']);
+        $data_ralcaldia = $this->model->selectsReAlcaldia($_POST['anios_id'], 1);
+        foreach ($data_ralcaldia as $key => $value) {
+            $value['ralcaldia_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['ralcaldia_fechapublicacion']) . 'America/Lima');
+            $data_ralcaldia[$key]['ralcaldia_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['ralcaldia_fechapublicacion']->format('h:i A') . '</span> - ' . $value['ralcaldia_fechapublicacion']->format('d/m/Y') . '</div>';
+
+            $data_ralcaldia[$key]['numero'] = $key + 1;
+            $data_ralcaldia[$key]['options'] = '<a title="Ver resolución" target="_blank" href="'.media().'/doc/resoluciones_alcaldia/'.$value['ralcaldia_archivo'].'" style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a>';
+        }
+
+        json($data_ralcaldia);
     }
 }
