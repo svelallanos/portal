@@ -46,8 +46,8 @@
         </div>
         <nav class="navbar">
             <ul>
-                <li><a class="active" href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
+                <li><a class="active" href="<?= base_url() ?>">Inicio</a></li>
+                <li><a href="<?= base_url() ?>">Nosotros</a></li>
                 <li>
                     <a href="#">Municipalidad <i class="fa-solid fa-angle-up __drop"></i></a>
                     <ul>
@@ -71,7 +71,7 @@
                                 <li><a href="<?= base_url() ?>portalweb/resoluciones_alcaldia">Alcaldía</a></li>
                                 <li><a href="<?= base_url() ?>portalweb/resoluciones_gerencia">Gerencia</a></li>
                                 <li><a href="<?= base_url() ?>portalweb/resoluciones_consejo">Consejo</a></li>
-                               
+
                             </ul>
                         </li>
                         <li><a href="<?= base_url() ?>portalweb/ordenanzas_municipales">Ordenanzas Municipales</a></li>
@@ -80,7 +80,11 @@
                         <li><a href="<?= base_url() ?>portalweb/convenios">Convenios</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Motores</a></li>
+                <li><a href="#">Distrito <i class="fa-solid fa-angle-up __drop"></i></a>
+                    <ul>
+                        <li><a href="<?= base_url() ?>">Tioyacu</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <div class="navb-icons">

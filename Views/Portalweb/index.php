@@ -1,5 +1,5 @@
 <?php headerPortal($data); ?>
-<!-- <section class="container-section max-width">
+<section class="container-section max-width">
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="4000">
@@ -22,85 +22,85 @@
 <section class="container-section">
   <div class="card__father__enlace">
     <div class="card__enlace">
-      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
         <div class="card__front__body">
-          <i class="fa-solid fa-users"></i>
-          <h4>Enlaces Directos</h4>
+          <i class="fa-solid fa-scale-balanced fa-beat"></i>
+          <h4>Resolución - Alcaldía</h4>
         </div>
       </div>
-      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
-        <a href="" class="card__back__body">
-          <h4>Enlaces Directos</h4>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
+        <a href="<?= base_url() ?>portalweb/resoluciones_alcaldia" class="card__back__body">
+          <h4>Resolución - Alcaldía</h4>
         </a>
       </div>
     </div>
     <div class="card__enlace">
-      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
         <div class="card__front__body">
-          <i class="fa-solid fa-users"></i>
-          <h4>Enlaces Directos</h4>
+          <i class="fa-solid fa-scale-balanced fa-beat"></i>
+          <h4>Resolución - Gerencia</h4>
         </div>
       </div>
-      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
-        <a href="" class="card__back__body">
-          <h4>Enlaces Directos</h4>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
+        <a href="<?= base_url() ?>portalweb/resoluciones_gerencia" class="card__back__body">
+          <h4>Resolución - Gerencia</h4>
         </a>
       </div>
     </div>
     <div class="card__enlace">
-      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
         <div class="card__front__body">
-          <i class="fa-solid fa-users"></i>
-          <h4>Enlaces Directos</h4>
+          <i class="fa-solid fa-scale-balanced fa-beat"></i>
+          <h4>Resolución - Consejo</h4>
         </div>
       </div>
-      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
-        <a href="" class="card__back__body">
-          <h4>Enlaces Directos</h4>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
+        <a href="<?= base_url() ?>portalweb/resoluciones_consejo" class="card__back__body">
+          <h4>Resolución - Consejo</h4>
         </a>
       </div>
     </div>
     <div class="card__enlace">
-      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
         <div class="card__front__body">
-          <i class="fa-solid fa-users"></i>
-          <h4>Enlaces Directos</h4>
+          <i class="fa-solid fa-scale-unbalanced fa-beat"></i>
+          <h4>Ordenanza Municipal</h4>
         </div>
       </div>
-      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
-        <a href="" class="card__back__body">
-          <h4>Enlaces Directos</h4>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
+        <a href="<?= base_url() ?>portalweb/ordenanzas_municipales" class="card__back__body">
+          <h4>Ordenanza Municipal</h4>
         </a>
       </div>
     </div>
     <div class="card__enlace">
-      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
         <div class="card__front__body">
-          <i class="fa-solid fa-users"></i>
-          <h4>Enlaces Directos</h4>
+          <i class="fa-solid fa-scale-unbalanced fa-beat"></i>
+          <h4>Acuerdo de Consejo</h4>
         </div>
       </div>
-      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
-        <a href="" class="card__back__body">
-          <h4>Enlaces Directos</h4>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
+        <a href="<?= base_url() ?>portalweb/acuerdo_consejo" class="card__back__body">
+          <h4>Acuerdo de Consejo</h4>
         </a>
       </div>
     </div>
     <div class="card__enlace">
-      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
+      <div class="card__front" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
         <div class="card__front__body">
-          <i class="fa-solid fa-users"></i>
-          <h4>Enlaces Directos</h4>
+          <i class="fa-solid fa-scale-unbalanced fa-beat"></i>
+          <h4>Convenios</h4>
         </div>
       </div>
-      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/bg-hero.jpg)">
-        <a href="" class="card__back__body">
-          <h4>Enlaces Directos</h4>
+      <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
+        <a href="<?= base_url() ?>portalweb/convenios" class="card__back__body">
+          <h4>Convenios</h4>
         </a>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 <!-- <section class="container-section">
   <div class="d-flex flex-column">
     <div class="swiffy-slider swiffy-cultura  slider-nav-round slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
@@ -163,8 +163,8 @@
       </div>
     </div>
   </div>
-</section> -->
-<!-- <section class="container-section">
+</section>
+<section class="container-section">
   <h2 class="text-center">
     <i class="fa-solid fa-grip-vertical fa-fade"></i>ÚLTIMAS NOTICIAS<i class="fa-solid fa-grip-vertical fa-fade"></i>
   </h2>
