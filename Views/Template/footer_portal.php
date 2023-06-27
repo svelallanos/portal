@@ -50,6 +50,12 @@
     </div>
 </footer>
 
+<?php printHTMLRequired() ?>
+
+<script type="text/javascript">
+  var base_url = '<?= base_url() ?>';
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
 <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
 <script src="<?= media() ?>/js/general/jquery-3.6.0.min.js?version=<?= getVersion() ?>"></script>
