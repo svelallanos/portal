@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
-        <a href="" class="card__back__body">
+        <a href="<?= base_url() ?>portalweb/resoluciones_alcaldia" class="card__back__body">
           <h4>Resolución - Alcaldía</h4>
         </a>
       </div>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
-        <a href="" class="card__back__body">
+        <a href="<?= base_url() ?>portalweb/resoluciones_gerencia" class="card__back__body">
           <h4>Resolución - Gerencia</h4>
         </a>
       </div>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
-        <a href="" class="card__back__body">
+        <a href="<?= base_url() ?>portalweb/resoluciones_consejo" class="card__back__body">
           <h4>Resolución - Consejo</h4>
         </a>
       </div>
@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
-        <a href="" class="card__back__body">
+        <a href="<?= base_url() ?>portalweb/ordenanzas_municipales" class="card__back__body">
           <h4>Ordenanza Municipal</h4>
         </a>
       </div>
@@ -81,7 +81,7 @@
         </div>
       </div>
       <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
-        <a href="" class="card__back__body">
+        <a href="<?= base_url() ?>portalweb/acuerdo_consejo" class="card__back__body">
           <h4>Acuerdo de Consejo</h4>
         </a>
       </div>
@@ -94,7 +94,7 @@
         </div>
       </div>
       <div class="card__back" style="background-image: url(<?= media() ?>/portalweb/images/ley4.jpg)">
-        <a href="" class="card__back__body">
+        <a href="<?= base_url() ?>portalweb/convenios" class="card__back__body">
           <h4>Convenios</h4>
         </a>
       </div>
