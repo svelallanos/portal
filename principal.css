@@ -147,7 +147,7 @@ footer .footer_bg a {
   border-radius: 5rem;
   padding: 1rem 2rem;
   background-color: var(--bg-azul-3);
-  color: var(--bg-amarillo-2) !important;
+  color: white !important;
   font-weight: bold;
   animation: mover ease-in 2s infinite;
   cursor: pointer;
