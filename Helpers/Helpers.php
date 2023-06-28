@@ -143,21 +143,43 @@ function deleteEspacios(string $cadena = '')
   return $outputString;
 }
 // Recortar texto
-function recortar_cadena($texto, $limite = 100)
+// function recortar_cadena($texto, $limite = 100)
+// {
+//   $texto = trim($texto);
+//   $texto = strip_tags($texto);
+//   $tamano = strlen($texto);
+//   $resultado = '';
+//   if ($tamano <= $limite) {
+//     return $texto;
+//   } else {
+//     $texto = substr($texto, 0, $limite);
+//     $palabras = explode(' ', $texto);
+//     $resultado = implode(' ', $palabras);
+//     $resultado .= '...';
+//   }
+//   return $resultado;
+// }
+
+function recortar_cadena($text, $maxchar, $end = '...')
 {
-  $texto = trim($texto);
-  $texto = strip_tags($texto);
-  $tamano = strlen($texto);
-  $resultado = '';
-  if ($tamano <= $limite) {
-    return $texto;
+  if (strlen($text) > $maxchar || $text == '') {
+    $words = preg_split('/\s/', $text);
+    $output = '';
+    $i = 0;
+    while (1) {
+      $length = strlen($output) + strlen($words[$i]);
+      if ($length > $maxchar) {
+        break;
+      } else {
+        $output .= " " . $words[$i];
+        ++$i;
+      }
+    }
+    $output .= $end;
   } else {
-    $texto = substr($texto, 0, $limite);
-    $palabras = explode(' ', $texto);
-    $resultado = implode(' ', $palabras);
-    $resultado .= '...';
+    $output = $text;
   }
-  return $resultado;
+  return $output;
 }
 
 function convertMayuscular(string $string)
