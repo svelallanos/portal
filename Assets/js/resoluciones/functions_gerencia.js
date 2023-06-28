@@ -42,7 +42,7 @@ function cargarGerencia() {
                 targets: 1,
             },
             {
-                class: "col-3 text-center",
+                class: "col-3",
                 targets: 2,
             },
             {

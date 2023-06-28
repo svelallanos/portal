@@ -1,4 +1,4 @@
-var dataResGerencia;
+var dataResConsejo;
 
 $(document).ready(function () {
     cargarTable();
@@ -7,12 +7,12 @@ $(document).ready(function () {
 
 function cargarTable() {
     let anios_id = $('.__item__anio.active').attr('data-anios_id');
-    dataResGerencia = $("#tb_res_gerencia").DataTable({
+    dataResConsejo = $("#tb_res_consejo").DataTable({
         aProcessing: true,
         aServerSide: true,
         language: languajeDefault,
         ajax: {
-            url: base_url + "Portalweb/selectsReGerencia",
+            url: base_url + "Portalweb/selectsReConsejo",
             dataSrc: "",
             data: {
                 anios_id : anios_id
@@ -21,9 +21,9 @@ function cargarTable() {
         },
         columns: [
             { data: "numero" },
-            { data: "rgerencia_nombre" },
-            { data: "rgerencia_descripcion" },
-            { data: "rgerencia_fechapublicacion" },
+            { data: "rconsejo_nombre" },
+            { data: "rconsejo_descripcion" },
+            { data: "rconsejo_fechapublicacion" },
             { data: "options" },
         ],
         resonsieve: "true",

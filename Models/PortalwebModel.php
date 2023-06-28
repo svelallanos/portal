@@ -17,6 +17,22 @@ class PortalwebModel extends Mysql
         return $request;
     }
 
+    public function selectsReGerencia(int $anios_id, int $rgerencia_estado)
+    {
+        $sql = "SELECT * FROM re_gerencia
+        WHERE rgerencia_estado = :rgerencia_estado AND anios_id = :anios_id";
+        $request = $this->select_all($sql, ['rgerencia_estado' => $rgerencia_estado, 'anios_id' => $anios_id], DB_PORTAL);
+        return $request;
+    }
+
+    public function selectsReConsejo(int $anios_id, int $rconsejo_estado)
+    {
+        $sql = "SELECT * FROM re_consejo
+        WHERE rconsejo_estado = :rconsejo_estado AND anios_id = :anios_id";
+        $request = $this->select_all($sql, ['rconsejo_estado' => $rconsejo_estado, 'anios_id' => $anios_id], DB_PORTAL);
+        return $request;
+    }
+
     public function selectsAnios(int $anios_estado = 1)
     {
         $sql = "SELECT * FROM anios
