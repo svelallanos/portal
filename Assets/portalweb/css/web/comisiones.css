@@ -182,6 +182,13 @@ section .__container__comisiones .__card__comisiones {
   height: 80rem;
   width: 100%;
 }
+
+@media (max-width: 1440px) {
+  section .__container__comisiones .__card__comisiones {
+    padding: 0 1rem;
+  }
+}
+
 section .__container__comisiones .__card__comisiones .__comisiones__pdf {
   height: 80rem;
   width: 100%;

@@ -192,8 +192,6 @@ section
 }
 
 
-
-
 /*--------------estructira de la imagen...............*/
 
 section .__container__organigrama .__card__organigrama{
@@ -204,14 +202,21 @@ margin-bottom: 2rem;
 overflow: hidden;
 border-radius: 5rem;
 }
+
+@media (max-width: 1440px) {
+  section .__container__organigrama .__card__organigrama {
+    padding: 0 1rem;
+  }
+}
+
 section .__container__organigrama .__card__organigrama 
 .__organigrama__img{
 height: 100%;
 width: 100%;
 border-radius:5rem ;
 cursor:pointer;
-
 }
+
 section .__container__organigrama .__card__organigrama 
 .__organigrama__img img{
   width: 100%;
