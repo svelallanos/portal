@@ -87,6 +87,8 @@ class Resoluciones extends Controllers
                 data-ralcaldia_id = "' . $value['ralcaldia_id'] . '" 
                 ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
             }
+
+            $dataAlcaldia[$key]['ralcaldia_descripcion'] = recortar_cadena($value['ralcaldia_descripcion'], 80);
         }
 
         json($dataAlcaldia);

@@ -346,6 +346,8 @@ class Portalweb extends Controllers
 
             $data_ralcaldia[$key]['numero'] = $key + 1;
             $data_ralcaldia[$key]['options'] = '<a title="Ver resolución" target="_blank" href="'.media().'/doc/resoluciones_alcaldia/'.$value['ralcaldia_archivo'].'" style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a>';
+
+            $data_ralcaldia[$key]['ralcaldia_descripcion'] = recortar_cadena($value['ralcaldia_descripcion'], 220);
         }
 
         json($data_ralcaldia);
