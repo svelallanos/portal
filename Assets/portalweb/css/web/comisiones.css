@@ -1,8 +1,8 @@
 section .__container__comisiones {
-display: flex;
-flex-direction: column;
-max-width: 1440px;
-width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  width: 100%;
 }
 
 section .__container__comisiones .__card__introduccion {
@@ -18,15 +18,12 @@ section .__container__comisiones .__card__introduccion {
 }
 
 @media (max-width: 845px) {
-  section .__container__comisiones 
-  .__card__introduccion {
+  section .__container__comisiones .__card__introduccion {
     flex-direction: column;
   }
 }
 
-section .__container__comisiones 
-.__card__introduccion 
-.__item__description {
+section .__container__comisiones .__card__introduccion .__item__description {
   flex: 6 80px;
   display: flex;
   flex-flow: column wrap;
@@ -37,58 +34,38 @@ section .__container__comisiones
 }
 
 @media (max-width: 1440px) {
-  section
-    .__container__comisiones
-    .__card__introduccion
-    .__item__description {
+  section .__container__comisiones .__card__introduccion .__item__description {
     padding: 8rem 4rem;
   }
 }
 
-
 @media (max-width: 1200px) {
-  section
-    .__container__comisiones
-    .__card__introduccion
-    .__item__description {
+  section .__container__comisiones .__card__introduccion .__item__description {
     padding: 4rem 0;
     padding-right: 2rem;
   }
 }
 
 @media (max-width: 845px) {
-  section
-    .__container__comisiones
-    .__card__introduccion
-    .__item__description {
+  section .__container__comisiones .__card__introduccion .__item__description {
     padding: 3rem 7rem;
   }
 }
 
 @media (max-width: 650px) {
-  section
-    .__container__comisiones
-    .__card__introduccion
-    .__item__description {
+  section .__container__comisiones .__card__introduccion .__item__description {
     padding: 2rem;
   }
 }
 
 @media (max-width: 440px) {
-  section
-    .__container__comisiones
-    .__card__introduccion
-    .__item__description {
+  section .__container__comisiones .__card__introduccion .__item__description {
     padding: 0;
     margin-bottom: 2rem;
   }
 }
 
-section
-  .__container__comisiones
-  .__card__introduccion
-  .__item__description
-  h1 {
+section .__container__comisiones .__card__introduccion .__item__description h1 {
   font-size: 5rem;
   font-weight: 900;
   text-transform: capitalize;
@@ -99,10 +76,7 @@ section
 }
 
 @media screen and (max-width: 1020px) {
-  section
-    .__container__comisiones
-    .__card__introduccion
-    .__item__description {
+  section .__container__comisiones .__card__introduccion .__item__description {
     font-size: 3rem;
   }
 }
@@ -111,19 +85,12 @@ section
   .__container__comisiones
   .__card__introduccion
   .__item__description
-  .__anio{
-    color: var(--azul-6);
-    font-size:7rem;
-  }
+  .__anio {
+  color: var(--azul-6);
+  font-size: 7rem;
+}
 
-
-
-
-section
-  .__container__comisiones
-  .__card__introduccion
-  .__item__description
-  p {
+section .__container__comisiones .__card__introduccion .__item__description p {
   text-align: justify;
   margin-bottom: 0;
   font-size: 2.1rem;
@@ -134,13 +101,10 @@ section
   .__card__introduccion
   .__item__description
   .__view__detalle {
-
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-margin-top: 4rem;
-
-
+  margin-top: 4rem;
 }
 
 @media (max-width: 845px) {
@@ -206,50 +170,31 @@ section
   color: var(--blanco);
 }
 
-
-
-
 /*--------------estructira del la vista del pdf...............*/
 
-section .__container__comisiones 
-.__card__comisiones{
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 2rem;
-overflow: auto;
-border-radius: 5rem;
-
-height: 80rem;
-width:100%;
-
+section .__container__comisiones .__card__comisiones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  height: 80rem;
+  width: 100%;
 }
-section .__container__comisiones .__card__comisiones 
-.__comisiones__pdf{
+section .__container__comisiones .__card__comisiones .__comisiones__pdf {
+  height: 80rem;
+  width: 100%;
+  border-radius: 1rem;
+  cursor: pointer;
+}
 
-height: 80rem;
-width:100%;
-border-radius:5rem ;
-cursor:pointer;
-
-} 
-
-
-section .__container__comisiones .__card__comisiones 
-.__comisiones__pdf iframe{
-height: 90rem;
-width:100%;
+section .__container__comisiones .__card__comisiones .__comisiones__pdf iframe {
+  height: 90rem;
+  width: 100%;
   border: none;
   box-shadow: none;
 }
-
-
-
-
-
-
-
-
 
 /* estructura de los estilos del video en equipo*/
 

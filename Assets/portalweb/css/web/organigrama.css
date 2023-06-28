@@ -224,11 +224,9 @@ box-shadow:  2px 2px 5pxx rgba(0, 0, 0, 0.5);
  transition: transform 0.3s ease;
   transition-delay: 0.1s; 
    transform: scale(1);
+   border: 0.5rem solid var(--azul-1);
 }
-section .__container__organigrama .__card__organigrama 
-.__organigrama__img img:hover {
-  transform: scale(1.1); /* escala de zoom */
-}
+
 /* estructura de los estilos del video en equipo*/
 
 section #modal_view_equipo .modal-content .modal-header {
