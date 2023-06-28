@@ -74,7 +74,7 @@
                         <input required type="datetime-local" class="form-control" id="eordenanza_fechapublicacion" name="eordenanza_fechapublicacion">
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label class="small fw-bold mb-1">Adjuntar Resolución:</label>
+                        <label class="small fw-bold mb-1">Adjuntar Ordenanza:</label>
                         <input type="file" accept="application/pdf" class="form-control" id="eordenanza_archivo" name="eordenanza_archivo">
                     </div>
                     <div class="text-end mt-3">
