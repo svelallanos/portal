@@ -72,6 +72,8 @@ class Resoluciones extends Controllers
             $value['ralcaldia_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['ralcaldia_fechapublicacion']) . 'America/Lima');
             $dataAlcaldia[$key]['ralcaldia_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['ralcaldia_fechapublicacion']->format('h:i A') . '</span> - ' . $value['ralcaldia_fechapublicacion']->format('d/m/Y') . '</div>';
 
+            $dataAlcaldia[$key]['ralcaldia_descripcion'] = recortar_cadena($value['ralcaldia_descripcion'], 80);
+
             $dataAlcaldia[$key]['numero'] = $key + 1;
 
             $dataAlcaldia[$key]['anio'] = $auxDataAnios[$value['anios_id']];
@@ -87,8 +89,6 @@ class Resoluciones extends Controllers
                 data-ralcaldia_id = "' . $value['ralcaldia_id'] . '" 
                 ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ralcaldia" data-ralcaldia_id="' . $value['ralcaldia_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
             }
-
-            $dataAlcaldia[$key]['ralcaldia_descripcion'] = recortar_cadena($value['ralcaldia_descripcion'], 80);
         }
 
         json($dataAlcaldia);
@@ -113,6 +113,8 @@ class Resoluciones extends Controllers
             $value['rgerencia_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['rgerencia_fechapublicacion']) . 'America/Lima');
             $dataGerencia[$key]['rgerencia_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['rgerencia_fechapublicacion']->format('h:i A') . '</span> - ' . $value['rgerencia_fechapublicacion']->format('d/m/Y') . '</div>';
 
+            $dataGerencia[$key]['rgerencia_descripcion'] = recortar_cadena($value['rgerencia_descripcion'], 80);
+
             $dataGerencia[$key]['numero'] = $key + 1;
 
             $dataGerencia[$key]['anio'] = $auxDataAnios[$value['anios_id']];
@@ -136,7 +138,7 @@ class Resoluciones extends Controllers
     public function selectsReConsejo()
     {
         parent::verificarLogin(true);
-        parent::verificarPermiso(10, true);
+        parent::verificarPermiso(11, true);
 
         // Consultamos los años
         $dataAnios = $this->selectsAnios();
@@ -151,6 +153,8 @@ class Resoluciones extends Controllers
         foreach ($dataConsejo as $key => $value) {
             $value['rconsejo_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['rconsejo_fechapublicacion']) . 'America/Lima');
             $dataConsejo[$key]['rconsejo_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['rconsejo_fechapublicacion']->format('h:i A') . '</span> - ' . $value['rconsejo_fechapublicacion']->format('d/m/Y') . '</div>';
+
+            $dataConsejo[$key]['rconsejo_descripcion'] = recortar_cadena($value['rconsejo_descripcion'], 80);
 
             $dataConsejo[$key]['numero'] = $key + 1;
 

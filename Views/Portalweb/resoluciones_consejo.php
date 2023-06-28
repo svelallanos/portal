@@ -4,7 +4,7 @@
         <div class="__card__introduccion">
             <div class="__item__description">
                 <h1>Resoluciones de Consejo</h1>
-                <p>Las Resoluciones de Alcaldía aprueban y resuelven los asuntos de carácter administrativo de la Municipalidad.
+                <p>Las Resoluciones de Concejo, resuelven asuntos administrativos concernientes a su organización interna.
                 </p>
             </div>
             <div class="__item__img">
@@ -14,34 +14,32 @@
             </div>
         </div>
         <div class="__card__anios">
-            <?php for ($i = 13; $i > -1; $i--) { ?>
-                <div data-anio="20<?= $i + 10 ?>" class="__item__anio <?= ($i === 13) ? "active" : "" ?>">
-                    <i class="feather-calendar"></i> <span>20<?= $i + 10 ?></span>
+            <?php
+            $anio_actual = true;
+            foreach ($data['anios'] as $key => $value) {
+            ?>
+                <div data-anios_id="<?= $value['anios_id'] ?>" data-anio="<?= $value['anios_nombre'] ?>" class="__item__anio <?= ($anio_actual) ? "active" :  "" ?>">
+                    <i class="feather-calendar"></i><span><?= $value['anios_nombre'] ?></span>
                 </div>
-            <?php } ?>
+            <?php
+                $anio_actual = false;
+            } ?>
         </div>
         <div class="__card__res__consejo">
             <div class="__title">
                 Resoluciones de Consejo&nbsp;<span class="__anio_select">2023</span>
             </div>
-            <table id="tb_res_alcaldia" class="table table-hover table-striped mb-0 bg-white w-100">
+            <table id="tb_res_consejo" class="table table-hover table-striped mb-0 bg-white w-100">
                 <thead>
                     <tr>
-                        <th class="col-1 text-center">N°</th>
-                        <th class="col-2">Documento</th>
-                        <th class="col-6">Descripción</th>
-                        <th class="col-2">Fecha Publicación</th>
-                        <th class="col-1">Acciones</th>
+                        <th>N°</th>
+                        <th>DOCUMENTO</th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>FECHA PUBLICACIÓN</th>
+                        <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center fw-bold">1</td>
-                        <td>R.A. Nº001-2023-A/MDNC</td>
-                        <td>DESIGNAR al señor HENRY RIVERA VALLES, con DNI N°01004623, en el cargo de GERENTE MUNICIPAL, de la Municipalidad Distrital de Nueva Cajamarca.</td>
-                        <td>06/06/2023 <span class="fw-bold">6:24 PM</span></td>
-                        <td class="text-center"><a target="_blank" href="https://germarmu.files.wordpress.com/2014/09/resumen-cien-ac3b1os-de-soledad-mc3a1rquez.pdf" download style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a></td>
-                    </tr>
                 </tbody>
             </table>
         </div>

@@ -24,7 +24,7 @@
             </div>
         </div>
     </header>
-    <div class="container-xl px-4 mt-5">
+    <div class="container-fluid px-4 mt-5">
         <div class="row">
             <div class="card p-3">
                 <div class="table-responsive">

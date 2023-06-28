@@ -217,7 +217,7 @@ class Portalweb extends Controllers
 
     public function resoluciones_alcaldia()
     {
-        $data['page_id'] = 10;
+        $data['page_id'] = 9;
         $data['page_tag'] = "MDESV - Portal Web";
         $data['page_title'] = ":. Roles - Portal Web";
         $data['page_name'] = "Resoluciones de alcaldía";
@@ -233,27 +233,31 @@ class Portalweb extends Controllers
 
     public function resoluciones_gerencia()
     {
-        $data['page_id'] = 51;
-        $data['page_tag'] = "MDESV - Sistema Caja";
-        $data['page_title'] = ":. Roles - Sistema Caja";
-        $data['page_name'] = "Lista de Roles";
+        $data['page_id'] = 10;
+        $data['page_tag'] = "MDESV - Portal Web";
+        $data['page_title'] = ":. Roles - Portal Web";
+        $data['page_name'] = "Resoluciones de Gerencia";
         $data['page_css'] = "web/resoluciones_gerencia";
         $data['page_function_js'] = "web/functions_res_gerencia";
         $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
         $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+
+        $data['anios'] = $this->model->selectsAnios();
         $this->views->getView($this, "resoluciones_gerencia", $data);
     }
 
     public function resoluciones_consejo()
     {
-        $data['page_id'] = 51;
-        $data['page_tag'] = "MDESV - Sistema Caja";
-        $data['page_title'] = ":. Roles - Sistema Caja";
-        $data['page_name'] = "Lista de Roles";
+        $data['page_id'] = 11;
+        $data['page_tag'] = "MDESV - Portal web";
+        $data['page_title'] = ":. Roles - Portal web";
+        $data['page_name'] = "Resoluciones de Consejo";
         $data['page_css'] = "web/resoluciones_consejo";
         $data['page_function_js'] = "web/functions_res_consejo";
         $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
         $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+
+        $data['anios'] = $this->model->selectsAnios();
         $this->views->getView($this, "resoluciones_consejo", $data);
     }
     public function acuerdo_consejo()
@@ -351,5 +355,39 @@ class Portalweb extends Controllers
         }
 
         json($data_ralcaldia);
+    }
+
+    public function selectsReGerencia()
+    {
+        $_POST['anios_id'] = intval($_POST['anios_id']);
+        $data_rgerencia = $this->model->selectsReGerencia($_POST['anios_id'], 1);
+        foreach ($data_rgerencia as $key => $value) {
+            $value['rgerencia_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['rgerencia_fechapublicacion']) . 'America/Lima');
+            $data_rgerencia[$key]['rgerencia_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['rgerencia_fechapublicacion']->format('h:i A') . '</span> - ' . $value['rgerencia_fechapublicacion']->format('d/m/Y') . '</div>';
+
+            $data_rgerencia[$key]['numero'] = $key + 1;
+            $data_rgerencia[$key]['options'] = '<a title="Ver resolución" target="_blank" href="'.media().'/doc/resoluciones_gerencia/'.$value['rgerencia_archivo'].'" style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a>';
+
+            $data_rgerencia[$key]['rgerencia_descripcion'] = recortar_cadena($value['rgerencia_descripcion'], 220);
+        }
+
+        json($data_rgerencia);
+    }
+
+    public function selectsReConsejo()
+    {
+        $_POST['anios_id'] = intval($_POST['anios_id']);
+        $data_rconsejo = $this->model->selectsReConsejo($_POST['anios_id'], 1);
+        foreach ($data_rconsejo as $key => $value) {
+            $value['rconsejo_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['rconsejo_fechapublicacion']) . 'America/Lima');
+            $data_rconsejo[$key]['rconsejo_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['rconsejo_fechapublicacion']->format('h:i A') . '</span> - ' . $value['rconsejo_fechapublicacion']->format('d/m/Y') . '</div>';
+
+            $data_rconsejo[$key]['numero'] = $key + 1;
+            $data_rconsejo[$key]['options'] = '<a title="Ver resolución" target="_blank" href="'.media().'/doc/resoluciones_consejo/'.$value['rconsejo_archivo'].'" style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a>';
+
+            $data_rconsejo[$key]['rconsejo_descripcion'] = recortar_cadena($value['rconsejo_descripcion'], 220);
+        }
+
+        json($data_rconsejo);
     }
 }
