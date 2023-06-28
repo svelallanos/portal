@@ -235,7 +235,7 @@ class Ordenanzas extends Controllers
                 json($return);
             }
 
-            $file['name'] = 'realcaldia_doc_' . date('Ymd_His') . '.' . $file['name'];
+            $file['name'] = 'ordenanza_doc_' . date('Ymd_His') . '.' . $file['name'];
 
             $file_name = $file['name'];
 

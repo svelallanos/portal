@@ -95,7 +95,7 @@
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div id="view_ordenanza" data-path="<?= media() ?>/doc/resolucionesordenanza/" class="row g-2">
+                <div id="view_ordenanza" data-path="<?= media() ?>/doc/ordenanza_municipal/" class="row g-2">
                     <div class="col-md-9 mb-2">
                         <label class="small fw-bold mb-1">Nombre:</label>
                         <input disabled type="text" class="form-control bg-white" id="vordenanza_nombre" name="vordenanza_nombre" placeholder="Nombre de la ordenanza municipal">
