@@ -204,13 +204,47 @@ class Portalweb extends Controllers
 
     public function alcalde()
     {
-        $data['page_id'] = 51;
-        $data['page_tag'] = "MDESV - Sistema Caja";
-        $data['page_title'] = ":. Roles - Sistema Caja";
-        $data['page_name'] = "Lista de Roles";
+        $data['page_id'] = 30;
+        $data['page_tag'] = "MDESV - Portal Web";
+        $data['page_title'] = ":. DMESV - Portal Web";
+        $data['page_name'] = "Alcalde Distrital";
         $data['page_css'] = "web/alcalde";
-        // $data['page_function_js'] = "web/functions_funcionarios";
+        $data['alcalde'] = $this->selectViewAlcalde(1);
+
         $this->views->getView($this, "alcalde", $data);
+    }
+
+    // Select view
+
+    public function selectViewAlcalde($status)
+    {
+        $dataGestion = $this->model->selectGestion($status);
+        $dataAlcalde = $this->model->selectAlcalde($dataGestion['gestion_id'], $status);
+
+        $dataEmails = $this->model->selectsEmails();
+        $auxDataEmail = [];
+        foreach ($dataEmails as $key => $value) {
+            $auxDataEmail[$value['email_id']] = $value['email_nombre'];
+        }
+
+        $dataEmpresa = $this->model->selectEmpresa($status);
+
+        $auxDataAlcalde = [
+            'gestion_nombre' => $dataGestion['gestion_nombre'],
+            'alcalde_nombres' => $dataAlcalde['alcalde_nombres'],
+            'alcalde_apellidopaterno' => $dataAlcalde['alcalde_apellidopaterno'],
+            'alcalde_apellidomaterno' => $dataAlcalde['alcalde_apellidomaterno'],
+            'alcalde_photo' => $dataAlcalde['alcalde_photo'],
+            'alcalde_resumen' => $dataAlcalde['alcalde_resumen'],
+            'alcalde_saludo' => $dataAlcalde['alcalde_saludo'],
+            'email_nombre' => $auxDataEmail[$dataEmpresa['email_id']],
+            'empresa_nombre' => $dataEmpresa['empresa_nombre'],
+        ];
+
+        // json($auxDataAlcalde);
+
+
+        return $auxDataAlcalde;
     }
 
     // Normatividad

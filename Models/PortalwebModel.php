@@ -50,4 +50,38 @@ class PortalwebModel extends Mysql
         return $request;
     }
 
+    public function selectsEmails(int $email_estado = 1)
+    {
+        $sql = "SELECT * FROM email_institucional
+        WHERE email_estado = :email_estado";
+        $request = $this->select_all($sql, ['email_estado' => $email_estado], DB_PORTAL);
+        return $request;
+    }
+
+    // Select
+
+    public function selectGestion(int $gestion_estado = 1)
+    {
+        $sql = "SELECT * FROM gestion_municipal
+        WHERE gestion_estado = :gestion_estado";
+        $request = $this->select($sql, ['gestion_estado' => $gestion_estado], DB_PORTAL);
+        return $request;
+    }
+
+    public function selectAlcalde(int $gestion_id, int $alcalde_estado = 1)
+    {
+        $sql = "SELECT * FROM alcalde
+        WHERE gestion_id = :gestion_id AND alcalde_estado = :alcalde_estado";
+        $request = $this->select($sql, ['gestion_id' => $gestion_id, 'alcalde_estado' => $alcalde_estado], DB_PORTAL);
+        return $request;
+    }
+
+    public function selectEmpresa(int $empresa_estado = 1)
+    {
+        $sql = "SELECT * FROM empresa
+        WHERE empresa_estado = :empresa_estado";
+        $request = $this->select($sql, ['empresa_estado' => $empresa_estado], DB_PORTAL);
+        return $request;
+    }
+
 }

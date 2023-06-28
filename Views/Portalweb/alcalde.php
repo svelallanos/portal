@@ -4,20 +4,20 @@
         <div class="__card__datos">
             <div class="__contenido">
                 <div class="card__img">
-                    <img class="w-100" src="<?= media() ?>/portalweb/images/alcalde/alcalde.jpg" alt="">
+                    <img class="w-100" src="<?= media() ?>/images/alcalde/<?= $data['alcalde']['alcalde_photo'] ?>" alt="">
                 </div>
                 <div class="__datos_personales">
-                    <h1>Jose Dilmer Saldaña Jara</h1>
+                    <h1><?= $data['alcalde']['alcalde_nombres'].' '.$data['alcalde']['alcalde_apellidopaterno'].' '.$data['alcalde']['alcalde_apellidomaterno'] ?></h1>
                     <h3>Alcalde Distrital</h3>
-                    <h4>Gestión 2023 - 2026</h4>
+                    <h4><?= $data['alcalde']['gestion_nombre'] ?></h4>
                     <span>
-                        <a href="mailto:">
-                            <i class="feather-mail"></i>municipio@munieliassoplinvarga.gob.pe
+                        <a href="mailto:<?= $data['alcalde']['email_nombre'] ?>">
+                            <i class="feather-mail"></i><?= $data['alcalde']['email_nombre'] ?>
                         </a>
                     </span>
                 </div>
                 <div class="__saludo_resumido">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae pariatur eaque nihil rerum praesentium porro obcaecati qui accusantium neque itaque adipisci iusto iure, quaerat tenetur error doloremque laborum sit! Illum.</p>
+                    <p><?= $data['alcalde']['alcalde_resumen'] ?></p>
                 </div>
             </div>
         </div>
@@ -27,17 +27,10 @@
                     <h1>SALUDO</h1>
                     <button data-bs-toggle="modal" data-bs-target="#view__vitae__alcalde"><i class="feather-file-text"></i>&nbsp;&nbsp;Hoja de Vida</button>
                 </div>
-                <span>Municipalidad Distrital de Elías Soplín Vargas</span>
+                <span><?= $data['alcalde']['empresa_nombre'] ?></span>
             </div>
             <div class="__saludo">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia ut consequatur
-                     soluta delectus quod adipisci eveniet nisi, veritatis sequi odio laboriosam repellat
-                      accusantium dignissimos voluptatibus amet repellendus explicabo in pariatur?Lorem ipsum 
-                      dolor sit amet consectetur adipisicing elit. Deserunt laboriosam omnis, at neque
-                       nam nostrum ab quae officiis nulla quasi ex nihil expedita, ea ratione! Nesciunt 
-                       dolore rerum sequi a!Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quasi cum recusandae ea! Voluptas minus sequi incidunt magnam ad accusamus nihil
-                         dolorum quaerat consequatur ab obcaecati consequuntur, error odit perferendis tenetur.lorenm</p>
+                <p><?= $data['alcalde']['alcalde_saludo'] ?></p>
             </div>
         </div>
     </div>
