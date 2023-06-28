@@ -403,7 +403,7 @@ class Portalweb extends Controllers
             $data_ordenanza[$key]['ordenanza_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['ordenanza_fechapublicacion']->format('h:i A') . '</span> - ' . $value['ordenanza_fechapublicacion']->format('d/m/Y') . '</div>';
 
             $data_ordenanza[$key]['numero'] = $key + 1;
-            $data_ordenanza[$key]['options'] = '<a title="Ver resolución" target="_blank" href="'.media().'/doc/resoluciones_consejo/'.$value['ordenanza_archivo'].'" style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a>';
+            $data_ordenanza[$key]['options'] = '<a title="Ver Ordenanza Municipal" target="_blank" href="'.media().'/doc/ordenanza_municipal/'.$value['ordenanza_archivo'].'" style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a>';
 
             $data_ordenanza[$key]['ordenanza_descripcion'] = recortar_cadena($value['ordenanza_descripcion'], 220);
         }

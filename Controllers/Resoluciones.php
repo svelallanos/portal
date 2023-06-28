@@ -128,7 +128,7 @@ class Resoluciones extends Controllers
 
                 $dataGerencia[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '" data-rgerencia_nombre = "' . $value['rgerencia_nombre'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_rgerencia" 
                 data-rgerencia_id = "' . $value['rgerencia_id'] . '" 
-                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_rgerencia" data-rgerencia_id="' . $value['rgerencia_id'] . '" title="Ver resolución de gerencia"><i class="feather-eye"></i></button>';
             }
         }
 
@@ -169,7 +169,7 @@ class Resoluciones extends Controllers
 
                 $dataConsejo[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '" data-rconsejo_nombre = "' . $value['rconsejo_nombre'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_rconsejo" 
                 data-rconsejo_id = "' . $value['rconsejo_id'] . '" 
-                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_rconsejo" data-rconsejo_id="' . $value['rconsejo_id'] . '" title="Ver resolución de consejo"><i class="feather-eye"></i></button>';
             }
         }
 

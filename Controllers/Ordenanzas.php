@@ -50,13 +50,13 @@ class Ordenanzas extends Controllers
             if ($value['ordenanza_estado'] == 1) {
                 $dataOrdenanzas[$key]['estado'] = '<span class="badge bg-success-soft text-success border fw-bold">Publicado</span>';
 
-                $dataOrdenanzas[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+                $dataOrdenanzas[$key]['options'] = '<button class="btn btn-sm btn-icon btn-indigo __despublicar_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Despublicar"><i class="feather-slash"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Ver ordenanza municipal"><i class="feather-eye"></i></button>';
             } else {
                 $dataOrdenanzas[$key]['estado'] = '<span class="badge bg-indigo-soft text-indigo border">Sin publicar</span>';
 
                 $dataOrdenanzas[$key]['options'] = '<button class="btn btn-sm btn-icon btn-danger __delete_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" data-ordenanza_nombre = "' . $value['ordenanza_nombre'] . '"><i class="feather-trash-2"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-warning __edit_ordenanza" 
                 data-ordenanza_id = "' . $value['ordenanza_id'] . '" 
-                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Ver resolución de alcaldía"><i class="feather-eye"></i></button>';
+                ><i class="feather-edit-3"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-teal __publicar_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '"><i class="feather-airplay"></i></button>&nbsp;<button class="btn btn-sm btn-icon btn-primary __view_ordenanza" data-ordenanza_id="' . $value['ordenanza_id'] . '" title="Ver ordenanza municipal"><i class="feather-eye"></i></button>';
             }
         }
 
