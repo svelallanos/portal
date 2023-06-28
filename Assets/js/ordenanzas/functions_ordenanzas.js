@@ -84,7 +84,8 @@ function openModal() {
             $('#eordenanza_nombre').val(res.data.ordenanza_nombre);
             $('#eordenanza_descripcion').val(res.data.ordenanza_descripcion);
             $('#eordenanza_fechapublicacion').val(res.data.ordenanza_fechapublicacion);
-
+            $('#eordenanza_archivo').val(null);
+            
             $('#emodel_ordenanza').modal('show');
         });
     });
@@ -210,6 +211,7 @@ function updateOrdenanza() {
 
         formData.append('eordenanza_id', eordenanza_id);
 
+        abrirLoadingModal();
         const request = axios.post(base_url + 'Ordenanzas/updateOrdenanza', formData);
 
         request.then(res => {

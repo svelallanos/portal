@@ -3,7 +3,7 @@
     <div class="__container__ordenanzas__municipales">
         <div class="__card__introduccion">
             <div class="__item__description">
-                <h1>Ordenazas Municipales</h1>
+                <h1>Ordenanzas Municipales</h1>
                 <p>Las Ordenanzas Municipales aprueban su organización interna, la regulación, administración y supervisión de los servicios público y las materias en las que la municipalidad tiene competencia normativa.
                 </p>
             </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="__card__ordenanzas__municipales">
             <div class="__title">
-                Ordenazas Municipales&nbsp;<span class="__anio_select">2023</span>
+                Ordenanzas Municipales&nbsp;<span class="__anio_select">2023</span>
             </div>
             <table id="tb_ordenanzas" class="table table-hover table-striped mb-0 bg-white w-100">
                 <thead>

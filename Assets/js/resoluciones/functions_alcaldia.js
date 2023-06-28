@@ -84,6 +84,7 @@ function openModal() {
             $('#eralcaldia_nombre').val(res.data.ralcaldia_nombre);
             $('#eralcaldia_descripcion').val(res.data.ralcaldia_descripcion);
             $('#eralcaldia_fechapublicacion').val(res.data.ralcaldia_fechapublicacion);
+            $('#eralcaldia_archivo').val(null);
 
             $('#emodel_ralcaldia').modal('show');
         });
@@ -209,7 +210,8 @@ function updateReAlcaldia() {
         const formData = new FormData(form);
 
         formData.append('eralcaldia_id', eralcaldia_id);
-
+        
+        abrirLoadingModal();
         const request = axios.post(base_url + 'Resoluciones/updateReAlcaldia', formData);
 
         request.then(res => {

@@ -84,6 +84,7 @@ function openModal() {
             $('#erconsejo_nombre').val(res.data.rconsejo_nombre);
             $('#erconsejo_descripcion').val(res.data.rconsejo_descripcion);
             $('#erconsejo_fechapublicacion').val(res.data.rconsejo_fechapublicacion);
+            $('#erconsejo_archivo').val(null);
 
             $('#emodel_rconsejo').modal('show');
         });
@@ -210,6 +211,7 @@ function updateReConsejo() {
 
         formData.append('erconsejo_id', erconsejo_id);
 
+        abrirLoadingModal();
         const request = axios.post(base_url + 'Resoluciones/updateReConsejo', formData);
 
         request.then(res => {

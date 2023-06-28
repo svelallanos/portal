@@ -84,6 +84,7 @@ function openModal() {
             $('#ergerencia_nombre').val(res.data.rgerencia_nombre);
             $('#ergerencia_descripcion').val(res.data.rgerencia_descripcion);
             $('#ergerencia_fechapublicacion').val(res.data.rgerencia_fechapublicacion);
+            $('#ergerencia_archivo').val(null);
 
             $('#emodel_rgerencia').modal('show');
         });
@@ -210,6 +211,7 @@ function updateReGerencia() {
 
         formData.append('ergerencia_id', ergerencia_id);
 
+        abrirLoadingModal();
         const request = axios.post(base_url + 'Resoluciones/updateReGerencia', formData);
 
         request.then(res => {
