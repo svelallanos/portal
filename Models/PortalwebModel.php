@@ -33,6 +33,14 @@ class PortalwebModel extends Mysql
         return $request;
     }
 
+    public function selectsOrdenanzas(int $anios_id, int $ordenanza_estado)
+    {
+        $sql = "SELECT * FROM ordenanza_municipal
+        WHERE ordenanza_estado = :ordenanza_estado AND anios_id = :anios_id";
+        $request = $this->select_all($sql, ['ordenanza_estado' => $ordenanza_estado, 'anios_id' => $anios_id], DB_PORTAL);
+        return $request;
+    }
+
     public function selectsAnios(int $anios_estado = 1)
     {
         $sql = "SELECT * FROM anios

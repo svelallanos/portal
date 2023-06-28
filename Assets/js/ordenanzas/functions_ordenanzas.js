@@ -6,7 +6,7 @@ $(document).ready(function () {
     publicarOrdenanza();
     despublicarOrdenanza();
     saveOrdenanza();
-    updateReAlcaldia();
+    updateOrdenanza();
     deleteOrdenanza();
 });
 
@@ -42,7 +42,7 @@ function cargarOrdenanza() {
                 targets: 1,
             },
             {
-                class: "col-3 text-center",
+                class: "col-3",
                 targets: 2,
             },
             {
@@ -74,7 +74,7 @@ function openModal() {
         formData.append('ordenanza_id', ordenanza_id);
 
         abrirLoadingModal();
-        const request = axios.post(base_url + 'Ordenanzas/selectReAlcaldia', formData);
+        const request = axios.post(base_url + 'Ordenanzas/selectOrdenanza', formData);
 
         request.then(res => {
             cerrarLoadingModal();
@@ -97,7 +97,7 @@ function openModal() {
         formData.append('ordenanza_id', ordenanza_id);
 
         abrirLoadingModal();
-        const request = axios.post(base_url + 'Ordenanzas/selectReAlcaldia', formData);
+        const request = axios.post(base_url + 'Ordenanzas/selectOrdenanza', formData);
 
         request.then(res => {
             cerrarLoadingModal();
@@ -200,7 +200,7 @@ function saveOrdenanza() {
     });
 }
 
-function updateReAlcaldia() {
+function updateOrdenanza() {
     $('#eform_ordenanza').submit(function (e) {
         e.preventDefault();
 
@@ -210,12 +210,11 @@ function updateReAlcaldia() {
 
         formData.append('eordenanza_id', eordenanza_id);
 
-        const request = axios.post(base_url + 'Ordenanzas/updateReAlcaldia', formData);
+        const request = axios.post(base_url + 'Ordenanzas/updateOrdenanza', formData);
 
         request.then(res => {
             if (res.data.status) {
                 dataOrdenanza.ajax.reload(() => cerrarLoadingModal());
-
                 Toast.fire({
                     icon: res.data.value,
                     title: res.data.msg

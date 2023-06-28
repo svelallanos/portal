@@ -35,13 +35,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center fw-bold">1</td>
-                        <td>R.A. Nº001-2023-A/MDNC</td>
-                        <td>DESIGNAR al señor HENRY RIVERA VALLES, con DNI N°01004623, en el cargo de GERENTE MUNICIPAL, de la Municipalidad Distrital de Nueva Cajamarca.</td>
-                        <td>06/06/2023 <span class="fw-bold">6:24 PM</span></td>
-                        <td class="text-center"><a target="_blank" href="https://germarmu.files.wordpress.com/2014/09/resumen-cien-ac3b1os-de-soledad-mc3a1rquez.pdf" download style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a></td>
-                    </tr>
                 </tbody>
             </table>
         </div>

@@ -260,6 +260,7 @@ class Portalweb extends Controllers
         $data['anios'] = $this->model->selectsAnios();
         $this->views->getView($this, "resoluciones_consejo", $data);
     }
+
     public function acuerdo_consejo()
     {
         $data['page_id'] = 51;
@@ -275,14 +276,16 @@ class Portalweb extends Controllers
   
     public function ordenanzas_municipales()
     {
-        $data['page_id'] = 51;
-        $data['page_tag'] = "MDESV - Sistema Caja";
-        $data['page_title'] = ":. Roles - Sistema Caja";
-        $data['page_name'] = "Lista de Roles";
+        $data['page_id'] = 12;
+        $data['page_tag'] = "MDESV - Portal Web";
+        $data['page_title'] = ":. Roles - Portal Web";
+        $data['page_name'] = "Ordenanzas Municipales";
         $data['page_css'] = "web/ordenanzas_municipales";
         $data['page_function_js'] = "web/functions_ordenanzas_municipales";
         $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
         $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
+
+        $data['anios'] = $this->model->selectsAnios();
         $this->views->getView($this, "ordenanzas_municipales", $data);
     }
 
@@ -389,5 +392,22 @@ class Portalweb extends Controllers
         }
 
         json($data_rconsejo);
+    }
+
+    public function selectsOrdenanzas()
+    {
+        $_POST['anios_id'] = intval($_POST['anios_id']);
+        $data_ordenanza = $this->model->selectsOrdenanzas($_POST['anios_id'], 1);
+        foreach ($data_ordenanza as $key => $value) {
+            $value['ordenanza_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['ordenanza_fechapublicacion']) . 'America/Lima');
+            $data_ordenanza[$key]['ordenanza_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['ordenanza_fechapublicacion']->format('h:i A') . '</span> - ' . $value['ordenanza_fechapublicacion']->format('d/m/Y') . '</div>';
+
+            $data_ordenanza[$key]['numero'] = $key + 1;
+            $data_ordenanza[$key]['options'] = '<a title="Ver resolución" target="_blank" href="'.media().'/doc/resoluciones_consejo/'.$value['ordenanza_archivo'].'" style="color: red; font-size: 3rem; background-color: transparent;" class="border border-0 p-0"><i class="fa-solid fa-file-pdf fa-beat-fade"></i></a>';
+
+            $data_ordenanza[$key]['ordenanza_descripcion'] = recortar_cadena($value['ordenanza_descripcion'], 220);
+        }
+
+        json($data_ordenanza);
     }
 }

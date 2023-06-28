@@ -41,6 +41,8 @@ class Ordenanzas extends Controllers
             $value['ordenanza_fechapublicacion'] = new DateTime(str_replace(' ', 'T', $value['ordenanza_fechapublicacion']) . 'America/Lima');
             $dataOrdenanzas[$key]['ordenanza_fechapublicacion'] = '<div class="text-center"><span class="fw-bold">' . $value['ordenanza_fechapublicacion']->format('h:i A') . '</span> - ' . $value['ordenanza_fechapublicacion']->format('d/m/Y') . '</div>';
 
+            $dataOrdenanzas[$key]['ordenanza_descripcion'] = recortar_cadena($value['ordenanza_descripcion'], 80);
+
             $dataOrdenanzas[$key]['numero'] = $key + 1;
 
             $dataOrdenanzas[$key]['anio'] = $auxDataAnios[$value['anios_id']];
@@ -61,22 +63,22 @@ class Ordenanzas extends Controllers
         json($dataOrdenanzas);
     }
 
-    public function selectReAlcaldia(bool $json = true, $ralcaldia_id = null)
+    public function selectOrdenanza(bool $json = true, $ordenanza_id = null)
     {
         parent::verificarLogin(true);
         parent::verificarPermiso(12, true);
 
-        if (is_null($ralcaldia_id)) {
-            $ralcaldia_id = $_POST['ralcaldia_id'];
+        if (is_null($ordenanza_id)) {
+            $ordenanza_id = $_POST['ordenanza_id'];
         }
 
-        $selectReAlcaldia = $this->model->selectReAlcaldia($ralcaldia_id);
+        $selectOrdenanza = $this->model->selectOrdenanza($ordenanza_id);
 
         if ($json) {
-            json($selectReAlcaldia);
+            json($selectOrdenanza);
         }
 
-        return $selectReAlcaldia;
+        return $selectOrdenanza;
     }
 
     public function selectsAnios()
@@ -184,6 +186,85 @@ class Ordenanzas extends Controllers
                 'value' => 'success'
             );
         }
+        json($return);
+    }
+
+    public function updateOrdenanza()
+    {
+        parent::verificarLogin(true);
+        parent::verificarPermiso(12, true);
+
+        // json($_POST);
+
+        // validamos que selecciona el doc
+        $return = array(
+            'status' => false,
+            'msg' => 'Error al momento de actualizar la Ordenanza Municipal.',
+            'value' => 'error'
+        );
+
+        $dataOrdenanza = $this->selectOrdenanza(false, $_POST['eordenanza_id']);
+
+        $file_name = $dataOrdenanza['ordenanza_archivo'];
+
+        if (isset($_FILES['eordenanza_archivo']) && $_FILES['eordenanza_archivo']['error'] === 0) {
+
+            $file = $_FILES['eordenanza_archivo'];
+
+            if ($file['type'] !== 'application/pdf') {
+                $return['msg'] = 'Formato de documento no válida.';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = getExtension($file['name']);
+            $noValido = true;
+
+            foreach (getExtDocs() as $key => $value) {
+                if ($value == $file['name']) {
+                    $noValido = false;
+                    break;
+                }
+            }
+
+            if ($file['name'] == false || $noValido) {
+                $return['msg'] = 'Tipo de imagen no válida, seleccione otra';
+                $return['value'] = 'warning';
+
+                json($return);
+            }
+
+            $file['name'] = 'realcaldia_doc_' . date('Ymd_His') . '.' . $file['name'];
+
+            $file_name = $file['name'];
+
+            $file['name'] = getPathDocOrdenanza() . $file['name'];
+
+            $uploaded = move_uploaded_file($file['tmp_name'], $file['name']);
+
+            if (!$uploaded) {
+                json($return);
+            }
+        }
+
+        $updateOrdenanza = $this->model->updateOrdenanza(
+            $_POST['eordenanza_id'],
+            $_POST['eanios_id'],
+            $_POST['eordenanza_nombre'],
+            $_POST['eordenanza_descripcion'],
+            $file_name,
+            $_POST['eordenanza_fechapublicacion']
+        );
+
+        if ($updateOrdenanza) {
+            $return = array(
+                'status' => true,
+                'msg' => 'Datos actualizados correctamente',
+                'value' => 'success'
+            );
+        }
+
         json($return);
     }
 
