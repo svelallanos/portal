@@ -335,7 +335,6 @@ class Portalweb extends Controllers
         $data['page_title'] = ":. Roles - Sistema Caja";
         $data['page_name'] = "Lista de Roles";
         $data['page_css'] = "web/comisiones";
-        $data['page_function_js'] = "web/functions_comisiones";
         $data['array_dataTable_css'] = ['jquery.dataTables.min', 'responsive.dataTables.min'];
         $data['array_dataTable_js'] = ['jquery.dataTables.min','dataTables.responsive.min'];
         $this->views->getView($this, "comisiones", $data);

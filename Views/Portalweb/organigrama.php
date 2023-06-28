@@ -15,7 +15,7 @@
         </div>
         <div class="__card__organigrama">
             <div class="__organigrama__img"> 
-                <img src="<?= media() ?>/portalweb/images/organigrama/organigrama.jpg" alt="">
+                <img src="<?= media() ?>/portalweb/images/organigrama/organigrama_muni.jpg" alt="">
             </div>
         </div>
     </div>
