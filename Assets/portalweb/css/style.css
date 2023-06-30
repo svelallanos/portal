@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 
 :root {
   --color-gris-1: #dcdcdc;
@@ -43,7 +43,6 @@
   --azul-7: #00b4fe;
   --azul-20: #f3f7ff;
 
-  
   --amarillo-1: #fef41b;
   --amarillo-4: #ffff00;
   --amarillo-6: #d79f00;
@@ -60,8 +59,6 @@
   --bg-btn-primary-soft: #00b3ff13;
   --bg-btn-primary-soft-hover: #006eff30;
   --bg-btn-primary-soft-border: #008cff4b;
-
-
 
   --bg-light: #f8f9fa;
 }
@@ -255,7 +252,7 @@ header.cabecera-navb {
   justify-content: center;
   padding: 1.4rem 0;
   background-color: var(--blanco);
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -303,7 +300,7 @@ header.cabecera-navb .container-navb {
 
 /* fin del header scrooll */
 header .container-navb .navb-logo img {
-  width: 5rem;
+  width: 11rem;
   height: 5rem;
 }
 
@@ -349,7 +346,7 @@ header.cabecera-navb .navbar ul li ul {
   left: 0;
   width: 20rem;
   background-color: var(--blanco);
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   display: none;
 }
 
@@ -376,6 +373,9 @@ header.cabecera-navb .navb-icons {
 
 header.cabecera-navb .navb-icons .item-icon {
   margin-left: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header.cabecera-navb .navb-icons .item-icon:hover {
@@ -392,6 +392,53 @@ header.cabecera-navb .navb-icons .item-icon img {
   width: 4rem;
   height: 4rem;
 }
+
+header.cabecera-navb .navb-icons .item-icon button {
+  border: none;
+  background-color: white;
+  color: var(--gris-1);
+  border: 0.1rem solid var(--gris-8);
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+header.cabecera-navb .navb-icons .item-icon button:is(:hover) {
+  opacity: 0.9;
+  color: var(--azul-7);
+}
+
+header.cabecera-navb .navb-icons .item-icon button i {
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+/* Diseño Menu Desplegable */
+
+header.sidebar_portal {
+  font-size: 1.5rem;
+}
+
+header.sidebar_portal .offcanvas-header {
+  background-color: white;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.112);
+}
+
+header.sidebar_portal .offcanvas-header img {
+  width: 40%;
+}
+
+header.sidebar_portal .offcanvas-header .button_close {
+  border: none;
+  background-color: white;
+  font-size: 3rem;
+  color: #128491;
+}
+
+header.sidebar_portal .offcanvas-body {
+  /* background-color: white; */
+}
+
 /* diseño de footer */
 
 footer.container-fluid {
